@@ -28,29 +28,63 @@ const List = ({ children }) => {
     Pass down the Item content as Props from the List component (item should display "Hello World 1", "Hello World 2", ...)
 */
 
-
+const lists = [
+    {
+        title: 'Liste 1',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    },
+    {
+        title: 'Liste 2',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    },
+    {
+        title: 'Liste 3',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    }
+]
 const App = () => {
+
 
     return (
         <div className='layout'>
-            <List title={"titre de liste 1"} className='toto'>
-                <Item title={"titre de item 1"} />
-                <Item title={"titre de item 2"} />
-                <Item title={"titre de item 3"} />
-                <Item title={"titre de item 4"} />
-            </List>
-            <List title={"titre de liste 2"}>
-                <Item title={"titre de item 1"} />
-                <Item title={"titre de item 2"} />
-                <Item title={"titre de item 3"} />
-                <Item title={"titre de item 4"} />
-            </List>
-            <List title={"titre de liste 3"}>
-                <Item title={"titre de item 1"} />
-                <Item title={"titre de item 2"} />
-                <Item title={"titre de item 3"} />
-                <Item title={"titre de item 4"} />
-            </List>
+            {lists.map(({ items, title }, index) => {
+                return <List title={title}>
+                    {lists.map(({ title: itemTitle }, index) => {
+                        return <Item title={itemTitle}></Item>
+                    })}
+                </List>
+            })}
+
         </div>
     )
 }
