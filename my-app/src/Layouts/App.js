@@ -77,17 +77,17 @@ const lists = [
 const nouvelleListe = {
     title: 'Nouvelle List',
     items: [
-    {
-    title: 'item1',
-    },
-    {
-    title: 'item2',
-    },
-    {
-    title: 'item3',
-    },
+        {
+            title: 'item1',
+        },
+        {
+            title: 'item2',
+        },
+        {
+            title: 'item3',
+        },
     ]
-   }
+}
 
 const App = () => {
 
@@ -95,7 +95,6 @@ const App = () => {
 
     const addList = () => {
         setMyList(lists.push(nouvelleListe))
-        console.log(lists)
     }
 
     const deleteList = () => {
@@ -105,8 +104,8 @@ const App = () => {
     return (
         <div className='layout'>
             <div className='btn-grp'>
-                <Button title="Add" onClick={addList} classN={"btn btn-add"}></Button>
-                <Button title="Delete" onClick={deleteList} classN={'btn btn-del'}></Button>
+                <Button title="Add" onClick={addList} classN={"btn-add"}></Button>
+                <Button title="Delete" onClick={deleteList} classN={'btn-del'}></Button>
             </div>
             {lists.map(({ items, title }, index) => {
                 return <List title={title} key={index}>
