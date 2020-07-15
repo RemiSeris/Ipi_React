@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
+import Button from '../components/Button';
 
 /*
 Create a component named List with the props children, display children in the HTML
@@ -72,14 +73,44 @@ const lists = [
         ]
     }
 ]
+
+const nouvelleListe = {
+    title: 'Nouvelle List',
+    items: [
+    {
+    title: 'item1',
+    },
+    {
+    title: 'item2',
+    },
+    {
+    title: 'item3',
+    },
+    ]
+   }
+
 const App = () => {
 
+    const [myList, setMyList] = useState(lists)
+
+    const addList = () => {
+        setMyList(lists.push(nouvelleListe))
+        console.log(lists)
+    }
+
+    const deleteList = () => {
+        setMyList(lists.pop())
+    }
 
     return (
         <div className='layout'>
+            <div className='btn-grp'>
+                <Button title="Add" onClick={addList} classN={"btn btn-add"}></Button>
+                <Button title="Delete" onClick={deleteList} classN={'btn btn-del'}></Button>
+            </div>
             {lists.map(({ items, title }, index) => {
-                return <List title={title}>
-                    {lists.map(({ title: itemTitle }, index) => {
+                return <List title={title} key={index}>
+                    {items.map(({ title: itemTitle }, index) => {
                         return <Item title={itemTitle}></Item>
                     })}
                 </List>
@@ -89,5 +120,12 @@ const App = () => {
     )
 }
 
+/* function addList(){
+    console.log('addList')
+}
+
+function deleteList(){
+    console.log('deleteList')
+} */
 
 export default App;
