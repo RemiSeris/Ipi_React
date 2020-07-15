@@ -1,3 +1,9 @@
 body {
   margin: 0;
 }
+
+.list {
+  color: blue;
+  font-style: italic;
+  padding-left: 50px;
+}
