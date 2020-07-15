@@ -61,13 +61,13 @@ const List = ({ children }) => {
     )
 }
 ```
-
-
 2. Create A component named Item wich display "HELLO WORLD"
 3. Display List and Item in App
 4. Display a title to List "Ma list"
 5. Display many Items in a List
 6. Display Many List with many Items in App
+7. (optional) Display List title as a props name 'title'
+8. (optional) Display Item title as a props name 'title'
 
 * End Exo 1*
 
