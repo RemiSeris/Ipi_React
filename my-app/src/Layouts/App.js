@@ -32,7 +32,7 @@ const List = ({ children }) => {
 const App = () => {
 
     return (
-        <div >
+        <div className='layout'>
             <List title={"titre de liste 1"} className='toto'>
                 <Item title={"titre de item 1"} />
                 <Item title={"titre de item 2"} />
