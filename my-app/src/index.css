@@ -1,3 +1,17 @@
 body {
   margin: 0;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.list {
+  margin: 50px;
+  padding: 2px;
+  border: solid 2px gray;
+}
+
+.item {
+  padding: 2px;
+}
