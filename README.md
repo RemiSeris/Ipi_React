@@ -31,6 +31,8 @@ First of all, let's get some setup:
  
  * **Open vsCode in CurrentDirectory**: code .
 
+ * **Access to github**: Send github account mail or username to remiseris@gmail.com with obect 'Compte github Firstname Lastname' .
+
   
 ## Workshops
 
@@ -130,7 +132,7 @@ const List = ({ children }) => {
 **Instruction**:
 
 1. Create a github account
-2. Create your branch with *git checkout -b "branch name"*
+2. Create your branch with *git checkout -b FirstNameLastname*
 3. Add all repositorty files to your commit index *git add --all*
 4. Commit your files *git commit -m "my commit msg"*
 5. Push your commit to the remote repository *git push*
