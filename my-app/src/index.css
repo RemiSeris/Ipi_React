@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  background-color: f7ebe8;
+  background-color: #ffa987;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -19,22 +20,28 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px auto;
-  background-color: #1e1e24;
+  margin: 20px 2%;
+  background-color: #f7ebe8;
   border-radius: 10px;
-  box-shadow: 1px 1px 3px rgba(125, 125, 125, 0.7);
+  box-shadow: 4px 5px 5px rgba(112, 81, 81, 0.247); 
   width: max-content;
+  width: 20%;
+
 }
 
 .listItems {
-  border-top: solid 1px rgba(125, 125, 125, 0.7);
+
 
 }
 
 .listTitle {
-  background-color: #e54b4b;
-  padding: 5px 15px;
-  border-radius: 5px;
+  background-color: #1e1e24;
+  padding: 15px 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  border-radius: 5px 5px 0 0;
   width: 100%;
   color: #f7ebe8;
 }
@@ -42,9 +49,8 @@ body {
 .item {
   margin: 10px;
   padding: 5px;
-  border: solid 1px rgba(31, 31, 255, 0.2);
+  border: solid 1px #e54b4b;
   border-radius: 5px;
-  background-color: #f7ebe8;
   color: #444140;
 }
 
@@ -53,7 +59,7 @@ body {
   display: flex;
   justify-content: flex-end;
   padding-right: 50px;
-  margin-top: 50px;
+  margin: 50px 0;
 }
 
 .btn{
@@ -62,22 +68,25 @@ body {
   border-radius: 20px;
   border: unset;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .btn:hover{
-  box-shadow: 4px 5px 5px rgb(248, 209, 209); 
-  border: unset;
+  box-shadow: 4px 5px 5px rgba(112, 81, 81, 0.247); 
 }
 
 .btn:active{
-  box-shadow: inset 4px 5px 5px rgb(248, 209, 209); 
-  border: unset;
+  box-shadow: 4px 5px 5px rgba(112, 81, 81, 0.247); 
 }
 
 .btn-add{
+  border: solid #f7ebe8 2px;
   background-color: #ffa987;
   color:#1e1e24;
 }
+
+
 
 .btn-del{
   background-color: #e54b4b;

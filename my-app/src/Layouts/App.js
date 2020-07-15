@@ -75,7 +75,7 @@ const lists = [
 ]
 
 const nouvelleListe = {
-    title: 'Nouvelle List',
+    title: 'Nouvelle Liste',
     items: [
         {
             title: 'item1',
