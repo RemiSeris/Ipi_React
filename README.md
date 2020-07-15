@@ -31,6 +31,8 @@ First of all, let's get some setup:
  
  * **Open vsCode in CurrentDirectory**: code .
 
+ * **Access to github**: Send github account mail or username to remiseris@gmail.com with obect 'Compte github Firstname Lastname' .
+
   
 ## Workshops
 
@@ -48,6 +50,29 @@ First of all, let's get some setup:
 1. Do all the the prerequisite
 2. Clone the project
 3. Run the project
+
+*Exo 1*
+
+1. Create a component named List with the props children, display children in the HTML
+```javascript
+const List = ({ children }) => {
+    return (
+        <div >
+            {children}
+        </div>
+    )
+}
+```
+2. Create A component named Item wich display "HELLO WORLD"
+3. Display List and Item in App
+4. Display a title to List "Ma list"
+5. Display many Items in a List
+6. Display Many List with many Items in App
+7. (optional) Display List title as a props name 'title'
+8. (optional) Display Item title as a props name 'title'
+
+* End Exo 1*
+
 4. Create a Functionnal component called **Item** with border, shadow, and a "Hello World" in the center .
 5. Create a Functionnal component called **List** containing many **Item**
 6. Pass down the **Item** content as Props from the **List** component (item should display "Hello World 1", "Hello World 2", ...) 
@@ -68,9 +93,9 @@ First of all, let's get some setup:
 **Instruction**:
 
 1. Make a "List" component pilling the previously made "Item" components in column
-2. Make a button component with a onClick prop
-3. Add two Button too your layout on with the string "Add" and one With the string "Delete"
-4. When the "Add" button is clicked an item is added to the list, When the "Delete" button is clicked an item is deleted from the list
+2. Make a button component with a onClick prop and a title prop
+3. Add two Button too your layout on with the string "Add" and one With the string "Delete" to The App Component
+4. When the "Add" button is clicked an list is added to the lists, When the "Delete" button is clicked an list is deleted from the lists
 
 ### 3 Hello open world !
 
@@ -107,7 +132,7 @@ First of all, let's get some setup:
 **Instruction**:
 
 1. Create a github account
-2. Create your branch with *git checkout -b "branch name"*
+2. Create your branch with *git checkout -b FirstNameLastname*
 3. Add all repositorty files to your commit index *git add --all*
 4. Commit your files *git commit -m "my commit msg"*
 5. Push your commit to the remote repository *git push*

@@ -1,13 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-const List = ({children, title}) => {
+
+const List = ({ children, title }) => {
     return (
-        <div>
-            {title}
-            {children}
+        <div className={'list'}>
+            <div className="listTitle">
+                {title}
+            </div>
+            <div className={'listItems'}>
+                {children}
+            </div>
         </div>
-        )
-
+    )
 }
 
-export default List;
+export default List

@@ -1,13 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-const Item = ({title}) => {
+const Item = ({ title }) => {
     return (
-        <div>
+        <div className={"item"}>
             {title}
         </div>
-        )
-
-    
+    )
 }
 
-export default Item;
+export default Item
