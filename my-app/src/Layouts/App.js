@@ -1,6 +1,7 @@
 import React from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
+import Button from '../components/Button';
 
 const lists = [
     {
@@ -69,14 +70,15 @@ const App = () => {
     return (
         <div className='layout'>
             {
-                lists.map(({ items, title }, index) => {
-                    return <List title={title}  >
-                        {items.map(({ title: itemTitle }, index) => {
-                            return <Item title={title} />
-                        })}
+                myLists.map(({ items, title }) =>
+                    <List title={title}>
+                        {
+                            items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
+                        }
                     </List>
-                })}
-
+                )}
+            <Button onClick={changeTitle} title={"Add"} />
+            <Button onClick={changeTitle} title={"delete"} />
         </div>
     )
 }
