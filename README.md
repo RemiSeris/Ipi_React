@@ -19,15 +19,15 @@ First of all, let's get some setup:
   * **Node JS**: https://nodejs.org/en/download/ (mandatory) - Javascript Runtime environement
   * **Yarn**: https://classic.yarnpkg.com/fr/docs/install/#windows-stable (mandatory) - Package manager
   
-  **Clone The repository** : git clone https://github.com/RemiSeris/Aries_React.git
+  **Clone The repository** : git clone https://github.com/RemiSeris/Ipi_React.git
   
   * **Get into the code folder**: cd Ipi_React
   
  * **Get into the code folder**: cd my-app
   
-  * **Install dependecies**: yarn
+  * **Install dependecies**: yarn / npm install
 
- * **Run in developpement**: yarn start
+ * **Run in developpement**: yarn start / npm start
  
  * **Open vsCode in CurrentDirectory**: code .
 
@@ -48,6 +48,29 @@ First of all, let's get some setup:
 1. Do all the the prerequisite
 2. Clone the project
 3. Run the project
+
+*Exo 1*
+
+1. Create a component named List with the props children, display children in the HTML
+```javascript
+const List = ({ children }) => {
+    return (
+        <div >
+            {children}
+        </div>
+    )
+}
+```
+2. Create A component named Item wich display "HELLO WORLD"
+3. Display List and Item in App
+4. Display a title to List "Ma list"
+5. Display many Items in a List
+6. Display Many List with many Items in App
+7. (optional) Display List title as a props name 'title'
+8. (optional) Display Item title as a props name 'title'
+
+* End Exo 1*
+
 4. Create a Functionnal component called **Item** with border, shadow, and a "Hello World" in the center .
 5. Create a Functionnal component called **List** containing many **Item**
 6. Pass down the **Item** content as Props from the **List** component (item should display "Hello World 1", "Hello World 2", ...) 
