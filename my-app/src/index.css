@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #FAF9F9;
 }
 
 * {
@@ -19,6 +20,8 @@ body {
   align-items: center;
   margin: 50px;
   box-shadow: 1px 1px 3px rgba(125, 125, 125, 0.7);
+  background-color: white;
+  border-radius: 2px;
 }
 
 .listItems {
@@ -26,7 +29,12 @@ body {
 }
 
 .listTitle {
-  margin: 10px;
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #E40066;
+  color: white;
 }
 
 .item {

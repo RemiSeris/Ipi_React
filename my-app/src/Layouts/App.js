@@ -2,55 +2,81 @@ import React from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
 
+const lists = [
+    {
+        title: 'Liste 1',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    },
+    {
+        title: 'Liste 2',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    },
+    {
+        title: 'Liste 3',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    }
+]
+
 /*
-Create a component named List with the props children, display children in the HTML
-
-const List = ({ children }) => {
-    return (
-        <div >
-            {children}
-        </div>
-    )
-}
-
-    Create A component named Item wich display "HELLO WORLD"
-    Display List and Item in App
-    Display a title to List "Ma list"
-    Display many Items in a List
-    Display Many List with many Items in App
-    (optional) Display List title as a props name 'title'
-    (optional) Display Item title as a props name 'title'
-
-    End Exo 1*
-
-    Create a Functionnal component called Item with border, shadow, and a "Hello World" in the center .
-    Create a Functionnal component called List containing many Item
-    Pass down the Item content as Props from the List component (item should display "Hello World 1", "Hello World 2", ...)
+ 1 L'utilisation de la methode sur les Array
+ 2 la descontruction d'objet
 */
 
 
 const App = () => {
 
+    const obj = {
+        key1: "a",
+        key2: 'b'
+    }
+
+    const { key1, key2 } = obj
+
+    console.log(obj.key1)
+
+    console.log(key1)
+
     return (
         <div className='layout'>
-            <List title={"titre de liste 1"} className='toto'>
-                <Item title={"titre de item 1"} />
-                <Item title={"titre de item 2"} />
-                <Item title={"titre de item 3"} />
-                <Item title={"titre de item 4"} />
-            </List>
-            <List title={"titre de liste 2"}>
-                <Item title={"titre de item 1"} />
-                <Item title={"titre de item 2"} />
-                <Item title={"titre de item 3"} />
-                <Item title={"titre de item 4"} />
-            </List>
-            <List title={"titre de liste 3"}>
-                <Item title={"titre de item 1"} />
-                <Item title={"titre de item 2"} />
-                <Item title={"titre de item 3"} />
-                <Item title={"titre de item 4"} />
-            </List>
+            {
+                lists.map(({ items, title }, index) => {
+                    return <List title={title}  >
+                        {items.map(({ title: itemTitle }, index) => {
+                            return <Item title={title} />
+                        })}
+                    </List>
+                })}
+
         </div>
     )
 }
