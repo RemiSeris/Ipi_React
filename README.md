@@ -31,6 +31,8 @@ First of all, let's get some setup:
  
  * **Open vsCode in CurrentDirectory**: code .
 
+ * **Access to github**: Send github account mail or username to remiseris@gmail.com with obect 'Compte github Firstname Lastname' .
+
   
 ## Workshops
 
