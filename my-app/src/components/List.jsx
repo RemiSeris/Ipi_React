@@ -17,16 +17,11 @@ const List = ({ children, title }) => {
         <div className={'list'}>
             <div className="listTitle">
                 {title}
-                <Switch
-                color="primary"
-                checked={checked}
-                onChange={toggleCheck}
-                ></Switch>
+                <Switch color="primary" checked={checked} onChange={toggleCheck}></Switch>
             </div>
             <div className={'listItems'}>
                 {children}
             </div>
-            
         </div>
     )
 }
