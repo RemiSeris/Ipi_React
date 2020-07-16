@@ -99,6 +99,12 @@ const App = () => {
         setMyList(listCpy)
     }
 
+    const saveList = () => {
+
+        localStorage.setItem("myLists", JSON.stringify(myLists));
+
+    }
+
     return (
         <div className='layout'>
             {
@@ -120,6 +126,9 @@ const App = () => {
                 </Button>
                 <Button onClick={removeList}>
                     {"DELETE"}
+                </Button>
+                <Button onClick={saveList}>
+                    {"SAVE"}
                 </Button>
                 {/* 
                 <Button onClick={addList} title={'Add'} />
