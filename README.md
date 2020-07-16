@@ -116,10 +116,15 @@ const List = ({ children }) => {
 
 * Material-ui documentation https://material-ui.com/getting-started/installation/
 
-**Instruction**:
+**Instruction 1**:
 
 1. add the @material-ui/core package
-2. import the CheckBox component from @material-ui/core
+2. import the Button component from @material-ui/core in App.js
+3. Replace the previous Button with the material-ui Button with the same string 'add' and 'delete' and the same onClick event
+
+**Instruction 2**:
+
+2. import the CheckBox component from @material-ui/core in Item.jsx
 3. add the CheckBox component to html of the Item component
 4. set the check props of the  CheckBox component to a state in the Item Component
 5. Bind The onClick of the  main div in Item to a function called toogleCheck
