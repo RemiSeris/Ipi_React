@@ -1,8 +1,9 @@
-import React from 'react'
-import Switch from '@material-ui/core/Switch'
+import React from 'react';
+import Switch from '@material-ui/core/Switch';
 
 
 const List = ({ children, title }) => {
+
     return (
         <div className={'list'}>
             <div className="listTitle">

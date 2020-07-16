@@ -101,6 +101,10 @@ const App = () => {
         setMyList(listCpy)
     }
 
+    const saveList = () => {
+        localStorage.setItem('lastlist', JSON.stringify(lists));
+    }
+
     return (
         <div className='layout'>
             <div>
@@ -109,6 +113,7 @@ const App = () => {
             {/*<Button test1={'test1'} test2={"test2"} onClick={addList} title={'Add'} />*/}
             <Button variant="contained" color="secondary" onClick={removeList} title='delete'>Delete</Button>
             {/*<Button onClick={removeList} title={'delete'} />*/}
+            <Button variant="contained" color="secondary" onClick={saveList} title='delete'>Display last list</Button>
             </div>
             {
                 // On utilise la méthode .map pour parcourir les éléments,
