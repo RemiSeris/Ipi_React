@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
+<<<<<<< HEAD
 import Button from '../components/Button';
 
 
@@ -51,6 +52,56 @@ const lists = [
     }
 ]
 
+=======
+import Button from '@material-ui/core/Button'
+
+//On simule un modéle de donée (tableau de list)
+const lists = [
+    {
+        title: 'Liste 1',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    },
+    {
+        title: 'Liste 2',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    },
+    {
+        title: 'Liste 3',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    }
+]
+
+>>>>>>> origin
 //onj déclare un template d'une list
 const defaultList = {
     title: 'Nouvelle liste',
@@ -115,8 +166,22 @@ const App = () => {
                     </List>
                 )}
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
+<<<<<<< HEAD
             <Button test1={'test1'} test2={"test2"} onClick={addList} title={'Add'} />
             <Button onClick={removeList} title={'delete'} />
+=======
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Button onClick={addList}>
+                    ADD
+                </Button>
+                <Button onClick={removeList}>
+                    DELETE
+                </Button>
+                {/* <Button onClick={addList} title={'Add'} />
+
+                <Button onClick={removeList} title={'delete'} /> */}
+            </div>
+>>>>>>> origin
         </div>
     )
 }
