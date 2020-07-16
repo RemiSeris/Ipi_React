@@ -159,13 +159,14 @@ const List = ({ children }) => {
 **Ressource** :
 
 * local storage documentation https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage
+* Json stringify documentation https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/JSON/stringify
 
 **Instruction 1**:
 
 1. add A button Wich display the string save list in App
 2. create a function called saveList in App
 3. bind the function to the onClick props of the Button
-4. in the function saveList Store your lists state into the local storage
+4. in the function saveList Store your myLists state into the local storage (dont forget to use JSON.stringify())
 5. go checkout in your webPage Stockage -> stockage local if your data have well been saved
 
 
