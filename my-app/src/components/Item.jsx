@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Checkbox } from '@material-ui/core';
 
 // créer un état par le hooks d'état (useState) actif non actif
 // quand on clique sur l'item on change l'état
@@ -8,8 +9,8 @@ const Item = ({ title }) => {
     const [check, setCheck] = useState(false)
 
     return (
-        <div >
-            {title}
+        <div>
+            {title}<input type="checkbox" />
         </div>
     )
 }
