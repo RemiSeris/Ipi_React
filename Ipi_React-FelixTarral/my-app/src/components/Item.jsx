@@ -1,41 +1,30 @@
 import React, { useState } from 'react'
+import CheckBox from '@material-ui/core/Checkbox'
 
-// créer un état par le hooks d'état (useState) actif non actif
-// quand on clique sur l'item on change l'état
-// selon l'état on applique une class css actif ou non actif
 
 const Item = ({ title }) => {
-    const [done, toogleDone] = useState(false)
+    // opn déclare une valriable d'état et un setter
+    const [check, setCheck] = useState(false)
 
 
-
-    const changeItemState = () => {
-        //si l'item est a  done true on le passe à done false
-        if (done === true)
-            toogleDone(false)
+    //une fonction pour changer l'état de check
+    const toogleCheck = () => {
+        // si true on le passe à false et inversement
+        if (check === true)
+            setCheck(false)
         else
-            toogleDone(true)
+            setCheck(true)
 
-        //si l'item est à done false, on le passe à donne true
     }
 
-    console.log('is Item Done ?', done)
-
-    // condition ? si ma condition est rempli : si ma condition n'est pas remlie
-
-    // const itemClassName = done === false ? "item" : "item itemDone"
-
-    let itemClassName = "item"
-
-    if (done === true)
-        itemClassName = "item itemDone"
-
-
     return (
-        <div className={itemClassName} onClick={changeItemState}>
+        <div onClick={toogleCheck}>
             {title}
+            {/* on utilise le component checkbox de material ui pour afficher l'état de notre item */}
+            <CheckBox checked={check} />
         </div>
     )
 }
+
 
 export default Item
