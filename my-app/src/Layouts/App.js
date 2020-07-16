@@ -73,7 +73,6 @@ const App = () => {
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(lists)
 
-
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
 
