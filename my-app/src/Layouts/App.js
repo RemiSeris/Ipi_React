@@ -5,27 +5,27 @@ import Item from '../components/Item'
 import Button from '@material-ui/core/Button'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
-
+import SaveIcon from '@material-ui/icons/Save'
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
 const theme = createMuiTheme({
     palette: {
-      primary: {
-        light: '#deffff',
-        main: '#abdafc',
-        dark: '#7aa9c9',
-        contrastText: '#000',
-      },
-      secondary: {
-        light: '#b8336a',
-        main: '#b8336a',
-        dark: '#840040',
-        contrastText: '#fff',
-      },
+        primary: {
+            light: '#deffff',
+            main: '#abdafc',
+            dark: '#7aa9c9',
+            contrastText: '#000',
+        },
+        secondary: {
+            light: '#b8336a',
+            main: '#b8336a',
+            dark: '#840040',
+            contrastText: '#fff',
+        },
     },
-  });
+});
 
 /*
 Create a component named List with the props children, display children in the HTML
@@ -130,33 +130,41 @@ const App = () => {
         setMyList(myList.map(list => list))
     }
 
+    const saveList = () => {
+        localStorage.setItem('list', JSON.stringify(myList))
+    }
+
     return (
         <MuiThemeProvider theme={theme}>
-        <div className='layout'>
-            <div className='btn-grp'>
-                {/*    <Button title="Add" onClick={addList} classN={"btn-add"}></Button>
-                <Button title="Delete" onClick={deleteList} classN={'btn-del'}></Button> */}
-
-                <Button variant="outlined" color="secondary" onClick={addList} startIcon={<EditIcon />} className={"btn-add"}>
-                    Add
+            <div className='layout'>
+                <div className='navbar'>
+                <Button variant="contained" color="primary" onClick={saveList} startIcon={<SaveIcon />} className={"btn-add"}>
+                        Save List
                 </Button>
-                <Button
-                    onClick={deleteList}
-                    variant="contained"
-                    color="secondary"
-                    startIcon={<DeleteIcon />}>
-                    Delete
-      </Button>
-            </div>
-            {myList.map(({ items, title }, index) => {
-                return <List title={title} key={index}>
-                    {items.map(({ title: itemTitle }, index) => {
-                        return <Item title={itemTitle}></Item>
-                    })}
-                </List>
-            })}
+                <div className='btn-grp'>
 
-        </div>
+                    <Button variant="outlined" color="secondary" onClick={addList} startIcon={<EditIcon />} className={"btn-add"}>
+                        Add
+                </Button>
+                    <Button
+                        onClick={deleteList}
+                        variant="contained"
+                        color="secondary"
+                        startIcon={<DeleteIcon />}>
+                        Delete
+      </Button>
+                </div>
+                </div>
+
+                {myList.map(({ items, title }, index) => {
+                    return <List title={title} key={index}>
+                        {items.map(({ title: itemTitle }, index) => {
+                            return <Item title={itemTitle}></Item>
+                        })}
+                    </List>
+                })}
+
+            </div>
         </MuiThemeProvider>
     )
 }
