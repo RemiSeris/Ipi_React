@@ -53,6 +53,12 @@ body {
   border: solid 1px #e54b4b;
   border-radius: 5px;
   color: #444140;
+  cursor: pointer;
+}
+
+.item-done{
+  color:  #f7ebe8;
+  background-color: #e54b4b;
 }
 
 .btn-grp{
@@ -99,6 +105,7 @@ body {
   width: 35px;
   height: 15px;
   border-radius: 9px;
+  margin-left: 20px;
   
 }
 
@@ -111,6 +118,7 @@ body {
 }
 
 .switch-button {
+  cursor: pointer;
   position: absolute;
   height: 18px;
   width: 18px;
