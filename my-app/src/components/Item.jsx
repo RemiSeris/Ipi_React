@@ -1,30 +1,28 @@
-import React, { useState } from 'react'
-import CheckBox from '@material-ui/core/Checkbox'
+import React, {useState} from 'react'
+import Switch from "@material-ui/core/Switch";
 
+const Item = ({title}) => {
+    const [switchValue, setSwitchValue] = useState(false);
+    let switchClass = switchValue ? 'switchActive item' : 'item';
 
-const Item = ({ title }) => {
-    // opn déclare une valriable d'état et un setter
-    const [check, setCheck] = useState(false)
-
-
-    //une fonction pour changer l'état de check
-    const toogleCheck = () => {
-        // si true on le passe à false et inversement
-        if (check === true)
-            setCheck(false)
-        else
-            setCheck(true)
-
-    }
-
+    const onSwitchChange = () => {
+        setSwitchValue(!switchValue);
+    };
     return (
-        <div >
-            {title}
-            {/* on utilise le component checkbox de material ui pour afficher l'état de notre item */}
-            <CheckBox onChange={toogleCheck} checked={check} />
+        <div>
+            <div className={switchClass} onClick={onSwitchChange}>
+                {title}
+            </div>
+            <Switch
+                checked={switchValue}
+                onChange={onSwitchChange}
+                name="checkedB"
+                color="secondary"
+            />
         </div>
+
+
     )
 }
-
 
 export default Item
