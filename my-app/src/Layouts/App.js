@@ -1,11 +1,36 @@
-//Lorsque on veut créer un component on importe React
+//Lorsqu'on veut créer un component on importe React
 import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
 import Button from '../components/Button';
 
+/*
+Create a component named List with the props children, display children in the HTML
 
-//On simule un modéle de donée (tableau de list)
+const List = ({ children }) => {
+    return (
+        <div >
+            {children}
+        </div>
+    )
+}
+
+    Create A component named Item wich display "HELLO WORLD"
+    Display List and Item in App
+    Display a title to List "Ma list"
+    Display many Items in a List
+    Display Many List with many Items in App
+    (optional) Display List title as a props name 'title'
+    (optional) Display Item title as a props name 'title'
+
+    End Exo 1*
+
+    Create a Functionnal component called Item with border, shadow, and a "Hello World" in the center .
+    Create a Functionnal component called List containing many Item
+    Pass down the Item content as Props from the List component (item should display "Hello World 1", "Hello World 2", ...)
+*/
+
+//On simmule un modèle de données (tableau de liste)
 const lists = [
     {
         title: 'Liste 1',
@@ -51,9 +76,9 @@ const lists = [
     }
 ]
 
-//onj déclare un template d'une list
-const defaultList = {
-    title: 'Nouvelle liste',
+//On déclare un template de liste
+const nouvelleListe = {
+    title: 'Nouvelle Liste',
     items: [
         {
             title: 'item1',
@@ -67,59 +92,45 @@ const defaultList = {
     ]
 }
 
-// on déclare un componet sous forme d'arrow funtion 
+//On déclare un component sous forme d'arrow function
 const App = () => {
-    // on utilise un hooks d'état pour pouvoir moifier la page
-    // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
-    const [myLists, setMyList] = useState(lists)
 
+    const [myList, setMyList] = useState(lists)
 
-    //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
-
-        //on pousse un nouvelle élément dans le tableau de liste
-        myLists.push(defaultList)
-
-        // on crée une copie de notre tableau pour changer la référence 
-        const listCpy = myLists.map(list => list)
-
-        //on utilise le setter d'état pour changer l'états de nos liste
-        setMyList(listCpy)
+        myList.push(nouvelleListe)
+        setMyList(myList.map(list => list))
     }
 
-    //on crée une fonction pour enlever un élément à la liste
-    const removeList = () => {
-
-        //on enléve le dernier élément du tableau de list
-        myLists.pop()
-
-        // on crée une copie de notre tableau pour changer la référence 
-        const listCpy = myLists.map(list => list)
-
-        //on utilise le setter d'état pour changer l'états de nos liste
-        setMyList(listCpy)
+    const deleteList = () => {
+        myList.pop()
+        setMyList(myList.map(list => list))
     }
 
     return (
         <div className='layout'>
-            {
-                // On utilise la méthode .map pour parcourir les éléments,
-                // de nos tableau et renvoyer pour chaque élément le component indiquée
-                myLists.map(({ items, title }) =>
-                    // On affiche nos lists une a une sous forme de component
-                    <List title={title}  >
-                        {
-                            // On affiche les items d'une liste une à une sous forme de component
-                            items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
-                        }
-                    </List>
-                )}
-            {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            <Button onClick={addList} title={'Add'} />
-            <Button onClick={removeList} title={'delete'} />
+            <div className='btn-grp'>
+                <Button title="Add" onClick={addList} classN={"btn-add"}></Button>
+                <Button title="Delete" onClick={deleteList} classN={'btn-del'}></Button>
+            </div>
+            {myList.map(({ items, title }, index) => {
+                return <List title={title} key={index}>
+                    {items.map(({ title: itemTitle }, index) => {
+                        return <Item title={itemTitle}></Item>
+                    })}
+                </List>
+            })}
+
         </div>
     )
 }
 
+/* function addList(){
+    console.log('addList')
+}
+
+function deleteList(){
+    console.log('deleteList')
+} */
 
 export default App;
