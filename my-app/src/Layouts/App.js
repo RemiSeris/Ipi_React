@@ -1,3 +1,4 @@
+//Lorsqu'on veut créer un component on importe React
 import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
@@ -29,6 +30,7 @@ const List = ({ children }) => {
     Pass down the Item content as Props from the List component (item should display "Hello World 1", "Hello World 2", ...)
 */
 
+//On simmule un modèle de données (tableau de liste)
 const lists = [
     {
         title: 'Liste 1',
@@ -74,6 +76,7 @@ const lists = [
     }
 ]
 
+//On déclare un template de liste
 const nouvelleListe = {
     title: 'Nouvelle Liste',
     items: [
@@ -89,16 +92,19 @@ const nouvelleListe = {
     ]
 }
 
+//On déclare un component sous forme d'arrow function
 const App = () => {
 
     const [myList, setMyList] = useState(lists)
 
     const addList = () => {
-        setMyList(lists.push(nouvelleListe))
+        myList.push(nouvelleListe)
+        setMyList(myList.map(list => list))
     }
 
     const deleteList = () => {
-        setMyList(lists.pop())
+        myList.pop()
+        setMyList(myList.map(list => list))
     }
 
     return (
@@ -107,7 +113,7 @@ const App = () => {
                 <Button title="Add" onClick={addList} classN={"btn-add"}></Button>
                 <Button title="Delete" onClick={deleteList} classN={'btn-del'}></Button>
             </div>
-            {lists.map(({ items, title }, index) => {
+            {myList.map(({ items, title }, index) => {
                 return <List title={title} key={index}>
                     {items.map(({ title: itemTitle }, index) => {
                         return <Item title={itemTitle}></Item>
