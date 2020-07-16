@@ -10,7 +10,6 @@ const Item = ({ title }) => {
     return (
         <div >
             {title}
-            <Switch></Switch>
         </div>
     )
 }
