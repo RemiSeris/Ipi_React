@@ -116,10 +116,10 @@ const App = () => {
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Button onClick={addList}>
-                    ADD
+                    {"ADD"}
                 </Button>
                 <Button onClick={removeList}>
-                    DELETE
+                    {"DELETE"}
                 </Button>
                 {/* <Button onClick={addList} title={'Add'} />
 
