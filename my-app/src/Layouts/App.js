@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
-import Button from '../components/Button';
+//import Button from '../components/Button';
+import Button from '@material-ui/core/Button';
 
 
 //On simule un modéle de donée (tableau de list)
@@ -103,15 +104,26 @@ const App = () => {
     return (
         <div className='layout'>
             {
+                // On utilise la méthode .map pour parcourir les éléments,
+                // de nos tableau et renvoyer pour chaque élément le component indiquée
                 myLists.map(({ items, title }) =>
-                    <List title={title}>
+                    // On affiche nos lists une a une sous forme de component
+                    <List title={title}  >
                         {
+                            // On affiche les items d'une liste une à une sous forme de component
                             items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
                         }
                     </List>
                 )}
-            <Button onClick={addList} title={"Add"} />
-            <Button onClick={removeList} title={"delete"} />
+            {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <Button onClick={addList}>
+                    ADD
+                </Button>
+                <Button onClick={removeList}>
+                    DELETE
+                </Button>
+            </div>
         </div>
     )
 }
