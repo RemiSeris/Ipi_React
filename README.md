@@ -97,6 +97,14 @@ const List = ({ children }) => {
 3. Add two Button too your layout on with the string "Add" and one With the string "Delete" to The App Component
 4. When the "Add" button is clicked an list is added to the lists, When the "Delete" button is clicked an list is deleted from the lists
 
+
+**Instruction 2**:
+
+1. Add a state to the compoent item
+2. create a class css itemDone
+3. when a item is clicked we apply the css class done at the item
+4. when is clicked when done we remove the css class
+
 ### 3 Hello open world !
 
 **Goals** :
