@@ -5,16 +5,16 @@ const ItemState = () => {
 
     const changeState = () => {
         if (done === true)
-        toogleDone(false)
+            toogleDone(false)
         else
-        toogleDone(true)
+            toogleDone(true)
     }
 
-    const ItemClassName= done === false ? "itemUndone" : "itemDone"
+    const ItemClassName = done === false ? "itemUndone" : "itemDone"
 
     return (
         <div className={"Item"} onClick={changeState}>
-           
+
         </div>
     )
 }
