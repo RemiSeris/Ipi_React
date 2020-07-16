@@ -97,6 +97,14 @@ const List = ({ children }) => {
 3. Add two Button too your layout on with the string "Add" and one With the string "Delete" to The App Component
 4. When the "Add" button is clicked an list is added to the lists, When the "Delete" button is clicked an list is deleted from the lists
 
+
+**Instruction 2**:
+
+1. Add a state to the compoent item
+2. create a class css itemDone
+3. when a item is clicked we apply the css class done at the item
+4. when is clicked when done we remove the css class
+
 ### 3 Hello open world !
 
 **Goals** :
@@ -107,16 +115,21 @@ const List = ({ children }) => {
 **Ressource** :
 
 * Material-ui documentation https://material-ui.com/getting-started/installation/
-* LocalStorage documentation https://developer.mozilla.org/fr/docs/Web/API/Storage/LocalStorage
 
-**Instruction**:
+**Instruction 1**:
 
-1. Built your layout with material-ui components
-2. Store and retrieve your data from localStorage
-3. Handle list creation , list deletion (list will have a title)
-4. Implement a call to action to store your list/items
-5. Handle item naming/renaming
-6. Handle item Check/Uncheck
+1. add the @material-ui/core package
+2. import the Button component from @material-ui/core in App.js
+3. Replace the previous Button with the material-ui Button with the same string 'add' and 'delete' and the same onClick event
+
+**Instruction 2**:
+
+1. import the CheckBox component from @material-ui/core in Item.jsx
+2. add the CheckBox component to html of the Item component
+3. set the check props of the  CheckBox component to a state in the Item Component
+4. Bind The onChange of the  main div in Item to a function called toogleCheck
+5. Set the 'check' state respectively from true to false and from false to true in the toggleCheck function
+6. Check if it works
 
 ### 4 Did i git it ?
 
