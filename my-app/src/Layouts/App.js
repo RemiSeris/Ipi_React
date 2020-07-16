@@ -10,7 +10,7 @@ import ItemState from '../components/ItemState';
 //On simule un modéle de donée (tableau de list)
 const lists = [
     {
-      
+
         title: 'Liste 1',
         items: [
             {
@@ -121,8 +121,15 @@ const App = () => {
             <Button onClick={addList} title={'Add'} >Add</Button>
             <Button onClick={removeList} title={'delete'} >Delete</Button>
         </div>
+
+
     )
-    
+
+    const savelist = () => {
+        <Button onClick={saveList} >Save the list</Button>
+        localStorage.setItem('', JSON.stringify());
+    }
+
 }
 
 
