@@ -102,6 +102,10 @@ const App = () => {
 
     }
 
+    const saveList = () => {
+
+    }
+
     return (
         <div className='layout'>
             {
@@ -124,6 +128,8 @@ const App = () => {
                 <Button onClick={removeList}>
                     {"DELETE"}
                 </Button>
+                    <Button onClick={saveList}>{"Display"}</Button>
+
                 {/* 
                 <Button onClick={addList} title={'Add'} />
 
