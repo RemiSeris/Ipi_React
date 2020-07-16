@@ -115,16 +115,16 @@ const List = ({ children }) => {
 **Ressource** :
 
 * Material-ui documentation https://material-ui.com/getting-started/installation/
-* LocalStorage documentation https://developer.mozilla.org/fr/docs/Web/API/Storage/LocalStorage
 
 **Instruction**:
 
-1. Built your layout with material-ui components
-2. Store and retrieve your data from localStorage
-3. Handle list creation , list deletion (list will have a title)
-4. Implement a call to action to store your list/items
-5. Handle item naming/renaming
-6. Handle item Check/Uncheck
+1. add the @material-ui/core package
+2. import the CheckBox component from @material-ui/core
+3. add the CheckBox component to html of the Item component
+4. set the check props of the  CheckBox component to a state in the Item Component
+5. Bind The onClick of the  main div in Item to a function called toogleCheck
+6. Set the 'check' state respectively from true to false and from false to true in the toggleCheck function
+7. Check if it works
 
 ### 4 Did i git it ?
 
