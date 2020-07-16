@@ -1,9 +1,15 @@
 //Lorsque on veut créer un component on importe React
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import List from '../components/List';
 import Item from '../components/Item';
 import Button from '@material-ui/core/Button';
 
+=======
+import List from '../components/List'
+import Item from '../components/Item'
+import Button from '@material-ui/core/Button'
+>>>>>>> 41eef001f245cef76a4272e7ac1d7f40afa8dc10
 
 //On simule un modéle de donée (tableau de list)
 const lists = [
@@ -115,9 +121,22 @@ const App = () => {
                     </List>
                 )}
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
+<<<<<<< HEAD
             <div style={{display: 'flex'}}>
             <Button variant="contained" color="primary" onClick={addList}>Add</Button>
             <Button variant="contained" color="secondary" onClick={removeList}>Delete</Button>
+=======
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Button onClick={addList}>
+                    ADD
+                </Button>
+                <Button onClick={removeList}>
+                    DELETE
+                </Button>
+                {/* <Button onClick={addList} title={'Add'} />
+
+                <Button onClick={removeList} title={'delete'} /> */}
+>>>>>>> 41eef001f245cef76a4272e7ac1d7f40afa8dc10
             </div>
         </div>
     )
