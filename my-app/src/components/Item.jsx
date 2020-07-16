@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import { FormControl, FormControlLabel, Checkbox } from '@material-ui/core'
 
 const Item = ({ title }) => {
     const [done, toggleDone] = useState(false)
 
-    const changeItemState = () => {
+    const toogleCheck = () => {
         if (done === true)
             toggleDone(false)
         else
@@ -13,9 +14,24 @@ const Item = ({ title }) => {
 
     let itemDoneClassName = done === true ? 'item item-done' : 'item'
     return (
-        <div className={itemDoneClassName} onClick={changeItemState}>
-            {title}
+        <div className={itemDoneClassName} >
+        <FormControl component="fieldset">
+           
+            <FormControlLabel
+                value="start"
+                control={
+                <Checkbox color="secondary" checked={done} onChange={toogleCheck} />
+                }
+                label={title}
+                labelPlacement="start"
+
+            />
+            
+
+        </FormControl>
+        
         </div>
+
     )
 }
 

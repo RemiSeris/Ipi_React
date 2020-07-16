@@ -54,6 +54,7 @@ body {
   border-radius: 5px;
   color: #444140;
   cursor: pointer;
+  background-color: #f8f7ff;
 }
 
 .item-done{
