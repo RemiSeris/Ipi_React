@@ -55,7 +55,7 @@ const lists = [
 
 //onj déclare un template d'une list
 const defaultList = {
-    title: 'Nouvelle liste',
+    title: 'New liste',
     items: [
         {
             title: 'item1',
@@ -88,12 +88,16 @@ const App = () => {
     //on crée une fonction pour enlever un élément à la liste
     const removeList = () => {
         //on enléve le dernier élément du tableau de list
-        myLists.pop()
+        myLists.pop();
         // on crée une copie de notre tableau pour changer la référence 
-        const listCpy = myLists.map(list => list)
+        const listCpy = myLists.map(list => list);
         //on utilise le setter d'état pour changer l'états de nos liste
         setMyList(listCpy)
-    }
+    };
+
+    const localStorageList = () => {
+        localStorage.setItem('myLists', JSON.stringify(myLists) );
+    };
 
     return (
         <div className='layout'>
@@ -113,9 +117,10 @@ const App = () => {
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
             <Button onClick={addList} variant={'outlined'}>Add</Button>
             <Button onClick={removeList} variant={'outlined'}>Delete</Button>
+            <Button onClick={localStorageList} variant={'outlined'}>Save Local</Button>
         </div>
     )
-}
+};
 
 
 export default App;

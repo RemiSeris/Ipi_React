@@ -1,24 +1,19 @@
 import React, {useState} from 'react'
-import Switch from "@material-ui/core/Switch";
+import Checkbox from "@material-ui/core/Checkbox";
 
 const Item = ({title}) => {
-    const [switchValue, setSwitchValue] = useState(false);
-    let switchClass = switchValue ? 'switchActive item' : 'item';
+    const [checkValue, setCheckValue] = useState(false);
+    let switchClass = checkValue ? 'switchActive item' : 'item';
 
-    const onSwitchChange = () => {
-        setSwitchValue(!switchValue);
+    const onCheckChange = () => {
+        setCheckValue(!checkValue);
     };
     return (
-        <div>
-            <div className={switchClass} onClick={onSwitchChange}>
+        <div style={{display : "flex"}}>
+            <div className={switchClass} onClick={onCheckChange}>
                 {title}
             </div>
-            <Switch
-                checked={switchValue}
-                onChange={onSwitchChange}
-                name="checkedB"
-                color="secondary"
-            />
+            <Checkbox color={"secondary"} checked={checkValue} onChange={onCheckChange} />
         </div>
 
 

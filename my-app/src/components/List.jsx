@@ -1,21 +1,8 @@
 import React from 'react'
-import { Button } from '@material-ui/core'
-import { useContext } from 'react'
-import { AppContext } from '../AppContextProvider'
+import Switch from "@material-ui/core/Switch";
 
 
-const List = ({ children, list }) => {
-    const { addItem, removeItem } = useContext(AppContext)
-    const { title } = list
-
-    const createNewItem = () => {
-        addItem(list)
-    }
-
-    const deleteItem = () => {
-        removeItem(list)
-    }
-
+const List = ({ children, title }) => {
     return (
         <div className={'list'}>
             <div className="listTitle">
@@ -24,12 +11,14 @@ const List = ({ children, list }) => {
             <div className={'listItems'}>
                 {children}
             </div>
-            <Button onClick={createNewItem} variant={"contained"}>
-                {"Add Item"}
-            </Button>
-            <Button onClick={deleteItem} variant={"contained"}>
-                {"Delete Item"}
-            </Button>
+            <div className={'switchList'}>
+                {/*<Switch*/}
+                {/*    checked={switchValue}*/}
+                {/*    onChange={onSwitchChange}*/}
+                {/*    name="checkedSwitch"*/}
+                {/*    color="secondary"*/}
+                {/*/>*/}
+            </div>
         </div>
     )
 }
