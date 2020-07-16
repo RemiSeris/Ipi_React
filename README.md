@@ -124,12 +124,12 @@ const List = ({ children }) => {
 
 **Instruction 2**:
 
-2. import the CheckBox component from @material-ui/core in Item.jsx
-3. add the CheckBox component to html of the Item component
-4. set the check props of the  CheckBox component to a state in the Item Component
-5. Bind The onChange of the  main div in Item to a function called toogleCheck
-6. Set the 'check' state respectively from true to false and from false to true in the toggleCheck function
-7. Check if it works
+1. import the CheckBox component from @material-ui/core in Item.jsx
+2. add the CheckBox component to html of the Item component
+3. set the check props of the  CheckBox component to a state in the Item Component
+4. Bind The onChange of the  main div in Item to a function called toogleCheck
+5. Set the 'check' state respectively from true to false and from false to true in the toggleCheck function
+6. Check if it works
 
 ### 4 Did i git it ?
 
