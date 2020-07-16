@@ -10,7 +10,7 @@ const Item = ({ title }) => {
     setCheck(event.target.checked);
   };
 
-  console.log('is checked', check);
+
 
 
     //une fonction pour changer l'état de check

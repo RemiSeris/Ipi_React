@@ -66,6 +66,12 @@ const defaultList = {
     ]
 }
 
+const data = JSON.stringify(defaultList)
+
+const storage  = localStorage.setItem('test', data);
+
+
+
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
     // on utilise un hooks d'état pour pouvoir moifier la page
