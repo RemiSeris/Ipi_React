@@ -99,7 +99,7 @@ const App = () => {
         //on utilise le setter d'état pour changer l'états de nos liste
         setMyList(listCpy)
     }
-    //zergrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrg
+    
     return (
         <div className='layout'>
             {
@@ -110,8 +110,8 @@ const App = () => {
                         }
                     </List>
                 )}
-            <Button onClick={changeTitle} title={"Add"} />
-            <Button onClick={changeTitle} title={"delete"} />
+            <Button onClick={addList} title={"Add"} />
+            <Button onClick={removeList} title={"delete"} />
         </div>
     )
 }
