@@ -33,7 +33,7 @@ body {
   display: flex;
   width: 100%;
   justify-content: center;
-  background-color: #E40066;
+  background-color: #403b52;
   color: white;
 }
 
@@ -73,12 +73,10 @@ body {
   left: 11px;
 }
 
-.button {
-  background-color: #454ADE;
-}
 
 .itemDone {
   background-color: #E40066;
   box-shadow: 1px 1px 3px rgba(125, 125, 125, 0.7);
   color: white
 }
+
