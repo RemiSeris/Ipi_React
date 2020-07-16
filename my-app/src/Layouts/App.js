@@ -1,11 +1,8 @@
 //Lorsque on veut créer un component on importe React
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
-import Switch from '@material-ui/core/Switch';
 import Button from "@material-ui/core/Button";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-
 
 //On simule un modéle de donée (tableau de list)
 const lists = [
@@ -96,17 +93,21 @@ const App = () => {
     };
 
     const localStorageList = () => {
-        localStorage.setItem('myLists', JSON.stringify(myLists) );
+        localStorage.setItem('myLists', JSON.stringify(myLists));
     };
 
+    function clickIcon(item) {
+        console.log(item);
+    }
+
     return (
-        <div className='layout'>
+        <div className='layout' style={{display: "flex", alignItems: 'center'}}>
             {
                 // On utilise la méthode .map pour parcourir les éléments,
                 // de nos tableau et renvoyer pour chaque élément le component indiquée
                 myLists.map(({items, title}) =>
                     <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                        <List title={title}>
+                        <List title={title} clickIcon={()=> clickIcon(items)}>
                             {
                                 // On affiche les items d'une liste une à une sous forme de component
                                 items.map(({title: itemTitle}) => <Item title={itemTitle}/>)
@@ -115,9 +116,12 @@ const App = () => {
                     </div>// On affiche nos lists une a une sous forme de component
                 )}
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            <Button onClick={addList} variant={'outlined'}>Add</Button>
-            <Button onClick={removeList} variant={'outlined'}>Delete</Button>
-            <Button onClick={localStorageList} variant={'outlined'}>Save Local</Button>
+            <div style={{display: "flex", flexDirection: "column" }} >
+                <Button onClick={addList} variant={'outlined'} size={"small"} style={{height: 50}}>Add</Button>
+                <Button onClick={removeList} variant={'outlined'} size={"small"} style={{height: 50}}>Delete</Button>
+                <Button onClick={localStorageList} variant={'outlined'} size={"small"} style={{height: 50}}>Save Local</Button>
+            </div>
+
         </div>
     )
 };
