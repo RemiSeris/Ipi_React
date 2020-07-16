@@ -103,31 +103,15 @@ const App = () => {
     return (
         <div className='layout'>
             {
-<<<<<<< HEAD
                 myLists.map(({ items, title }) =>
                     <List title={title}>
                         {
-=======
-                // On utilise la méthode .map pour parcourir les éléments,
-                // de nos tableau et renvoyer pour chaque élément le component indiquée
-                myLists.map(({ items, title }) =>
-                    // On affiche nos lists une a une sous forme de component
-                    <List title={title}  >
-                        {
-                            // On affiche les items d'une liste une à une sous forme de component
->>>>>>> 7f9cf2a7268cd42ec1609f2b810e6fed6904dcb5
                             items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
                         }
                     </List>
                 )}
-<<<<<<< HEAD
             <Button onClick={changeTitle} title={"Add"} />
             <Button onClick={changeTitle} title={"delete"} />
-=======
-            {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            <Button onClick={addList} title={'Add'} />
-            <Button onClick={removeList} title={'delete'} />
->>>>>>> 7f9cf2a7268cd42ec1609f2b810e6fed6904dcb5
         </div>
     )
 }
