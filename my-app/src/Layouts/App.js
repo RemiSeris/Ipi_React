@@ -1,56 +1,122 @@
-import React from 'react';
+//Lorsque on veut créer un component on importe React
+import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
+import Button from '../components/Button';
 
-/*
-Create a component named List with the props children, display children in the HTML
 
-const List = ({ children }) => {
-    return (
-        <div >
-            {children}
-        </div>
-    )
+//On simule un modéle de donée (tableau de list)
+const lists = [
+    {
+        title: 'Liste 1',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    },
+    {
+        title: 'Liste 2',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    },
+    {
+        title: 'Liste 3',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    }
+]
+
+//onj déclare un template d'une list
+const defaultList = {
+    title: 'Nouvelle liste',
+    items: [
+        {
+            title: 'item1',
+        },
+        {
+            title: 'item2',
+        },
+        {
+            title: 'item3',
+        },
+    ]
 }
 
-    Create A component named Item wich display "HELLO WORLD"
-    Display List and Item in App
-    Display a title to List "Ma list"
-    Display many Items in a List
-    Display Many List with many Items in App
-    (optional) Display List title as a props name 'title'
-    (optional) Display Item title as a props name 'title'
-
-    End Exo 1*
-
-    Create a Functionnal component called Item with border, shadow, and a "Hello World" in the center .
-    Create a Functionnal component called List containing many Item
-    Pass down the Item content as Props from the List component (item should display "Hello World 1", "Hello World 2", ...)
-*/
-
-
+// on déclare un componet sous forme d'arrow funtion 
 const App = () => {
+    // on utilise un hooks d'état pour pouvoir moifier la page
+    // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
+    const [myLists, setMyList] = useState(lists)
+
+
+    //on crée une fonction pour ajouter un élément à la liste
+    const addList = () => {
+
+        //on pousse un nouvelle élément dans le tableau de liste
+        myLists.push(defaultList)
+
+        // on crée une copie de notre tableau pour changer la référence 
+        const listCpy = myLists.map(list => list)
+
+        //on utilise le setter d'état pour changer l'états de nos liste
+        setMyList(listCpy)
+    }
+
+    //on crée une fonction pour enlever un élément à la liste
+    const removeList = () => {
+
+        //on enléve le dernier élément du tableau de list
+        myLists.pop()
+
+        // on crée une copie de notre tableau pour changer la référence 
+        const listCpy = myLists.map(list => list)
+
+        //on utilise le setter d'état pour changer l'états de nos liste
+        setMyList(listCpy)
+    }
 
     return (
         <div className='layout'>
-            <List title={"titre de liste 1"} className='toto'>
-                <Item title={"titre de item 1"} />
-                <Item title={"titre de item 2"} />
-                <Item title={"titre de item 3"} />
-                <Item title={"titre de item 4"} />
-            </List>
-            <List title={"titre de liste 2"}>
-                <Item title={"titre de item 1"} />
-                <Item title={"titre de item 2"} />
-                <Item title={"titre de item 3"} />
-                <Item title={"titre de item 4"} />
-            </List>
-            <List title={"titre de liste 3"}>
-                <Item title={"titre de item 1"} />
-                <Item title={"titre de item 2"} />
-                <Item title={"titre de item 3"} />
-                <Item title={"titre de item 4"} />
-            </List>
+            {
+                // On utilise la méthode .map pour parcourir les éléments,
+                // de nos tableau et renvoyer pour chaque élément le component indiquée
+                myLists.map(({ items, title }) =>
+                    // On affiche nos lists une a une sous forme de component
+                    <List title={title}  >
+                        {
+                            // On affiche les items d'une liste une à une sous forme de component
+                            items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
+                        }
+                    </List>
+                )}
+            {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
+            <Button onClick={addList} title={'Add'} />
+            <Button onClick={removeList} title={'delete'} />
         </div>
     )
 }
