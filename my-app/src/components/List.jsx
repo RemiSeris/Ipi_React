@@ -1,26 +1,29 @@
 import React from 'react'
-import Switch from "@material-ui/core/Switch";
+import CreateIcon from '@material-ui/icons/Create';
+
+class List extends React.Component {
+    constructor(props){
+        super(props);
+        console.log(props, 'props');
+    }
+
+    render() {
+        return (
+            <div className={'list'}>
+                <div className="listTitle" style={{display: "flex"}}>
+                    {this.props.title}
+                    <CreateIcon style={{marginLeft: 10, fontSize: 20 , cursor: "pointer" }} onClick={this.props.clickIcon} />
+                </div>
+                <div className={'listItems'}>
+                    {this.props.children}
+                </div>
+            </div>
+        )
 
 
-const List = ({ children, title }) => {
-    return (
-        <div className={'list'}>
-            <div className="listTitle">
-                {title}
-            </div>
-            <div className={'listItems'}>
-                {children}
-            </div>
-            <div className={'switchList'}>
-                {/*<Switch*/}
-                {/*    checked={switchValue}*/}
-                {/*    onChange={onSwitchChange}*/}
-                {/*    name="checkedSwitch"*/}
-                {/*    color="secondary"*/}
-                {/*/>*/}
-            </div>
-        </div>
-    )
-}
+    }
+
+
+};
 
 export default List
