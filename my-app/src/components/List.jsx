@@ -7,11 +7,12 @@ const List = ({ children, title }) => {
         <div className={'list'}>
             <div className="listTitle">
                 {title}
+                <Switch></Switch>
             </div>
             <div className={'listItems'}>
                 {children}
             </div>
-            <Switch />
+            
         </div>
     )
 }

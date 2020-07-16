@@ -1,30 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from 'react'
+
 
 const Switch = () => {
+    const [switchActive, toggleSwitch] = useState(false)
 
-    const [switchActive, toogleSwitch] = useState(false)
-
-    // ici on active désactive notre switch
     const onSwitchClick = () => {
         if (switchActive === true)
-            toogleSwitch(false)
+            toggleSwitch(false)
         else
-            toogleSwitch(true)
+            toggleSwitch(true)
+
     }
 
-    //condition ? si la condition est validé : si la condition n'est pas validé
-
-    let switchButtonClassName = switchActive === true ? 'switchButton switchActive' : 'switchButton switchUnActive'
-
-    // if (switchActive === true)
-    //     switchButtonClassName = 'switchButton switchActive'
-    // else
-    //     switchButtonClassName = 'switchButton switchUnActive'
-
+    let switchButtonClassName = switchActive === true ? 'switch-button switch-active' : 'switch-button switch-unactive'
+    let switchButtonContainerClassName = switchActive === true ? 'switch-container switch-container-active' : 'switch-container switch-container-unactive'
+    
 
     return (
-        <div className={'switchContainer'} onClick={onSwitchClick}>
-            <div className={switchButtonClassName} />
+        <div className={switchButtonContainerClassName} onClick={onSwitchClick}>
+            <div className={switchButtonClassName}></div>
+
         </div>
     )
 }
