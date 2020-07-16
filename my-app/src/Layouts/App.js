@@ -74,9 +74,6 @@ const App = () => {
     // on utilise un hooks d'état pour pouvoir moifier la page
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(lists);
-    let switchValue;
-    let switchClass;
-
 
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
@@ -98,33 +95,19 @@ const App = () => {
         setMyList(listCpy)
     }
 
-    const onSwitchChange = () =>{
-       switchClass = switchValue ?'switchActive' : 'switchDisable'
-    }
     return (
         <div className='layout'>
             {
                 // On utilise la méthode .map pour parcourir les éléments,
                 // de nos tableau et renvoyer pour chaque élément le component indiquée
                 myLists.map(({items, title}) =>
-                    <div style={{display: "flex", flexDirection: "column", justifyContent : "center"}}>
+                    <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
                         <List title={title}>
                             {
                                 // On affiche les items d'une liste une à une sous forme de component
                                 items.map(({title: itemTitle}) => <Item title={itemTitle}/>)
                             }
                         </List>
-                        <FormControlLabel
-                            control={
-                                <Switch
-                                    checked={switchValue}
-                                    onChange={onSwitchChange()}
-                                    name="checkedB"
-                                    color="primary"
-                                />
-                            }
-                            label="Effectué"
-                        />
                     </div>// On affiche nos lists une a une sous forme de component
                 )}
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
