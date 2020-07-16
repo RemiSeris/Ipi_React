@@ -74,7 +74,8 @@ const App = () => {
     // on utilise un hooks d'état pour pouvoir moifier la page
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(lists);
-    const [switchValue, setSwitchValue] = useState(false);
+    let switchValue;
+    let switchClass;
 
 
     //on crée une fonction pour ajouter un élément à la liste
@@ -98,7 +99,7 @@ const App = () => {
     }
 
     const onSwitchChange = () =>{
-        setSwitchValue(!switchValue);
+       switchClass = switchValue ?'switchActive' : 'switchDisable'
     }
     return (
         <div className='layout'>
@@ -106,7 +107,7 @@ const App = () => {
                 // On utilise la méthode .map pour parcourir les éléments,
                 // de nos tableau et renvoyer pour chaque élément le component indiquée
                 myLists.map(({items, title}) =>
-                    <div>
+                    <div style={{display: "flex", flexDirection: "column", justifyContent : "center"}}>
                         <List title={title}>
                             {
                                 // On affiche les items d'une liste une à une sous forme de component
@@ -122,7 +123,7 @@ const App = () => {
                                     color="primary"
                                 />
                             }
-                            label="Primary"
+                            label="Effectué"
                         />
                     </div>// On affiche nos lists une a une sous forme de component
                 )}
