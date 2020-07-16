@@ -2,8 +2,7 @@
 import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
-import Button from '../components/Button';
-
+import Button from '@material-ui/core/Button'
 
 //On simule un modéle de donée (tableau de list)
 const lists = [
@@ -115,8 +114,17 @@ const App = () => {
                     </List>
                 )}
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            <Button onClick={addList} title={'Add'} />
-            <Button onClick={removeList} title={'delete'} />
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Button onClick={addList}>
+                    ADD
+                </Button>
+                <Button onClick={removeList}>
+                    DELETE
+                </Button>
+                {/* <Button onClick={addList} title={'Add'} />
+
+                <Button onClick={removeList} title={'delete'} /> */}
+            </div>
         </div>
     )
 }
