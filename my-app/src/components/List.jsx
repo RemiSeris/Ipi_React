@@ -1,4 +1,5 @@
 import React from 'react'
+import Switch from './Switch'
 
 
 const List = ({ children, title }) => {
@@ -10,6 +11,7 @@ const List = ({ children, title }) => {
             <div className={'listItems'}>
                 {children}
             </div>
+            <Switch />
         </div>
     )
 }
