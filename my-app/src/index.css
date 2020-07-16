@@ -42,3 +42,7 @@ body {
   padding: 5px;
   border: solid 1px rgba(31, 31, 255, 0.2);
 }
+
+.itemDone{
+  background-color: #E40066;
+}
