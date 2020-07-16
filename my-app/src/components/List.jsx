@@ -1,4 +1,5 @@
 import React from 'react'
+import Switch from "@material-ui/core/Switch";
 
 
 const List = ({ children, title }) => {
@@ -9,6 +10,14 @@ const List = ({ children, title }) => {
             </div>
             <div className={'listItems'}>
                 {children}
+            </div>
+            <div className={'switchList'}>
+                {/*<Switch*/}
+                {/*    checked={switchValue}*/}
+                {/*    onChange={onSwitchChange}*/}
+                {/*    name="checkedSwitch"*/}
+                {/*    color="secondary"*/}
+                {/*/>*/}
             </div>
         </div>
     )
