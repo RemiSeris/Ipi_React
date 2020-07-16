@@ -93,3 +93,40 @@ body {
   background-color: #e54b4b;
   color: #f7ebe8;
 }
+
+.switch-container{
+  position: relative;
+  width: 35px;
+  height: 15px;
+  border-radius: 9px;
+  
+}
+
+.switch-container-active{
+  background-color: #ffa987;
+}
+.switch-container-unactive{
+  background-color: #f7ebe8;
+  box-shadow: 1px 4px 2px rgba(112, 81, 81, 0.447) inset;
+}
+
+.switch-button {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  border-radius: 20px;
+  background-color: #e54b4b;
+  top: -1px;
+  transition: left .6s ease;
+
+}
+
+.switch-active{
+left: -9px;
+
+}
+
+.switch-unactive{
+  left: 25px;
+ 
+}
