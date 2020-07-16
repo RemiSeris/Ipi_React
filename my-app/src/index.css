@@ -22,7 +22,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 20px 2%;
-  background-color: #f0f3f5;
+  background-color: #acacde;
   border-radius: 10px;
   box-shadow: 4px 5px 5px rgba(112, 81, 81, 0.247); 
   width: max-content;
@@ -31,7 +31,7 @@ body {
 }
 
 .listItems {
-
+  width: 90%;
 
 }
 
@@ -48,18 +48,21 @@ body {
 }
 
 .item {
-  margin: 10px;
+  margin: 10px auto;
   padding: 5px;
   border: solid 1px #c490d1;
   border-radius: 5px;
   color: #444140;
   cursor: pointer;
   background-color: #F0F3F5;
+  width: 100%;
+  text-transform: uppercase;
 }
 
 .item-done{
   color:  #444140;
-  background-color: #c490d1;
+  background-color: #acacde;
+  border: solid 1px #f7ebe8;
 }
 
 .btn-grp{

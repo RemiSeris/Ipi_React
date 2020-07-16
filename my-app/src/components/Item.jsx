@@ -23,7 +23,7 @@ const Item = ({ title }) => {
                 <Checkbox color="secondary" checked={done} onChange={toogleCheck} />
                 }
                 label={title}
-                labelPlacement="start"
+                labelPlacement="end"
 
             />
             
