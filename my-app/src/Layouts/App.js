@@ -2,7 +2,30 @@
 import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
-import Button from '../components/Button';
+import Button from '@material-ui/core/Button'
+import DeleteIcon from '@material-ui/icons/Delete'
+import EditIcon from '@material-ui/icons/Edit'
+
+
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
+const theme = createMuiTheme({
+    palette: {
+      primary: {
+        light: '#c8b1ff',
+        main: '#9381ff',
+        dark: '#5f54cb',
+        contrastText: '#000',
+      },
+      secondary: {
+        light: '#ffffa0',
+        main: '#f9d66f',
+        dark: '#c4a540',
+        contrastText: '#000',
+      },
+    },
+  });
 
 /*
 Create a component named List with the props children, display children in the HTML
@@ -108,10 +131,22 @@ const App = () => {
     }
 
     return (
+        <MuiThemeProvider theme={theme}>
         <div className='layout'>
             <div className='btn-grp'>
-                <Button title="Add" onClick={addList} classN={"btn-add"}></Button>
-                <Button title="Delete" onClick={deleteList} classN={'btn-del'}></Button>
+                {/*    <Button title="Add" onClick={addList} classN={"btn-add"}></Button>
+                <Button title="Delete" onClick={deleteList} classN={'btn-del'}></Button> */}
+
+                <Button variant="outlined" color="primary" onClick={addList} startIcon={<EditIcon />} className={"btn-add"}>
+                    Add
+                </Button>
+                <Button
+                    onClick={deleteList}
+                    variant="contained"
+                    color="primary"
+                    startIcon={<DeleteIcon />}>
+                    Delete
+      </Button>
             </div>
             {myList.map(({ items, title }, index) => {
                 return <List title={title} key={index}>
@@ -122,6 +157,7 @@ const App = () => {
             })}
 
         </div>
+        </MuiThemeProvider>
     )
 }
 
