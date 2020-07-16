@@ -13,16 +13,16 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
     palette: {
       primary: {
-        light: '#c8b1ff',
-        main: '#9381ff',
-        dark: '#5f54cb',
+        light: '#deffff',
+        main: '#abdafc',
+        dark: '#7aa9c9',
         contrastText: '#000',
       },
       secondary: {
-        light: '#ffffa0',
-        main: '#f9d66f',
-        dark: '#c4a540',
-        contrastText: '#000',
+        light: '#b8336a',
+        main: '#b8336a',
+        dark: '#840040',
+        contrastText: '#fff',
       },
     },
   });
@@ -137,13 +137,13 @@ const App = () => {
                 {/*    <Button title="Add" onClick={addList} classN={"btn-add"}></Button>
                 <Button title="Delete" onClick={deleteList} classN={'btn-del'}></Button> */}
 
-                <Button variant="outlined" color="primary" onClick={addList} startIcon={<EditIcon />} className={"btn-add"}>
+                <Button variant="outlined" color="secondary" onClick={addList} startIcon={<EditIcon />} className={"btn-add"}>
                     Add
                 </Button>
                 <Button
                     onClick={deleteList}
                     variant="contained"
-                    color="primary"
+                    color="secondary"
                     startIcon={<DeleteIcon />}>
                     Delete
       </Button>
