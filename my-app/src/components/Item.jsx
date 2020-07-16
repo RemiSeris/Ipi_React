@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Checkbox } from '@material-ui/core';
+import CheckBox from '@material-ui/core/Checkbox';
 
 // créer un état par le hooks d'état (useState) actif non actif
 // quand on clique sur l'item on change l'état
@@ -8,12 +8,21 @@ import { Checkbox } from '@material-ui/core';
 const Item = ({ title }) => {
     const [check, setCheck] = useState(false)
 
+    console.log('Check', check)
+
+    const toggleCheck = () => {
+        if (check === true)
+            setCheck(false)
+        else
+            setCheck(true)
+    }
+
     return (
-        <div>
-            {title}<input type="checkbox" />
+        <div onClick={toggleCheck}>
+            {title}
+            <CheckBox checked={check} />
         </div>
     )
 }
-
 
 export default Item

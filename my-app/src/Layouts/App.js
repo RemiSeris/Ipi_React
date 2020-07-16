@@ -98,7 +98,13 @@ const App = () => {
         //on utilise le setter d'état pour changer l'états de nos liste
         setMyList(listCpy)
     }
+
+    const saveList = () => {
+        localStorage.setItem('mylists', JSON.stringify(myLists));
+    }
     
+    console.log(JSON.parse(localStorage.getItem('mylists')))
+
     return (
         <div className='layout'>
             {
@@ -120,6 +126,9 @@ const App = () => {
                 </Button>
                 <Button onClick={removeList}>
                     {"DELETE"}
+                </Button>
+                <Button onClick={saveList}>
+                    {"SAVE LIST IN APP"}
                 </Button>
                 {/* 
                 <Button onClick={addList} title={'Add'} />
