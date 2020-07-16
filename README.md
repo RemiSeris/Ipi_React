@@ -36,6 +36,26 @@ First of all, let's get some setup:
   
 ## Workshops
 
+### 0 Did i git it ?
+
+**Goals** :
+
+* Asses your knowledge on react fundamental
+* Familiarize with git
+
+**Ressource** :
+
+* Git documentation https://help.github.com/en/github/using-git/learning-about-git
+
+**Instruction**:
+
+1. Create a github account
+2. Create your branch with *git checkout -b FirstNameLastname*
+3. Add all repositorty files to your commit index *git add --all*
+4. Commit your files *git commit -m "my commit msg"*
+5. Push your commit to the remote repository *git push*
+6. Check on github !
+
 ### 1 Hello scalability
 
 **Goals** :
@@ -124,32 +144,33 @@ const List = ({ children }) => {
 
 **Instruction 2**:
 
-2. import the CheckBox component from @material-ui/core in Item.jsx
-3. add the CheckBox component to html of the Item component
-4. set the check props of the  CheckBox component to a state in the Item Component
-5. Bind The onClick of the  main div in Item to a function called toogleCheck
-6. Set the 'check' state respectively from true to false and from false to true in the toggleCheck function
-7. Check if it works
+1. import the CheckBox component from @material-ui/core in Item.jsx
+2. add the CheckBox component to html of the Item component
+3. set the check props of the  CheckBox component to a state in the Item Component
+4. Bind The onChange of the  main div in Item to a function called toogleCheck
+5. Set the 'check' state respectively from true to false and from false to true in the toggleCheck function
+6. Check if it works
 
-### 4 Did i git it ?
+### 4 Store !
+*Goals** :
 
-**Goals** :
-
-* Asses your knowledge on react fundamental
-* Familiarize with git
+* Discover the local storage
 
 **Ressource** :
 
-* Git documentation https://help.github.com/en/github/using-git/learning-about-git
+* local storage documentation https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage
+* Json stringify documentation https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/JSON/stringify
 
-**Instruction**:
+**Instruction 1**:
 
-1. Create a github account
-2. Create your branch with *git checkout -b FirstNameLastname*
-3. Add all repositorty files to your commit index *git add --all*
-4. Commit your files *git commit -m "my commit msg"*
-5. Push your commit to the remote repository *git push*
-6. Check on github !
+1. add A button Wich display the string save list in App
+2. create a function called saveList in App
+3. bind the function to the onClick props of the Button
+4. in the function saveList Store your myLists state into the local storage (dont forget to use JSON.stringify())
+5. go checkout in your webPage Stockage -> stockage local if your data have well been saved
+
+
+
 
 **On Git**:
 
