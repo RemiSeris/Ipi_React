@@ -97,7 +97,12 @@ const App = () => {
 
         //on utilise le setter d'état pour changer l'états de nos liste
         setMyList(listCpy)
+
+        const saveList = () => {
+            localStorage.setItem ()
+        }
     }
+    
 
     return (
         <div className='layout'>
@@ -120,6 +125,9 @@ const App = () => {
                 </Button>
                 <Button onClick={removeList}>
                     {"DELETE"}
+                </Button>
+                <Button onClick={saveList}>
+                    {"SAVE"}
                 </Button>
                 {/* 
                 <Button onClick={addList} title={'Add'} />
