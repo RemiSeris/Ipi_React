@@ -172,14 +172,16 @@ const App = () => {
 =======
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Button onClick={addList}>
-                    ADD
+                    {"ADD"}
                 </Button>
                 <Button onClick={removeList}>
-                    DELETE
+                    {"DELETE"}
                 </Button>
-                {/* <Button onClick={addList} title={'Add'} />
+                {/* 
+                <Button onClick={addList} title={'Add'} />
 
-                <Button onClick={removeList} title={'delete'} /> */}
+                <Button onClick={removeList} title={'delete'} /> 
+                */}
             </div>
 >>>>>>> origin
         </div>
