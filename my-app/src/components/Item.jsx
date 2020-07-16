@@ -15,7 +15,7 @@ const Item = ({ title }) => {
     return (
         <div onChange={toggleCheck}>
             {title}
-            <Checkbox></Checkbox>
+            <Checkbox color="secondary"></Checkbox>
         </div>
     )
 }
