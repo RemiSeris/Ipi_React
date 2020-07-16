@@ -128,16 +128,15 @@ const App = () => {
                 </List>
             })}
 
-            {/* test d'un input
             <div>
                 <form>
                 <label>
-                    Nom :
-                    <input type="text" name="name" id="inputTest"></input>
+                    Nom : 
+                    <input type="text" name="name" id="inputTest"/>
                 </label>
-                <input type="submit" value="Envoyer" onClick={() => { alert('Bonjour ' + document.getElementById('inputTest').value) }}></input>
+                <input  type="submit" value="Envoyer" onClick={() => { alert('Bonjour ' + document.getElementById('inputTest').value) }}></input>
                 </form>
-            </div>            */}
+            </div>           
         </div>
 
                    
