@@ -1,61 +1,8 @@
-<<<<<<< HEAD
-import React from 'react';
-import Item from '../components/Item';
-import List from '../components/List';
-
-constlists = [
-    {
-        title:'Liste 1',
-        items: [
-            {
-                title:'item1',
-            },
-            {
-                title:'item2',
-            },
-            {
-                title:'item3',
-            },
-        ]
-    },
-    {
-        title:'Liste 2',
-        items: [
-        {
-            title:'item1',
-        },
-        {
-            title:'item2',
-        },
-        {
-            title:'item3',
-        },
-        ]
-    },
-    {
-        title:'Liste 3',
-        items: [
-        {
-            title:'item1',
-        },
-        {
-            title:'item2',
-        },
-        {
-            title:'item3',
-        },
-        ]
-    }
-    ];
-
-    const defaultList
-=======
 //Lorsque on veut créer un component on importe React
 import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
 import Button from '../components/Button';
->>>>>>> 7f9cf2a7268cd42ec1609f2b810e6fed6904dcb5
 
 
 //On simule un modéle de donée (tableau de list)
@@ -153,41 +100,11 @@ const App = () => {
         setMyList(listCpy)
     }
 
-    const [myLists, setMyList] = useState(lists)
     const changeTitle = () => {
 
     }
 
-    const addList = () => {
-        myLists.push({defaultList})
-        setMyList(myLists.map(list => list))
-    }
-
-    const removeList = () => {
-        myLists.pop()
-        setMyList(MyLists.map(list => list))
-    }
-
     return (
-<<<<<<< HEAD
-        <div>
-            HELLO WORLD
-            myLists.map({items, title}) =>
-            <List title={title}>
-            </List>
-
-            <List title={"titre de ma liste"} classname='list'>
-                <Item title={"Hello World"}/>
-                <Item title={"Hello World"}/>
-                <Item title={"Hello World"}/>
-                <Item title={"Hello World"}/>
-                <Item title={"Hello World"}/>
-            </List>
-            <Button onClick={changeTitle} title="Add"></Button>
-            <Button onClick={changeTitle} title="Delete"></Button>
-        </div>
-        )
-=======
         <div className='layout'>
             {
                 // On utilise la méthode .map pour parcourir les éléments,
@@ -206,7 +123,6 @@ const App = () => {
             <Button onClick={removeList} title={'delete'} />
         </div>
     )
->>>>>>> 7f9cf2a7268cd42ec1609f2b810e6fed6904dcb5
 }
 
 
