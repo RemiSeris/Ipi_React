@@ -121,9 +121,11 @@ const App = () => {
                 <Button onClick={removeList}>
                     {"DELETE"}
                 </Button>
-                {/* <Button onClick={addList} title={'Add'} />
+                {/* 
+                <Button onClick={addList} title={'Add'} />
 
-                <Button onClick={removeList} title={'delete'} /> */}
+                <Button onClick={removeList} title={'delete'} /> 
+                */}
             </div>
         </div>
     )
