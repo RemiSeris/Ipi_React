@@ -103,6 +103,13 @@ const App = () => {
 
     return (
         <div className='layout'>
+            <div>
+            {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
+            <Button variant="contained" color="secondary" onClick={removeList} title='add' test1={'test1'} test2={"test2"} onClick={addList}>Add</Button>
+            {/*<Button test1={'test1'} test2={"test2"} onClick={addList} title={'Add'} />*/}
+            <Button variant="contained" color="secondary" onClick={removeList} title='delete'>Delete</Button>
+            {/*<Button onClick={removeList} title={'delete'} />*/}
+            </div>
             {
                 // On utilise la méthode .map pour parcourir les éléments,
                 // de nos tableau et renvoyer pour chaque élément le component indiquée
@@ -115,12 +122,7 @@ const App = () => {
                         }
                     </List>
                 )}
-            {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            <Button variant="contained" color="secondary" onClick={removeList} title='add' test1={'test1'} test2={"test2"} onClick={addList}>Add</Button>
-            {/*<Button test1={'test1'} test2={"test2"} onClick={addList} title={'Add'} />*/}
-            <Button variant="contained" color="secondary" onClick={removeList} title='delete'>Delete</Button>
-            {/*<Button onClick={removeList} title={'delete'} />*/}
-            
+                        
         </div>
     )
 }
