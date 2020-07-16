@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import { Checkbox } from '@material-ui/core';
 
-// créer un état par le hooks d'état (useState) actif non actif
-// quand on clique sur l'item on change l'état
-// selon l'état on applique une class css actif ou non actif
 
 const Item = ({ title }) => {
+    // opn déclare une valriable d'état et un setter
     const [check, setCheck] = useState(false)
     
   const handleChange = (event) => {
@@ -13,6 +11,17 @@ const Item = ({ title }) => {
   };
 
   console.log('is checked', check);
+
+
+    //une fonction pour changer l'état de check
+    const toogleCheck = () => {
+        // si true on le passe à false et inversement
+        if (check === true)
+            setCheck(false)
+        else
+            setCheck(true)
+
+    }
 
     return (
         <div >
@@ -24,5 +33,6 @@ const Item = ({ title }) => {
         </div>
     )
 }
+
 
 export default Item
