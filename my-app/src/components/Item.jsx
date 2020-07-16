@@ -14,24 +14,13 @@ const Item = ({ title }) => {
 
     let itemDoneClassName = done === true ? 'item item-done' : 'item'
     return (
-        <div className={itemDoneClassName} >
-        <FormControl component="fieldset">
-           
-            <FormControlLabel
-                value="start"
-                control={
-                <Checkbox color="secondary" checked={done} onChange={toogleCheck} />
-                }
-                label={title}
-                labelPlacement="end"
-
-            />
-            
-
-        </FormControl>
-        
+        <div className={itemDoneClassName}>
+            <FormControl component="fieldset">
+                <FormControlLabel value="start" label={title} labelPlacement="" control={
+                    <Checkbox color="secondary" checked={done} onChange={toogleCheck} />
+                }/>
+            </FormControl>
         </div>
-
     )
 }
 

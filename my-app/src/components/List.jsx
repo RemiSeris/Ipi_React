@@ -18,7 +18,7 @@ const List = ({ children, title }) => {
             <div className="listTitle">
                 {title}
                 <Switch
-                color="secondary"
+                color="primary"
                 checked={checked}
                 onChange={toggleCheck}
                 ></Switch>

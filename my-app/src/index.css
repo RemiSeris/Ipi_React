@@ -14,7 +14,6 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
-
 }
 
 .list {
@@ -32,7 +31,6 @@ body {
 
 .listItems {
   width: 90%;
-
 }
 
 .listTitle {
@@ -105,7 +103,7 @@ body {
   height: 15px;
   border-radius: 9px;
   margin-left: 20px;
-  
+
 }
 
 .switch-container-active{
@@ -125,15 +123,12 @@ body {
   background-color: #e54b4b;
   top: -1px;
   transition: left .6s ease;
-
 }
 
 .switch-active{
 left: -9px;
-
 }
 
 .switch-unactive{
   left: 25px;
- 
 }
