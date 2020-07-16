@@ -2,58 +2,9 @@
 import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
-<<<<<<< HEAD
-import Button from '../components/Button';
-
-
-//On simule un modéle de donée (tableau de list)
-const lists = [
-    {
-        title: 'Liste 1',
-        items: [
-            {
-                title: 'item1',
-            },
-            {
-                title: 'item2',
-            },
-            {
-                title: 'item3',
-            },
-        ]
-    },
-    {
-        title: 'Liste 2',
-        items: [
-            {
-                title: 'item1',
-            },
-            {
-                title: 'item2',
-            },
-            {
-                title: 'item3',
-            },
-        ]
-    },
-    {
-        title: 'Liste 3',
-        items: [
-            {
-                title: 'item1',
-            },
-            {
-                title: 'item2',
-            },
-            {
-                title: 'item3',
-            },
-        ]
-    }
-]
-
-=======
 import Button from '@material-ui/core/Button'
+import {Checkbox} from '@material-ui/core'
+import { CommunicationMailOutline } from 'material-ui/svg-icons';
 
 //On simule un modéle de donée (tableau de list)
 const lists = [
@@ -101,7 +52,6 @@ const lists = [
     }
 ]
 
->>>>>>> origin
 //onj déclare un template d'une list
 const defaultList = {
     title: 'Nouvelle liste',
@@ -116,6 +66,13 @@ const defaultList = {
             title: 'item3',
         },
     ]
+}
+const Datatest={
+
+    data1: "firstdata",
+    data2: 4,
+    data2:" coucou"
+
 }
 
 // on déclare un componet sous forme d'arrow funtion 
@@ -150,6 +107,15 @@ const App = () => {
         //on utilise le setter d'état pour changer l'états de nos liste
         setMyList(listCpy)
     }
+   
+    const SaveList = ()=>{
+        //console.log('button clicked')
+        localStorage.setItem('Datatest', JSON.stringify(Datatest))
+        console.log(JSON.parse(localStorage.getItem('Datatest')))
+        //console.log(localStorage.getItem('Datatest'))
+
+    }
+
 
     return (
         <div className='layout'>
@@ -165,26 +131,23 @@ const App = () => {
                         }
                     </List>
                 )}
-            {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-<<<<<<< HEAD
-            <Button test1={'test1'} test2={"test2"} onClick={addList} title={'Add'} />
-            <Button onClick={removeList} title={'delete'} />
-=======
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Button onClick={addList}>
-                    {"ADD"}
-                </Button>
-                <Button onClick={removeList}>
-                    {"DELETE"}
-                </Button>
-                {/* 
-                <Button onClick={addList} title={'Add'} />
-
-                <Button onClick={removeList} title={'delete'} /> 
-                */}
-            </div>
->>>>>>> origin
+            
+                    <Button onClick={addList} variant="contained" color="primary">ADD</Button>
+                    <Button onClick={removeList} variant="contained" color="secondary">DELETE</Button>
+                   <div>
+                   
+                    <Button onClick = {SaveList}>
+                                {"save list"}
+                    </Button>
+                    </div>
+                        
         </div>
+        
+
+       
+
+
+       
     )
 }
 

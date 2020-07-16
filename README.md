@@ -36,6 +36,26 @@ First of all, let's get some setup:
   
 ## Workshops
 
+### 0 Did i git it ?
+
+**Goals** :
+
+* Asses your knowledge on react fundamental
+* Familiarize with git
+
+**Ressource** :
+
+* Git documentation https://help.github.com/en/github/using-git/learning-about-git
+
+**Instruction**:
+
+1. Create a github account
+2. Create your branch with *git checkout -b FirstNameLastname*
+3. Add all repositorty files to your commit index *git add --all*
+4. Commit your files *git commit -m "my commit msg"*
+5. Push your commit to the remote repository *git push*
+6. Check on github !
+
 ### 1 Hello scalability
 
 **Goals** :
@@ -131,25 +151,25 @@ const List = ({ children }) => {
 5. Set the 'check' state respectively from true to false and from false to true in the toggleCheck function
 6. Check if it works
 
-### 4 Did i git it ?
+### 4 Store !
+*Goals** :
 
-**Goals** :
-
-* Asses your knowledge on react fundamental
-* Familiarize with git
+* Discover the local storage
 
 **Ressource** :
 
-* Git documentation https://help.github.com/en/github/using-git/learning-about-git
+* local storage documentation https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage
 
-**Instruction**:
+**Instruction 1**:
 
-1. Create a github account
-2. Create your branch with *git checkout -b FirstNameLastname*
-3. Add all repositorty files to your commit index *git add --all*
-4. Commit your files *git commit -m "my commit msg"*
-5. Push your commit to the remote repository *git push*
-6. Check on github !
+1. add A button Wich display the string save list in App
+2. create a function called saveList in App
+3. bind the function to the onClick props of the Button
+4. in the function saveList Store your lists state into the local storage
+5. go checkout in your webPage Stockage -> stockage local if your data have well been saved
+
+
+
 
 **On Git**:
 
