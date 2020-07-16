@@ -5,7 +5,7 @@ import Item from '../components/Item'
 import Button from '../components/Button';
 
 
-//On simule un modéle de donée (tableau de list)
+//On simule un modéle de données (tableau de list)
 const lists = [
     {
         title: 'Liste 1',
