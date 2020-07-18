@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
-import Button from '../components/Button';
+//import Button from '../components/Button';
+import {Button} from '@material-ui/core'
 
 
 //On simule un modèle de données (tableau de list)
@@ -113,10 +114,17 @@ const App = () => {
                             items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
                         }
                     </List>
+                      //on rajoute une div autour du bouton pour ne pas qu'il prenne toute la taille du contenair
                 )}
+
+              
+                <div>
+                <Button variant="contained"color="primary">
+                    Mon bouton
+                </Button>
+                </div>
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            <Button onClick={addList} title={'Add'} />
-            <Button onClick={removeList} title={'delete'} />
+            
         </div>
     )
 }

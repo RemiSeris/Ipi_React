@@ -15,6 +15,8 @@ const Item = ({ title }) => {
             toogleDone(true)
     }
 
+    //tout ceci ci-dessus peut aussi s'écrire comme ça:
+    //const changeItemState=()=> toogleDone(!done)
 
     //equivalent d'une arrow fonction:
     /*function changeItemState(){
