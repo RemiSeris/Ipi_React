@@ -24,6 +24,7 @@ const Item = ({ title, description, itemState, listState, callbackFromParent, in
             <div>
                 <h3>{title}</h3>
                 <p>{description}</p>
+                
             </div>
  
         </div>
