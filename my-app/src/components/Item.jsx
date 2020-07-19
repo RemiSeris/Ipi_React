@@ -1,45 +1,40 @@
 import React,{useState} from 'react'
-//créer un état actif non actif par le hooks d'état {useState}
-// quand on clique sur l'item on change l'état
-//selon l'état on applique une classe css active ou non active
+import CheckBox from '@material-ui/core/Checkbox'
+
+
+/*
+- Importer la checkbox
+- Le rajouter au HTML de l'item
+- Mettre le props check de la checkbox sur un état d'un component item
+- Binder la props onClick de la div principale de l'item avec une fonction appelée toogleCheck
+- Dans la fonction, passer check de true à false et inversement
+- Vérification de l'état avec un console log.
+
+*/
+
 
 const Item = ({ title }) => {
-    const[done, toogleDone]=useState(false)
+    //on déclare une variable d'état et un setter
+    const[check, setCheck]=useState(false)
 
-    const changeItemState=() =>{
-        //si l'item est à done true on le passe à done false
-        if (done === true)
-            toogleDone(false)
-        //si l'item est à done false, on le passe à done true
+    console.log('Check',check)
+    //une fonction pour changer l'état de check
+    const toogleCheck = () => {
+        //si true on le passe à false et inversement
+        if (check===true)
+            setCheck(false)
         else
-            toogleDone(true)
+            setCheck(true)
     }
 
-    //tout ceci ci-dessus peut aussi s'écrire comme ça:
-    //const changeItemState=()=> toogleDone(!done)
-
-    //equivalent d'une arrow fonction:
-    /*function changeItemState(){
-
-    }*/
-
-    console.log('is Item Done?',done)
-
-    //on passe la classe en variable:
-    //rappel, condition? si ma condition est remplie: si ma condition n'est pas remplie
-    const itemClassName=done === false?"item":"item itemDone"
-
-    //condition sans le mode ternaire:
-    /*let itemClassName="item"
-    if(done===true)
-        itemClassName="item itemDone"
-    */
-
-    return (
-        <div className={itemClassName} onClick={changeItemState}>
+    return(
+        <div onClick = {toogleCheck}>   
             {title}
+            {/*on utilise le component checkbox de material ui pour afficher l'état de l'item*/}
+            <CheckBox checked={check}/>
         </div>
     )
+  
 }
 
 export default Item
