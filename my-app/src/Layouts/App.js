@@ -103,6 +103,11 @@ const App = () => {
         setMyList(listCpy)
     }
 
+    const saveList = () => {
+        console.log('bouton sauvé?')
+        localStorage.setItem('myLists',JSON.stringify(myLists))
+    }
+
     return (
         <div className='layout'>
             {
@@ -129,7 +134,11 @@ const App = () => {
                     </Button>
                 </div>
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            
+            <div>
+                <Button onClick={saveList}>
+                            save the list
+                </Button>
+            </div>
         </div>
     )
 }
