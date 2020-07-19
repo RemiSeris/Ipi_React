@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import Button from '../components/Button';
 import List from '../components/List';
 import Item from '../components/Item';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import SaveIcon from '@material-ui/icons/Save';
+
 
 
 const lists = [
@@ -50,20 +53,20 @@ const lists = [
 ]
 
 const defaultList =
-    {
-        title: 'Liste 1',
-        items: [
-            {
-                title: 'item1',
-            },
-            {
-                title: 'item2',
-            },
-            {
-                title: 'item3',
-            },
-        ]
-    }
+{
+    title: 'Liste ',
+    items: [
+        {
+            title: 'item1',
+        },
+        {
+            title: 'item2',
+        },
+        {
+            title: 'item3',
+        },
+    ]
+}
 
 const App = () => {
 
@@ -83,21 +86,46 @@ const App = () => {
         setMyList(listCopy)
     }
 
-    
+    const saveList = () => {
+        localStorage.setItem('myListState',JSON.stringify(lists))
+    }
+
+
 
     return (
         <div className='layout'>
+            <div>
+                <div className='buttonContenair' >
+                    <div>
+                        <Button variant="contained" color="primary" onClick={addList}>ajouter</Button>
+                    </div>
+                    <div>
+                        <Button variant="contained" color="secondary" onClick={removeList} startIcon={<DeleteIcon />}>Supprimer</Button>
+                    </div>
+                    <div>
+                        <Button variant="contained" startIcon={<SaveIcon />} onClick={saveList}>Sauver</Button>
+                    </div>
+                </div>
+                <div className='layout'>
+                    {
+                        myLists.map(({ items, title }) =>
+                            <List title={title}  >
+                                {
+                                    items.map(({ title: itemTitle }) => <Item title={title} />)
+                                }
+                            </List>
+                        )}
 
-            {
-                myLists.map(({ items, title }) => 
-                    <List title={title}  >
-                        {
-                        items.map(({ title: itemTitle }) => <Item title={title} />)
-                        }
-                    </List>
-                )}
-                <Button onClick ={addList} title={'ajouter'}/>
-                <Button onClick={removeList} title={'Supprimer'}/>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
         </div>
     )
 }
