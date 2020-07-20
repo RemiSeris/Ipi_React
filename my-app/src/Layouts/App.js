@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
 import Button from '@material-ui/core/Button'
-import {Checkbox} from '@material-ui/core'
+import { Checkbox } from '@material-ui/core'
 
 
 //On simule un modéle de donée (tableau de list)
@@ -68,11 +68,11 @@ const defaultList = {
         },
     ]
 }
-const Datatest={
+const Datatest = {
 
     data1: "firstdata",
     data2: 4,
-    data2:" coucou"
+    data2: " coucou"
 
 }
 
@@ -108,11 +108,11 @@ const App = () => {
         //on utilise le setter d'état pour changer l'états de nos liste
         setMyList(listCpy)
     }
-   
-    const SaveList = ()=>{
+
+    const SaveList = () => {
         //console.log('button clicked')
-        localStorage.setItem('Datatest', JSON.stringify(Datatest))
-        console.log(JSON.parse(localStorage.getItem('Datatest')))
+        localStorage.setItem('Mylist', JSON.stringify(myLists))
+        console.log(JSON.parse(localStorage.getItem('Mylist')))
         //console.log(localStorage.getItem('Datatest'))
 
     }
@@ -132,23 +132,23 @@ const App = () => {
                         }
                     </List>
                 )}
-            
-                    <Button onClick={addList} variant="contained" color="primary">ADD</Button>
-                    <Button onClick={removeList} variant="contained" color="secondary">DELETE</Button>
-                   <div>
-                   
-                    <Button onClick = {SaveList}>
-                                {"save list"}
-                    </Button>
-                    </div>
-                        
+
+            <Button onClick={addList} variant="contained" color="primary">ADD</Button>
+            <Button onClick={removeList} variant="contained" color="secondary">DELETE</Button>
+            <div>
+
+                <Button onClick={SaveList}>
+                    {"save list"}
+                </Button>
+            </div>
+
         </div>
-        
-
-       
 
 
-       
+
+
+
+
     )
 }
 
