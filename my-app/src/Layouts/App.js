@@ -6,11 +6,12 @@ import Item from '../components/Item';
 import Button from '@material-ui/core/Button';
 import ItemState from '../components/ItemState';
 import { KEY_LOCAL_STORAGE } from '../const';
-import EffectExampl from '../components/EffectExampl';
+import Counter1 from '../components/Counter1';
+import AppContextProvider from '../AppContextProvider'
 
-
+/*
 //On simule un modéle de donée (tableau de list)
-const lists = [
+const defaultLists = [
     {
 
         title: 'Liste 1',
@@ -71,17 +72,21 @@ const defaultList = {
         },
     ]
 }
-
-const testObject = {
-    data1: 'myData1',
-    data2: 2,
-}
+*/
 
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
     // on utilise un hooks d'état pour pouvoir moifier la page
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
-    const [myLists, setMyList] = useState(lists)
+    const [myLists, setMyList] = useState(defaultLists)
+
+
+    //On utilise un useEffect pour utiliser un effet
+    useEffect(() => {
+        const mydataFromStorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
+        if (mydataFromStorage)
+            setMyList(mydataFromStorage)
+    }, [])
 
     useEffect(() => {
         const Mydatastorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
@@ -94,6 +99,12 @@ const App = () => {
             localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
         }
 
+    }, [myLists])
+
+
+
+    useEffect(() => {
+        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
     }, [myLists])
 
     //on crée une fonction pour ajouter un élément à la liste
@@ -123,10 +134,6 @@ const App = () => {
     }
 
 
-
-    const saveList = () => {
-        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
-    }
 
     return (
         <div className='layout'>
@@ -159,12 +166,15 @@ const App = () => {
                 {"Save list"}
             </Button>
                 */}
+
+
             </div>
-
-            <EffectExampl />
-        </div >
-
-
+            <div>
+                <AppContextProvider>
+                    <Counter1 />
+                </AppContextProvider>
+            </div>
+        </div>
     )
 
     const savelist = () => {
