@@ -4,11 +4,11 @@ import List from '../components/List'
 import Item from '../components/Item'
 import Button from '@material-ui/core/Button'
 import { KEY_LOCAL_STORAGE } from '../const'
-import EffectExampl from '../components/EffectExampl';
-
+import Counter1 from '../components/Counter1';
+import CounterContextProvider from '../CounterContextProvider'
 
 //On simule un modéle de donée (tableau de list)
-const lists = [
+const defaultLists = [
     {
         title: 'Liste 1',
         items: [
@@ -70,12 +70,19 @@ const defaultList = {
 }
 
 
-
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
     // on utilise un hooks d'état pour pouvoir moifier la page
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
-    const [myLists, setMyList] = useState(lists)
+    const [myLists, setMyList] = useState(defaultLists)
+
+
+    //On utilise un useEffect pour utiliser un effet
+    useEffect(() => {
+        const mydataFromStorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
+        if (mydataFromStorage)
+            setMyList(mydataFromStorage)
+    }, [])
 
     useEffect(() => {
         const mydataFromstorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
@@ -84,12 +91,12 @@ const App = () => {
 
     }, [])
 
-    useEffect(() => {
-        const mydataFromstorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
-        if (mydataFromstorage)
-            setMyList(mydataFromstorage)
 
+
+    useEffect(() => {
+        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
     }, [myLists])
+
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
 
@@ -118,10 +125,6 @@ const App = () => {
 
 
 
-    const saveList = () => {
-        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
-    }
-
     return (
         <div className='layout'>
             {
@@ -149,11 +152,11 @@ const App = () => {
                 <Button onClick={removeList} title={'delete'} /> 
                 */}
             </div>
-
-            <Button onClick={saveList}>
-                {"Save list"}
-            </Button>
-            <EffectExampl />
+            <div>
+                <CounterContextProvider>
+                    <Counter1 />
+                </CounterContextProvider>
+            </div>
         </div>
     )
 }
