@@ -120,6 +120,10 @@ const App = () => {
 >>>>>>> 6a1ba732c9906f887952e949c6d4afa4d5e84f45
     }
 
+    const getList = () => {
+        localStorage.getItem(KEY_LOCAL_STORAGE)
+    }
+
     return (
         <div className='layout'>
             {
