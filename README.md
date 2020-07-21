@@ -159,14 +159,34 @@ const List = ({ children }) => {
 **Ressource** :
 
 * local storage documentation https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage
+* Json stringify documentation https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/JSON/stringify
 
 **Instruction 1**:
 
 1. add A button Wich display the string save list in App
 2. create a function called saveList in App
 3. bind the function to the onClick props of the Button
-4. in the function saveList Store your lists state into the local storage
+4. in the function saveList Store your myLists state into the local storage (dont forget to use JSON.stringify())
 5. go checkout in your webPage Stockage -> stockage local if your data have well been saved
+
+### 5 Hooks Effect !
+*Goals** :
+
+* Parctice local storage
+* Discover the useEffect hook
+
+**Ressource** :
+
+* local storage documentation https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage
+* useEffect Documentation   https://fr.reactjs.org/docs/hooks-effect.html
+
+**Instruction 1**:
+
+1. Import useEffect from React in App
+2. Add a useEffect to the App Componenent
+3. retrieve the data from local+Storage with localStorage.getItem
+4. retrieve the data at the launch of the App (use useEffect)
+5. Set the retrieved data as the default state of 'myLists'
 
 
 
