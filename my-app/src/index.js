@@ -7,7 +7,6 @@ import CounterContextProvider from './CounterContextProvider';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <CounterContextProvider />
   </React.StrictMode>,
   document.getElementById('root')
 );

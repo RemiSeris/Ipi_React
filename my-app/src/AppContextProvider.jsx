@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react'
-import List from '../components/List'
-import Item from '../components/Item'
+import List from './components/List'
+import Item from './components/Item'
 import Button from '@material-ui/core/Button'
-import { KEY_LOCAL_STORAGE } from '../const'
+import { KEY_LOCAL_STORAGE } from './const'
 
 
 
@@ -75,10 +75,12 @@ const defaultList = {
 //On déclare un component ContextProvider 
 const AppContextProvider = ({ children }) => {
     const [myLists, setMyList] = useState(defaultLists)
+    console.log(myLists, "hello")
 
 
     //On utilise un useEffect pour utiliser un effet
     useEffect(() => {
+        
         const mydataFromStorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
         if (mydataFromStorage)
             setMyList(mydataFromStorage)
@@ -87,12 +89,11 @@ const AppContextProvider = ({ children }) => {
 
     //Utilisation de UseEffect
 
-    /*useEffect(() => {
+    /*useEffect(() => {, '
         const mydatafromstorage = JSON.parse(localStorage.getItem('lastlist'))
         if (mydatafromStorage)
             setMyList(mydatafromStorage)
     }, [])*/
-    setMyList(localStorage.getItem('myLists'))
     
     useEffect((myLists) => {
         localStorage.setItem('myLists', JSON.stringify(myLists))

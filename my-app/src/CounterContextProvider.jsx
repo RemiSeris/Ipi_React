@@ -1,7 +1,5 @@
 import React, { createContext, useState } from 'react'
 
-
-
 //  On crée notre context avec useContext et on l'export
 export const CounterContext = createContext({})
 
