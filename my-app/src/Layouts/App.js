@@ -114,12 +114,13 @@ const App = () => {
     /* Je me suis servie des commentaires sur ce post pour réaliser mes databindings : 
     https://stackoverflow.com/questions/42217579/data-binding-in-react#:~:text=Data%20binding%20in%20React%20can,as%20the%20input%20value%20changes.&text=To%20be%20short%2C%20in%20React,two%2Dway%20data%2Dbinding. */
   //Observe les changements apportés à la liste
-  let loadedList = []
 
-    useEffect(()=>{
-         loadedList = JSON.parse(localStorage.getItem('list'))
-         setMyList(loadedList)
-    },[])
+  useEffect(()=>{
+    let loadedList = JSON.parse(localStorage.getItem('list'))
+    if(loadedList !== undefined && loadedList !== null){
+       setMyList(loadedList)
+    }
+},[])
     const [myList, setMyList] = useState(lists)
 
     // Observe les changements sur les onglets
