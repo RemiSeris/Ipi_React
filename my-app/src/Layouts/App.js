@@ -72,7 +72,7 @@ const defaultList = {
         },
     ]
 }
-*/
+
 
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
@@ -131,33 +131,33 @@ const App = () => {
 
         //on utilise le setter d'état pour changer l'états de nos liste
         setMyList(listCpy)
-    }
+    }*/
 
 
 
-    return (
-        <div className='layout'>
-            {
-                // On utilise la méthode .map pour parcourir les éléments,
-                // de nos tableau et renvoyer pour chaque élément le component indiquée
-                myLists.map(({ items, title }) =>
-                    // On affiche nos lists une a une sous forme de component
-                    <List title={title} myProps={"zeaaze"} >
-                        {
-                            // On affiche les items d'une liste une à une sous forme de component
-                            items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
-                        }
-                    </List>
-                )}
-            {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Button onClick={addList} variant='contained'>
-                    {"ADD"}
-                </Button>
-                <Button onClick={removeList}>
-                    {"DELETE"}
-                </Button>
-                {/* 
+return (
+    <div className='layout'>
+        {
+            // On utilise la méthode .map pour parcourir les éléments,
+            // de nos tableau et renvoyer pour chaque élément le component indiquée
+            myLists.map(({ items, title }) =>
+                // On affiche nos lists une a une sous forme de component
+                <List title={title} myProps={"zeaaze"} >
+                    {
+                        // On affiche les items d'une liste une à une sous forme de component
+                        items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
+                    }
+                </List>
+            )}
+        {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Button onClick={addList} variant='contained'>
+                {"ADD"}
+            </Button>
+            <Button onClick={removeList}>
+                {"DELETE"}
+            </Button>
+            {/* 
                 <Button onClick={addList} title={'Add'} />
 
                 <Button onClick={removeList} title={'delete'} /> 
@@ -168,19 +168,19 @@ const App = () => {
                 */}
 
 
-            </div>
-            <div>
-                <AppContextProvider>
-                    <Counter1 />
-                </AppContextProvider>
-            </div>
         </div>
-    )
+        <div>
+            <AppContextProvider>
+                <Counter1 />
+            </AppContextProvider>
+        </div>
+    </div>
+)
 
-    const savelist = () => {
-        <Button onClick={saveList} >Save the list</Button>
-        localStorage.setItem('', JSON.stringify());
-    }
+const savelist = () => {
+    <Button onClick={saveList} >Save the list</Button>
+    localStorage.setItem('', JSON.stringify());
+}
 
 }
 
