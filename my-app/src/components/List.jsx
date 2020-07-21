@@ -4,7 +4,6 @@ import CreateIcon from '@material-ui/icons/Create';
 class List extends React.Component {
     constructor(props){
         super(props);
-        console.log(props, 'props');
     }
 
     render() {
