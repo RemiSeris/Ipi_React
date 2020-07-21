@@ -36,6 +36,26 @@ First of all, let's get some setup:
   
 ## Workshops
 
+### 0 Did i git it ?
+
+**Goals** :
+
+* Asses your knowledge on react fundamental
+* Familiarize with git
+
+**Ressource** :
+
+* Git documentation https://help.github.com/en/github/using-git/learning-about-git
+
+**Instruction**:
+
+1. Create a github account
+2. Create your branch with *git checkout -b FirstNameLastname*
+3. Add all repositorty files to your commit index *git add --all*
+4. Commit your files *git commit -m "my commit msg"*
+5. Push your commit to the remote repository *git push*
+6. Check on github !
+
 ### 1 Hello scalability
 
 **Goals** :
@@ -124,38 +144,91 @@ const List = ({ children }) => {
 
 **Instruction 2**:
 
-2. import the CheckBox component from @material-ui/core in Item.jsx
-3. add the CheckBox component to html of the Item component
-4. set the check props of the  CheckBox component to a state in the Item Component
-5. Bind The onClick of the  main div in Item to a function called toogleCheck
-6. Set the 'check' state respectively from true to false and from false to true in the toggleCheck function
-7. Check if it works
+1. import the CheckBox component from @material-ui/core in Item.jsx
+2. add the CheckBox component to html of the Item component
+3. set the check props of the  CheckBox component to a state in the Item Component
+4. Bind The onChange of the  main div in Item to a function called toogleCheck
+5. Set the 'check' state respectively from true to false and from false to true in the toggleCheck function
+6. Check if it works
 
-### 4 Did i git it ?
+### 4 Store !
+*Goals** :
 
-**Goals** :
-
-* Asses your knowledge on react fundamental
-* Familiarize with git
+* Discover the local storage
 
 **Ressource** :
 
-* Git documentation https://help.github.com/en/github/using-git/learning-about-git
+* local storage documentation https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage
+* Json stringify documentation https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/JSON/stringify
 
-**Instruction**:
+**Instruction 1**:
 
-1. Create a github account
-2. Create your branch with *git checkout -b FirstNameLastname*
-3. Add all repositorty files to your commit index *git add --all*
-4. Commit your files *git commit -m "my commit msg"*
-5. Push your commit to the remote repository *git push*
-6. Check on github !
+1. add A button Wich display the string save list in App
+2. create a function called saveList in App
+3. bind the function to the onClick props of the Button
+4. in the function saveList Store your myLists state into the local storage (dont forget to use JSON.stringify())
+5. go checkout in your webPage Stockage -> stockage local if your data have well been saved
+
+### 5 Hooks Effect !
+*Goals** :
+
+* Parctice local storage
+* Discover the useEffect hook
+
+**Ressource** :
+
+* local storage documentation https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage
+* useEffect Documentation   https://fr.reactjs.org/docs/hooks-effect.html
+
+**Instruction 1**:
+
+1. Import useEffect from React in App
+2. Add a useEffect to the App Componenent
+3. retrieve the data from local+Storage with localStorage.getItem
+4. retrieve the data at the launch of the App (use useEffect)
+5. Set the retrieved data as the default state of 'myLists'
+
+
+**Instruction 2**:
+
+1. Remove the button save list
+2. Add a new useEffect to the App Componenent
+2. Add "MyList" as an Effect Dependency to the new useEffect
+3. In the new use Effect effect, save "myLists" in the localStorage 
+4. Check in your web-browser if the lists are well saved when modification are done
+5. Check in your web-browser if the lists does well persist when the page is reloaded
+
+
 
 **On Git**:
 
 * To switch branches git checkout *branch name*
 * To push work *git push*
 * To pull from master *git pull origin master*
+
+
+
+### 6 (advanced version) It's all about context ?
+
+**Goals** :
+
+* Dicover the useContext Hooks
+* Familiarize date managment
+
+**Ressource** :
+
+* Hooks documentation https://fr.reactjs.org/docs/hooks-reference.html#usecontext
+
+**Instruction**:
+
+1. Create a context called AppContext
+2. Create a component called AppContextProvider
+3. Return AppContext.Provider and children in the return statement of the AppContextProvider component 
+3. Add the AppContextProvider to the index.js return statement
+4. Move all the 'myLists' state manadgment from App to AppContext
+5. Reproduce the same behaviour than previously (add List, delete list, save list in localStorage with useEffect, getList from localStorage with useEffect)
+6. checkout if it works
+
 
 
 ### 6 It's all about context ?
@@ -167,16 +240,15 @@ const List = ({ children }) => {
 
 **Ressource** :
 
-* Moment documentation https://momentjs.com/
 * Hooks documentation https://fr.reactjs.org/docs/hooks-reference.html#usecontext
 
 **Instruction**:
 
-1. Add a date field to the list model
-2. Add a date to the Header
-3. Add a button to switch the date
-4. Display only  the targeted date lists
-5. Use a scroll area view
+1. Create a context called AppContext
+2. Add The AppContextProviderto the index.js
+3. Move the List manadgement from App to Appcontext (preserve the same behaviour)
+4. Add the an addItem Button and a deleteItem Button to the List Component
+5. Manadge with a your AppContext to add an Item ,delete an Item ,add a list, delete a list, save list whens the list Array or an item change
 
 
 ### 7 Let's get on Fire(Base)
