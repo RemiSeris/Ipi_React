@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '../components/List';
 import Item from '../components/Item';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
-
 
 
 const lists = [
@@ -72,11 +71,24 @@ const App = () => {
 
     const [myLists, setMyList] = useState(lists)
 
+    useEffect(() => {
+        var mydataFromLocalStorage = JSON.parse(localStorage.getItem('myListState'))
+        if (mydataFromLocalStorage)
+        setMyList(mydataFromLocalStorage)
+
+    }, [])
+ //j'enregistre quand variable d'etat myList Change
+    useEffect(() => {
+        localStorage.setItem('myListState',JSON.stringify(myLists))
+    },[myLists])
+
+
     const addList = () => {
         console.log("click ajoute")
         myLists.push(defaultList)
-        const listCopy = myLists.map(list => list)
-        setMyList(listCopy)
+        const listCpy = myLists.map(list => list)
+        setMyList(listCpy)
+        console.log('myList',myLists)
     }
 
     const removeList = () => {
@@ -85,12 +97,6 @@ const App = () => {
         const listCopy = myLists.map(list => list)
         setMyList(listCopy)
     }
-
-    const saveList = () => {
-        localStorage.setItem('myListState',JSON.stringify(lists))
-    }
-
-
 
     return (
         <div className='layout'>
@@ -102,10 +108,9 @@ const App = () => {
                     <div>
                         <Button variant="contained" color="secondary" onClick={removeList} startIcon={<DeleteIcon />}>Supprimer</Button>
                     </div>
-                    <div>
-                        <Button variant="contained" startIcon={<SaveIcon />} onClick={saveList}>Sauver</Button>
-                    </div>
                 </div>
+                
+            
                 <div className='layout'>
                     {
                         myLists.map(({ items, title }) =>
@@ -119,11 +124,6 @@ const App = () => {
                 </div>
 
             </div>
-
-
-
-
-
 
 
         </div>
