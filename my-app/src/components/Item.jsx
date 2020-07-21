@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Checkbox } from '@material-ui/core';
+import  {Checkbox}  from '@material-ui/core';
 
 
 const Item = ({ title }) => {
@@ -27,7 +27,7 @@ const Item = ({ title }) => {
         <div >
             {title}
             {/* on utilise le component checkbox de material ui pour afficher l'état de notre item */}
-            <CheckBox onChange={toogleCheck} checked={check} />
+            <Checkbox onChange={toogleCheck} checked={check} />
         </div>
     )
 }
