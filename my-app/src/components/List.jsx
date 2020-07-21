@@ -10,9 +10,10 @@ import { AppContext } from '../AppContext'
 
 
 const List = ({ children, title, state, index }, props) => {
-    const {changeList,openAddList} = useContext(AppContext)
+    const {changeList, openAddItem} = useContext(AppContext)
 
     const [checked, setChecked] = useState(state)
+
     const toggleCheck = () => {
         if (checked)
             setChecked(false)
@@ -33,8 +34,8 @@ const List = ({ children, title, state, index }, props) => {
                 <Switch color="primary" checked={state} onChange={toggleCheck}></Switch>
             </div>
             <div className={'listItems'}>
-            <div className='item'>
-                    <Button variant="outlined" color="secondary"  onClick={openAddList} startIcon={<EditIcon />} className={"btn-add"}>
+            <div className='item item-add'>
+                    <Button variant="outlined" color="secondary"  onClick={openAddItem} startIcon={<EditIcon />} className={"btn-add"}>
                         Add Item
                         </Button>
                 </div>

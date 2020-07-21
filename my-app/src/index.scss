@@ -121,6 +121,14 @@ body {
     font-size: 12px;
     text-transform: none;
   }
+
+  &-add{
+    justify-content: center;
+  }
+
+  &-content{
+    width: 80%;
+  }
 }
 
 .item-done {
