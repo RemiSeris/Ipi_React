@@ -10,7 +10,7 @@ const Item = ({title}) => {
     };
     return (
         <div style={{display : "flex"}}>
-            <div className={switchClass} onClick={onCheckChange}>
+            <div className={switchClass} style={{cursor: "pointer"}} onClick={onCheckChange}>
                 {title}
             </div>
             <Checkbox color={"secondary"} checked={checkValue} onChange={onCheckChange} />
