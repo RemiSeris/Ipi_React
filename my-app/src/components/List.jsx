@@ -1,5 +1,6 @@
 import React from 'react'
 import CreateIcon from '@material-ui/icons/Create';
+import Button from "@material-ui/core/Button";
 
 class List extends React.Component {
     constructor(props){
@@ -15,6 +16,9 @@ class List extends React.Component {
                 </div>
                 <div className={'listItems'}>
                     {this.props.children}
+                </div>
+                <div>
+                    <Button  variant={'outlined'} size={"medium"} style={{width : 25}}>Add</Button>
                 </div>
             </div>
         )
