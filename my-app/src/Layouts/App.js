@@ -1,34 +1,30 @@
 //Lorsque on veut créer un component on importe React
-import React, { useState, useEffect, useContext } from 'react';
+import React from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
 import Button from '@material-ui/core/Button'
-import { KEY_LOCAL_STORAGE } from '../const'
-import Counter1 from '../components/Counter1';
-import CounterContextProvider from '../CounterContextProvider'
-import { AppContext } from '../AppContext'
-
-//On simule un modéle de donée (tableau de list)
-
+import { useContext } from 'react';
+import { AppContext } from '../AppContextProvider';
+import TextFieldExample from '../components/TextFieldExample'
 
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
-    // on utilise un hooks d'état pour pouvoir moifier la page
-    // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
+    const { myLists, addList, removeList } = useContext(AppContext)
 
     const values = useContext(AppContext)
 
     return (
         <div className='layout'>
+            <TextFieldExample />
             {
                 // On utilise la méthode .map pour parcourir les éléments,
                 // de nos tableau et renvoyer pour chaque élément le component indiquée
-                myLists.map(({ items, title }) =>
+                myLists.map((list) =>
                     // On affiche nos lists une a une sous forme de component
-                    <List title={title} myProps={"zeaaze"} >
+                    <List list={list} >
                         {
                             // On affiche les items d'une liste une à une sous forme de component
-                            items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
+                            list.items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
                         }
                     </List>
                 )}
@@ -40,18 +36,9 @@ const App = () => {
                 <Button onClick={removeList}>
                     {"DELETE"}
                 </Button>
-                {/* 
-                <Button onClick={addList} title={'Add'} />
-                <Button onClick={removeList} title={'delete'} /> 
-                */}
             </div>
-            <div>
-                {/* <CounterContextProvider>
-                    <Counter1 />
-                </CounterContextProvider> */}
 
-                <AppContext> </AppContext>
-            </div>
+
         </div>
     )
 }

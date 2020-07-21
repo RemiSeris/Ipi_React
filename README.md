@@ -251,6 +251,17 @@ const List = ({ children }) => {
 5. Manadge with a your AppContext to add an Item ,delete an Item ,add a list, delete a list, save list whens the list Array or an item change
 
 
+**Instruction 2**:
+
+1. Create a Popup component, manadge is props 'open' with a state in AppContext
+2. The component Popup will display a <Dialog> component (https://material-ui.com/components/dialogs/#dialog) with the title "New List"
+3. Add a TextField into the Dialog Component with label "name"
+4. Manadge the TextField value with a state in the Popup Component
+5. Add a Button Submit into the Popup Component
+6. When the Button submit is clicked create a newList, it's title is the value of the input (use the Context !) and the Popup close (clear the input before closing) 
+7. Checkout if it works
+
+
 ### 7 Let's get on Fire(Base)
 
 **Goals** :
