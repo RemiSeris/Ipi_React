@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button'
 import { KEY_LOCAL_STORAGE } from '../const'
 import EffectExampl from '../components/EffectExampl';
 
-
 //On simule un modéle de donée (tableau de list)
 const lists = [
     {
@@ -132,7 +131,6 @@ const App = () => {
                 <Button onClick={removeList}>
                     {"DELETE"}
                 </Button>
-                    <Button onClick={saveList}>{"Display"}</Button>
 
                 {/* 
                 <Button onClick={addList} title={'Add'} />
