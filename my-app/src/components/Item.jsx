@@ -18,10 +18,10 @@ const Item = ({ title }) => {
     }
 
     return (
-        <div onClick={toogleCheck}>
+        <div >
             {title}
             {/* on utilise le component checkbox de material ui pour afficher l'état de notre item */}
-            <CheckBox checked={check} />
+            <CheckBox onChange={toogleCheck} checked={check} />
         </div>
     )
 }

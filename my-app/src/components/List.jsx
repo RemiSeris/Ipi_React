@@ -4,7 +4,6 @@ import Switch from '@material-ui/core/Switch'
 
 const List = ({ children, title }) => {
     const [checked, setChecked] = useState(false)
-
     const toogleCheck = () => {
         // setChecked(!checked)
         if (checked === true)
