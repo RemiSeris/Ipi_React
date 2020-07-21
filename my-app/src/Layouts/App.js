@@ -1,5 +1,5 @@
 //Lorsqu'on veut créer un component on importe React
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
 import Button from '@material-ui/core/Button'
@@ -113,6 +113,14 @@ const App = () => {
 
     /* Je me suis servie des commentaires sur ce post pour réaliser mes databindings : 
     https://stackoverflow.com/questions/42217579/data-binding-in-react#:~:text=Data%20binding%20in%20React%20can,as%20the%20input%20value%20changes.&text=To%20be%20short%2C%20in%20React,two%2Dway%20data%2Dbinding. */
+  //Observe les changements apportés à la liste
+  let loadedList = []
+
+    useEffect(()=>{
+         loadedList = JSON.parse(localStorage.getItem('list'))
+         setMyList(loadedList)
+    },[])
+    const [myList, setMyList] = useState(lists)
 
     // Observe les changements sur les onglets
     const [myTab, setMyTab] = useState(indexTab)
@@ -121,8 +129,7 @@ const App = () => {
         setMyTab(index)
     }
 
-    //Observe les changements apportés à la liste
-    const [myList, setMyList] = useState(lists)
+  
 
     //Sauvegarde l'etat de la liste dans le local storage
     const saveList = () => {
@@ -251,7 +258,7 @@ const App = () => {
                         {
                             myList.map(({ items, title, state }, index) => {
                                 if (myTab === index) {
-                                    return <List title={title} key={index} state={state} index={index} callbackFromParent={changeList} >
+                                    return <List title={title} key={index} state={state} index={index} callbackFromParent={changeList} callbackAddItemList={openAddList}>
                                         {items.map(({ title: itemTitle, description, state: itemState }, indexItem) => {
                                             return <Item title={itemTitle} description={description} itemState={itemState} listState={state} indexList={index} indexItem={indexItem} callbackFromParent={changeListItem}></Item>
                                         })}
@@ -262,6 +269,7 @@ const App = () => {
 
                             })
                         }
+
                     </div>
 
                 </div>
@@ -280,6 +288,7 @@ const App = () => {
                     <Button onClick={closeDeleteList} color="secondary" variant="contained" autoFocus>No</Button>
                 </DialogActions>
             </Dialog>
+
             {/* Popin ajout liste */}
             <Dialog open={openDialogAddList} onClose={closeAddList} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                 <DialogTitle id="alert-dialog-title">{"Add a new list!"}</DialogTitle>
@@ -288,7 +297,7 @@ const App = () => {
                         You are about to add a new list! Choose a name for your list:
                     </DialogContentText>
                     <FormControl>
-                            <InputLabel htmlFor="input-with-icon-adornment">YourS list name:</InputLabel>
+                            <InputLabel htmlFor="input-with-icon-adornment">Your list name:</InputLabel>
                             <Input value={myListTitle} onChange={changeMyListTitle} inputProps={{maxLength: 15,}} id="list-name"startAdornment={
                                     <InputAdornment position="start">
                                         <EditIcon />
@@ -300,6 +309,34 @@ const App = () => {
                     <Button onClick={closeAddList} color="secondary" variant="contained" autoFocus>Cancel</Button>
                 </DialogActions>
             </Dialog>
+
+            {/* Popin ajout liste */}
+{/*             <Dialog open={openDialogAddListItem} onClose={closeAddList} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+                <DialogTitle id="alert-dialog-title">{"Add a new item in your list!"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        You are about to add a new item inside your list! Choose a name and description for your item:
+                    </DialogContentText>
+                    <FormControl>
+                            <InputLabel htmlFor="input-with-icon-adornment">Your item name:</InputLabel>
+                            <Input value={myListTitle} onChange={changeMyListTitle} inputProps={{maxLength: 15,}} id="list-name"startAdornment={
+                                    <InputAdornment position="start">
+                                        <EditIcon />
+                                    </InputAdornment>}/>
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel htmlFor="input-with-icon-adornment">Your item desrciption:</InputLabel>
+                            <Input value={myListTitle} onChange={changeMyListTitle} multiline id="list-name"startAdornment={
+                                    <InputAdornment position="start">
+                                        <EditIcon />
+                                    </InputAdornment>}/>
+                        </FormControl>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={addList} color="primary" variant="outlined">Add a new List</Button>
+                    <Button onClick={closeAddList} color="secondary" variant="contained" autoFocus>Cancel</Button>
+                </DialogActions>
+            </Dialog> */}
         </MuiThemeProvider>
     )
 }
