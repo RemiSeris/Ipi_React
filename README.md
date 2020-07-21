@@ -185,7 +185,7 @@ const List = ({ children }) => {
 1. Import useEffect from React in App
 2. Add a useEffect to the App Componenent
 3. retrieve the data from local+Storage with localStorage.getItem
-4. retrieve the data at the launch of the App (use LocalStorage)
+4. retrieve the data at the launch of the App (use useEffect)
 5. Set the retrieved data as the default state of 'myLists'
 
 
