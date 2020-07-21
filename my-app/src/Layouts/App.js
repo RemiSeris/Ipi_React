@@ -11,27 +11,10 @@ import {appContext} from "../components/appContextProvider";
 
 const App = () => {
 
-    const {myLists, setMyList, defaultList} = useContext(appContext);
+    const {myLists, setMyList, defaultList, addList, removeList} = useContext(appContext);
 
     //     //on crée une fonction pour ajouter un élément à la liste
-    const addList = () => {
-        //on pousse un nouvelle élément dans le tableau de liste
-        myLists.push(defaultList);
-        // on crée une copie de notre tableau pour changer la référence
-        const listCpy = myLists.map(list => list);
-        //on utilise le setter d'état pour changer l'états de nos liste
-        setMyList(listCpy)
-    };
-//
-//     //on crée une fonction pour enlever un élément à la liste
-    const removeList = () => {
-//         //on enléve le dernier élément du tableau de list
-        myLists.pop();
-//         // on crée une copie de notre tableau pour changer la référence
-        const listCpy = myLists.map(list => list);
-//         //on utilise le setter d'état pour changer l'états de nos liste
-        setMyList(listCpy)
-    };
+
 
     function clickIcon(item) {
         console.log(item);

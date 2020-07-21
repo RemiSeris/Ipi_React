@@ -11,24 +11,30 @@ const Item = ({item}) => {
     const onCheckChange = () => {
         setCheckValue(!checkValue);
     };
-    const dropMyItem = (itemsel) => {
-       myLists.forEach((x,index)=> {
-            x.items.forEach((x)=>{
-                if(x === itemsel){
-                    // myLists.splice(1,index,newListItem);
+    const dropMyItem = () => {
+        let listItemCopy, listCopy, listIndex;
+        const x = myLists.find((y, index2) => {
+            return y.items.find((x, index) => {
+                if (x === item) {
+                    y.items.splice(index, 1);
+                    listItemCopy = y.items.map(list => list);
                 }
-           })
+                listIndex = index2;
+                return x === item;
+            });
         });
-       // console.log(monItem,'mon item');
+            myLists.splice(listIndex, 1, x);
+            listCopy = myLists.map(items => items);
+            setMyList(listCopy);
     };
 
     return (
-        <div style={{display : "flex", justifyContent: 'center', alignItems : 'center'}}>
+        <div style={{display: "flex", justifyContent: 'center', alignItems: 'center'}}>
             <div className={switchClass} style={{cursor: "pointer"}} onClick={onCheckChange}>
                 {item.title}
             </div>
-            <Checkbox color={"secondary"} checked={checkValue} onChange={onCheckChange} />
-            <Button  variant={'outlined'} size={"small"} style={{height: 20}} onClick={dropMyItem(item)} >x</Button>
+            <Checkbox color={"secondary"} checked={checkValue} onChange={onCheckChange}/>
+            <Button variant={'outlined'} size={"small"} style={{height: 20}} onClick={dropMyItem}>x</Button>
         </div>
 
 
