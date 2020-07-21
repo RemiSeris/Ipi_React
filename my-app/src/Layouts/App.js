@@ -1,11 +1,14 @@
 //Lorsque on veut créer un component on importe React
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
 import Button from '@material-ui/core/Button'
+import { KEY_LOCAL_STORAGE } from '../const'
+import Counter1 from '../components/Counter1';
+import CounterContextProvider from '../CounterContextProvider'
 
 //On simule un modéle de donée (tableau de list)
-const lists = [
+const defaultLists = [
     {
         title: 'Liste 1',
         items: [
@@ -66,12 +69,27 @@ const defaultList = {
     ]
 }
 
+
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
     // on utilise un hooks d'état pour pouvoir moifier la page
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
-    const [myLists, setMyList] = useState(lists)
+    const [myLists, setMyList] = useState(defaultLists)
 
+
+    //On utilise un useEffect pour utiliser un effet
+    useEffect(() => {
+        const mydataFromStorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
+        if (mydataFromStorage)
+            setMyList(mydataFromStorage)
+    }, [])
+
+
+
+
+    useEffect(() => {
+        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
+    }, [myLists])
 
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
@@ -99,11 +117,6 @@ const App = () => {
         setMyList(listCpy)
     }
 
-    const saveList = () => {
-        localStorage.setItem('mylists', JSON.stringify(myLists));
-    }
-    
-    console.log(JSON.parse(localStorage.getItem('mylists')))
 
     return (
         <div className='layout'>
@@ -112,7 +125,7 @@ const App = () => {
                 // de nos tableau et renvoyer pour chaque élément le component indiquée
                 myLists.map(({ items, title }) =>
                     // On affiche nos lists une a une sous forme de component
-                    <List title={title}  >
+                    <List title={title} myProps={"zeaaze"} >
                         {
                             // On affiche les items d'une liste une à une sous forme de component
                             items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
@@ -121,20 +134,25 @@ const App = () => {
                 )}
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Button onClick={addList}>
+                <Button onClick={addList} variant='contained'>
                     {"ADD"}
                 </Button>
                 <Button onClick={removeList}>
                     {"DELETE"}
                 </Button>
-                <Button onClick={saveList}>
+                {/*<Button onClick={saveList}>
                     {"SAVE LIST IN APP"}
-                </Button>
+                </Button>/*}
                 {/* 
                 <Button onClick={addList} title={'Add'} />
 
                 <Button onClick={removeList} title={'delete'} /> 
                 */}
+            </div>
+            <div>
+                <CounterContextProvider>
+                    <Counter1 />
+                </CounterContextProvider>
             </div>
         </div>
     )
