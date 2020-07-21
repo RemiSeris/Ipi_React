@@ -216,16 +216,15 @@ const List = ({ children }) => {
 
 **Ressource** :
 
-* Moment documentation https://momentjs.com/
 * Hooks documentation https://fr.reactjs.org/docs/hooks-reference.html#usecontext
 
 **Instruction**:
 
-1. Add a date field to the list model
-2. Add a date to the Header
-3. Add a button to switch the date
-4. Display only  the targeted date lists
-5. Use a scroll area view
+1. Create a context called AppContext
+2. Add The AppContextProviderto the index.js
+3. Move the List manadgement from App to Appcontext (preserve the same behaviour)
+4. Add the an addItem Button and a deleteItem Button to the List Component
+5. Manadge with a your AppContext to add an Item ,delete an Item ,add a list, delete a list, save list whens the list Array or an item change
 
 
 ### 7 Let's get on Fire(Base)
