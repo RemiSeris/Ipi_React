@@ -20,7 +20,7 @@ const Item = ({ title }) => {
     return (
         <div onClick={toogleCheck}>
             {title}
-            <CheckBox checked={check} />
+            <CheckBox onChange={toogleCheck} checked={check} />
         </div>
     )
 }

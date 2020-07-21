@@ -1,9 +1,10 @@
 //Lorsque on veut créer un component on importe React
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '../components/List';
 import Item from '../components/Item';
 import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
+import { keys } from '@material-ui/core/styles/createBreakpoints';
+import
 
 
 
@@ -75,6 +76,10 @@ const App = () => {
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(lists)
 
+    useEffect(() => {
+        const mydataFromStorage = JSON.parse(localStorage.getItem(keys))
+        if mydataFromStorage
+    }, [])
 
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
@@ -102,6 +107,10 @@ const App = () => {
         setMyList(listCpy)
     }
 
+    const saveList = () => {
+        localStorage.setItem(keys, JSON.stringify(myLists))
+    }
+
     return (
         <div className='layout'>
             {
@@ -124,6 +133,10 @@ const App = () => {
             <Button onClick={removeList}>
                 DELETE
             </Button>
+
+            <Button onClick={saveList}>
+                Save
+            </Button >
 
         </div>
     )
