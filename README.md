@@ -208,7 +208,7 @@ const List = ({ children }) => {
 
 
 
-### 6 It's all about context ?
+### 6 (advanced version) It's all about context ?
 
 **Goals** :
 
