@@ -207,6 +207,30 @@ const List = ({ children }) => {
 * To pull from master *git pull origin master*
 
 
+
+### 6 It's all about context ?
+
+**Goals** :
+
+* Dicover the useContext Hooks
+* Familiarize date managment
+
+**Ressource** :
+
+* Hooks documentation https://fr.reactjs.org/docs/hooks-reference.html#usecontext
+
+**Instruction**:
+
+1. Create a context called AppContext
+2. Create a component called AppContextProvider
+3. Return AppContext.Provider and children in the return statement of the AppContextProvider component 
+3. Add the AppContextProvider to the index.js return statement
+4. Move all the 'myLists' state manadgment from App to AppContext
+5. Reproduce the same behaviour than previously (add List, delete list, save list in localStorage with useEffect, getList from localStorage with useEffect)
+6. checkout if it works
+
+
+
 ### 6 It's all about context ?
 
 **Goals** :
