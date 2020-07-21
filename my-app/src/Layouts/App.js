@@ -121,7 +121,11 @@ const App = () => {
        setMyList(loadedList)
     }
 },[])
-    const [myList, setMyList] = useState(lists)
+const [myList, setMyList] = useState(lists)
+
+useEffect(()=>{
+    localStorage.setItem('list', JSON.stringify(myList))
+},[myList])
 
     // Observe les changements sur les onglets
     const [myTab, setMyTab] = useState(indexTab)
@@ -132,10 +136,10 @@ const App = () => {
 
   
 
-    //Sauvegarde l'etat de la liste dans le local storage
+/*     //Sauvegarde l'etat de la liste dans le local storage
     const saveList = () => {
         localStorage.setItem('list', JSON.stringify(myList))
-    }
+    } */
 
     //update l'état des boutons du menu en fonction de leur etat (achevé/ en cour et onglet actif)
     const isFinished = (state, title, index) => {
@@ -232,9 +236,9 @@ const App = () => {
         <MuiThemeProvider theme={theme}>
             <div className='layout'>
                 <div className='title'>
-                    <Button variant="outlined" onClick={saveList} startIcon={<SaveIcon />} className={"btn-add"}>
+{/*                     <Button variant="outlined" onClick={saveList} startIcon={<SaveIcon />} className={"btn-add"}>
                         Save List
-                    </Button>
+                    </Button> */}
                     <h1>Ma 1ère To-Do liste sur React JS</h1>
                     <div className='tab-list'>
                         {myList.map(({ items, title, state }, index) => {
