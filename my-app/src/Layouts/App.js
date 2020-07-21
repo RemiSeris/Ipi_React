@@ -96,6 +96,8 @@ const App = () => {
             setMyList(mydataFromStorage)
     }, [])
 
+    useEffect(() => { })
+
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
 
@@ -122,15 +124,10 @@ const App = () => {
         setMyList(listCpy)
     }
 
-<<<<<<< HEAD
-    const saveList = () => {
-        localStorage.setItem(keys, JSON.stringify(myLists))
-=======
 
 
     const saveList = () => {
         localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
->>>>>>> bdc5cdf56cb7a1294b82d0a3662c7894586f1510
     }
 
     return (
@@ -148,20 +145,6 @@ const App = () => {
                     </List>
                 )}
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-<<<<<<< HEAD
-    <Button onClick={addList} >
-        ADD
-            </Button>
-
-        <Button onClick={removeList}>
-            DELETE
-            </Button>
-
-        <Button onClick={saveList}>
-            Save
-            </Button >
-
-=======
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Button onClick={addList} variant='contained'>
                     {"ADD"}
@@ -180,7 +163,6 @@ const App = () => {
                 {"Save list"}
             </Button>
             <EffectExampl />
->>>>>>> bdc5cdf56cb7a1294b82d0a3662c7894586f1510
         </div >
     )
 }
