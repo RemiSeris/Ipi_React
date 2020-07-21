@@ -6,68 +6,9 @@ import Button from '@material-ui/core/Button'
 import { KEY_LOCAL_STORAGE } from '../const'
 import Counter1 from '../components/Counter1';
 import CounterContextProvider from '../CounterContextProvider'
+import AppContext from '../CounterContextProvider'
 
 //On simule un modéle de donée (tableau de list)
-const defaultLists = [
-    {
-        title: 'Liste 1',
-        items: [
-            {
-                title: 'item1',
-            },
-            {
-                title: 'item2',
-            },
-            {
-                title: 'item3',
-            },
-        ]
-    },
-    {
-        title: 'Liste 2',
-        items: [
-            {
-                title: 'item1',
-            },
-            {
-                title: 'item2',
-            },
-            {
-                title: 'item3',
-            },
-        ]
-    },
-    {
-        title: 'Liste 3',
-        items: [
-            {
-                title: 'item1',
-            },
-            {
-                title: 'item2',
-            },
-            {
-                title: 'item3',
-            },
-        ]
-    }
-]
-
-//onj déclare un template d'une list
-const defaultList = {
-    title: 'Nouvelle liste',
-    items: [
-        {
-            title: 'item1',
-        },
-        {
-            title: 'item2',
-        },
-        {
-            title: 'item3',
-        },
-    ]
-}
 
 
 // on déclare un componet sous forme d'arrow funtion 
@@ -156,6 +97,8 @@ const App = () => {
                 <CounterContextProvider>
                     <Counter1 />
                 </CounterContextProvider>
+
+                <AppContext> </AppContext>
             </div>
         </div>
     )
