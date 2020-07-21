@@ -1,5 +1,16 @@
 import React, { createContext, useState, useEffect } from 'react'
-
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button'
+import EditIcon from '@material-ui/icons/Edit'
+import ClearIcon from "@material-ui/icons/Clear"
 
 export const AppContext = createContext({})
 
@@ -147,6 +158,40 @@ const AppContextProvider = ({children}) => {
             setMyListTitle(event.target.value)
         }
 
+                //Gestion de la popup de suppression de liste
+                const [openDialogDeleteList, setOpenDeleteList] = React.useState(false);
+                //ouvre la popup de suppression de liste
+                const openDeleteList = () => {
+                    setOpenDeleteList(true);
+                };
+                //ferme la popup de suppression de liste
+                const closeDeleteList = () => {
+                    setOpenDeleteList(false);
+                };
+                //Supprime la dernière ligne de la liste
+                const deleteList = () => {
+                    deleteListEntry()
+                    closeDeleteList()
+                }
+            
+                //Gestion de la popup ajout de liste
+                const [openDialogAddList, setOpenAddList] = React.useState(false);
+                    // Observe les changements sur l'input du titre de la liste
+                //ouvre la popup de suppression de liste
+            
+                const openAddList = () => {
+                    setOpenAddList(true);
+                };
+                //ferme la popup de suppression de liste
+                const closeAddList = () => {
+                    setOpenAddList(false);
+                };
+                //Supprime la dernière ligne de la liste
+                const addList = () => {
+                    addListEntry()
+                    closeAddList()
+                }
+
     const value = {
         myList,
         setMyList,
@@ -159,14 +204,52 @@ const AppContextProvider = ({children}) => {
         addListEntry,
         myListTitle,
         setMyListTitle,
-        changeMyListTitle
+        changeMyListTitle,
+        openAddList,
+        openDeleteList
     }
 
 
-    
+
 
     return (
-        <AppContext.Provider value={value}>{children}</AppContext.Provider>
+        <AppContext.Provider value={value}>
+            {children}
+                    {/* Popin supression liste */}
+                    <Dialog open={openDialogDeleteList} onClose={closeDeleteList} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+                <DialogTitle id="alert-dialog-title">{"Are you sure you want to delete this list?"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        You are about to delete this list: {myList[myTab].title ? myList[myTab].title : 'pas de liste à supprimer'}. Are you sure you want to delete it?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={deleteList} color="primary" variant="outlined">Yes</Button>
+                    <Button onClick={closeDeleteList} color="secondary" variant="contained" autoFocus>No</Button>
+                </DialogActions>
+            </Dialog>
+
+            {/* Popin ajout liste */}
+            <Dialog open={openDialogAddList} onClose={closeAddList} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+                <DialogTitle id="alert-dialog-title">{"Add a new list!"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        You are about to add a new list! Choose a name for your list:
+                    </DialogContentText>
+                    <FormControl>
+                            <InputLabel htmlFor="input-with-icon-adornment">Your list name:</InputLabel>
+                            <Input value={myListTitle} onChange={changeMyListTitle} inputProps={{maxLength: 15,}} id="list-name"startAdornment={
+                                    <InputAdornment position="start">
+                                        <EditIcon />
+                                    </InputAdornment>}/>
+                        </FormControl>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={addList} color="primary" variant="outlined">Add a new List</Button>
+                    <Button onClick={closeAddList} color="secondary" variant="contained" autoFocus>Cancel</Button>
+                </DialogActions>
+            </Dialog>
+        </AppContext.Provider>
     )
 
 
