@@ -87,9 +87,24 @@ const App = () => {
         if (mydataFromStorage)
         setMyList ( mydataFromStorage)
 
-
     },[])
 
+    //Pour notre nvel UE on va utiliser l'effet de cette fonction:
+    /*const saveList = () => {
+        console.log('bouton sauvé?')
+        localStorage.setItem('myLists',JSON.stringify(myLists))
+    }*/
+
+    //création d'un nouvel useEffect avec en variable de dépendance myLists (variable d'état qui à chaque fois qu'elle sera modifiée l'effet sera appelé), 
+    useEffect(()=>{
+        //pour optimiser ne pas utiliser comme ça:
+        //saveList()
+        //mais comme ça car évite de recharger la fonction à chaque fois:
+        localStorage.setItem('myLists',JSON.stringify(myLists))
+
+    },[myLists])
+
+    
     
 
     //on crée une fonction pour ajouter un élément à la liste
@@ -118,10 +133,7 @@ const App = () => {
         setMyList(listCpy)
     }
 
-    const saveList = () => {
-        console.log('bouton sauvé?')
-        localStorage.setItem('myLists',JSON.stringify(myLists))
-    }
+   
 
     return (
         <div className='layout'>
@@ -150,9 +162,7 @@ const App = () => {
                 </div>
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
             <div>
-                <Button onClick={saveList}>
-                            save the list
-                </Button>
+                {/*On enlève ici le bouton save list */}
             </div>
         </div>
     )
