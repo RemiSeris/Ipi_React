@@ -1,5 +1,5 @@
 //Lorsque on veut créer un component on importe React
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '../components/List';
 import Item from '../components/Item';
 /*import Button from '../components/Button';*/
@@ -68,12 +68,28 @@ const defaultList = {
     ]
 }
 
+
+
+
+
+
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
     // on utilise un hooks d'état pour pouvoir moifier la page
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(lists)
 
+    //Utilisation de UseEffect
+
+    /*useEffect(() => {
+        const mydatafromstorage = JSON.parse(localStorage.getItem('lastlist'))
+        if (mydatafromStorage)
+            setMyList(mydatafromStorage)
+    }, [])*/
+    useEffect((myLists) => {
+        localStorage.setItem('myLists', JSON.stringify(myLists))
+        setMyList(localStorage.getItem('myLists'))
+    }, [myLists])
 
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
@@ -113,7 +129,6 @@ const App = () => {
             {/*<Button test1={'test1'} test2={"test2"} onClick={addList} title={'Add'} />*/}
             <Button variant="contained" color="secondary" onClick={removeList} title='delete'>Delete</Button>
             {/*<Button onClick={removeList} title={'delete'} />*/}
-            <Button variant="contained" color="secondary" onClick={saveList} title='delete'>Display last list</Button>
             </div>
             {
                 // On utilise la méthode .map pour parcourir les éléments,
