@@ -1,5 +1,5 @@
 //Lorsque on veut créer un component on importe React
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
 import Button from '@material-ui/core/Button'
@@ -69,10 +69,7 @@ const defaultList = {
     ]
 }
 
-const testObject = {
-    data1: 'myData1',
-    data2: 2,
-}
+
 
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
@@ -80,7 +77,19 @@ const App = () => {
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(lists)
 
+    useEffect(() => {
+        const mydataFromstorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
+        if (mydataFromstorage)
+            setMyList(mydataFromstorage)
 
+    }, [])
+
+    useEffect(() => {
+        const mydataFromstorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
+        if (mydataFromstorage)
+            setMyList(mydataFromstorage)
+
+    }, [myLists])
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
 
