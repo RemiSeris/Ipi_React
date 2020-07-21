@@ -25,11 +25,9 @@ const Item = ({ title }) => {
 
     return (
         <div >
-            {`${title} `} <Checkbox
-        checked={check}
-        onChange={handleChange}
-        inputProps={{ 'aria-label': 'primary checkbox' }}
-      />
+            {title}
+            {/* on utilise le component checkbox de material ui pour afficher l'état de notre item */}
+            <CheckBox onChange={toogleCheck} checked={check} />
         </div>
     )
 }
