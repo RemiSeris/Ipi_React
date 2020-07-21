@@ -189,6 +189,15 @@ const List = ({ children }) => {
 5. Set the retrieved data as the default state of 'myLists'
 
 
+**Instruction 2**:
+
+1. Remove the button save list
+2. Add a new useEffect to the App Componenent
+2. Add "MyList" as an Effect Dependency to the new useEffect
+3. In the new use Effect effect, save "myLists" in the localStorage 
+4. Check in your web-browser if the lists are well saved when modification are done
+5. Check in your web-browser if the lists does well persist when the page is reloaded
+
 
 
 **On Git**:
