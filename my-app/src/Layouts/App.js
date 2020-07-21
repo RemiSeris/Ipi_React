@@ -1,8 +1,8 @@
 //lien git du cours:
 //https://github.com/RemisSeris/Ipi React
 
-//Lorsque on veut créer un component on importe React
-import React, { useState } from 'react';
+//On rajoute useEffect à l'import de React
+import React, { useState,useEffect } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
 import {Button} from '@material-ui/core'
@@ -76,6 +76,23 @@ const App = () => {
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(lists)
 
+
+    //utilisation du useEffect dans le app component
+    /*useEffect(()=>{
+        const mydataFromStorage= JSON.parse(localStorage.getItem('myLists'))
+        console.log('data from storage',mydataFromStorage)
+
+    },[])*/
+
+    //mettre les datas qu'on a retirées comme l'état de départ. On va utilser le setter d'état pour remplacer notre valeur par défaut
+    useEffect(()=>{
+        const mydataFromStorage= JSON.parse(localStorage.getItem('myLists'))
+        setMyList ( mydataFromStorage)
+
+    },[])
+    //Récupérer les datas du storage avec localStorage.getItem, vérification avec un console.log, transformation ojet json en objet javascript.
+    //Placer tout ce code dans le UE:
+    //console.log('data from storage',JSON.parse(localStorage.getItem('myLists')))
 
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
