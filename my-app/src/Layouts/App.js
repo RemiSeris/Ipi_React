@@ -1,11 +1,10 @@
 //Lorsqu'on veut créer un component on importe React
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
 import Button from '@material-ui/core/Button'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
-import SaveIcon from '@material-ui/icons/Save'
 import ClearIcon from "@material-ui/icons/Clear"
 import CheckIcon from '@material-ui/icons/Check';
 import Dialog from '@material-ui/core/Dialog';
@@ -19,6 +18,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { AppContext } from '../AppContext';
 
 
 const theme = createMuiTheme({
@@ -38,75 +38,6 @@ const theme = createMuiTheme({
     },
 });
 
-//On simmule un modèle de données (tableau de liste)
-const lists = [
-    {
-        title: 'Liste 1',
-        state: false,
-        items: [
-            {
-                title: 'item1',
-                description: 'blah blaha',
-                state: false
-            },
-            {
-                title: 'item2',
-                description: 'blah blaha',
-                state: false
-            },
-            {
-                title: 'item3',
-                description: 'blah blaha',
-                state: false
-            },
-        ]
-    },
-    {
-        title: 'Liste 2',
-        state: true,
-        items: [
-            {
-                title: 'item1',
-                description: 'blah blaha',
-                state: false
-            },
-            {
-                title: 'item2',
-                description: 'blah blaha',
-                state: false
-            },
-            {
-                title: 'item3',
-                description: 'blah blaha',
-                state: false
-            },
-        ]
-    },
-    {
-        title: 'Liste 3',
-        state: true,
-        items: [
-            {
-                title: 'item1',
-                description: 'blah blaha',
-                state: false
-            },
-            {
-                title: 'item2',
-                description: 'blah blaha',
-                state: false
-            },
-            {
-                title: 'item3',
-                description: 'blah blaha',
-                state: false
-            },
-        ]
-    }
-]
-
-let indexTab = 0;
-
 
 //On déclare un component sous forme d'arrow function
 const App = () => {
@@ -114,32 +45,11 @@ const App = () => {
     /* Je me suis servie des commentaires sur ce post pour réaliser mes databindings : 
     https://stackoverflow.com/questions/42217579/data-binding-in-react#:~:text=Data%20binding%20in%20React%20can,as%20the%20input%20value%20changes.&text=To%20be%20short%2C%20in%20React,two%2Dway%20data%2Dbinding. */
   //Observe les changements apportés à la liste
+  const {myList, setMyList, myTab, setMyTab, changeList, changeTab, changeListItem, deleteListEntry,addListEntry, myListTitle,setMyListTitle,changeMyListTitle} = useContext(AppContext)
 
-  useEffect(()=>{
-    let loadedList = JSON.parse(localStorage.getItem('list'))
-    if(loadedList !== undefined && loadedList !== null){
-       setMyList(loadedList)
-    }
-},[])
-const [myList, setMyList] = useState(lists)
 
-useEffect(()=>{
-    localStorage.setItem('list', JSON.stringify(myList))
-},[myList])
 
-    // Observe les changements sur les onglets
-    const [myTab, setMyTab] = useState(indexTab)
-    //change l'onglet en fonction de l'index sélectionné
-    const changeTab = (index) => {
-        setMyTab(index)
-    }
 
-  
-
-/*     //Sauvegarde l'etat de la liste dans le local storage
-    const saveList = () => {
-        localStorage.setItem('list', JSON.stringify(myList))
-    } */
 
     //update l'état des boutons du menu en fonction de leur etat (achevé/ en cour et onglet actif)
     const isFinished = (state, title, index) => {
@@ -157,32 +67,7 @@ useEffect(()=>{
         return <Button startIcon={<ClearIcon />} variant="outlined" color="secondary" onClick={() => changeTab(index)}>{title}</Button>
     }
 
-    //mets à jour la progression d'une liste
-    const changeList = (index, dataFromChild) => {
-        myList[index].state = dataFromChild;
-        setMyList(myList.map(list => list))
-        //mets à jour les items de la liste en fonction de l'etat la liste
-        myList[index].items.forEach(item => {
-            item.state = dataFromChild
-        })
-        setMyList(myList.map(list => list))
-    }
 
-    //mets à jour l'etat de l'item d'une liste
-    const changeListItem = (indexList, indexItem, dataFromChild) => {
-        myList[indexList].items[indexItem].state = dataFromChild;
-        setMyList(myList.map(list => list))
-
-        //vérifie si toutes les items de la liste sont achevés, si c'est le cas, la liste passe aussi au statut achevé
-        let isStateAllTrue = true;
-        myList[indexList].items.forEach(item => {
-            if (item.state !== true) {
-                isStateAllTrue = false
-            }
-        })
-        myList[indexList].state = isStateAllTrue;
-        setMyList(myList.map(list => list))
-    }
 
     //Gestion de la popup de suppression de liste
     const [openDialogDeleteList, setOpenDeleteList] = React.useState(false);
@@ -196,20 +81,15 @@ useEffect(()=>{
     };
     //Supprime la dernière ligne de la liste
     const deleteList = () => {
-        myList.splice(myTab, 1)
-        setMyList(myList.map(list => list))
-        setMyTab(0)
+        deleteListEntry()
         closeDeleteList()
     }
 
     //Gestion de la popup ajout de liste
     const [openDialogAddList, setOpenAddList] = React.useState(false);
         // Observe les changements sur l'input du titre de la liste
-    const [myListTitle, setMyListTitle] = useState('New List ' + myList.length)
     //ouvre la popup de suppression de liste
-    const changeMyListTitle= (event) => {
-        setMyListTitle(event.target.value)
-    }
+
     const openAddList = () => {
         setOpenAddList(true);
     };
@@ -219,17 +99,7 @@ useEffect(()=>{
     };
     //Supprime la dernière ligne de la liste
     const addList = () => {
-        const nouvelleListe = {
-            title: '',
-            state: false,
-            items: []
-        }
-        nouvelleListe.title = myListTitle
-
-        myList.push(nouvelleListe)
-        setMyList(myList.map(list => list))
-        setMyTab(0)
-        setMyListTitle('New List ' + myList.length)
+        addListEntry()
         closeAddList()
     }
     return (
