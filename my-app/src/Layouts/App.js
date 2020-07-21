@@ -1,24 +1,18 @@
 //Lorsque on veut créer un component on importe React
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import List from '../components/List';
 import Item from '../components/Item';
 import Button from '@material-ui/core/Button';
-import { keys } from '@material-ui/core/styles/createBreakpoints';
-import
-
-=======
-import React, { useState } from 'react';
-import List from '../components/List'
-import Item from '../components/Item'
-import Button from '@material-ui/core/Button'
 import { KEY_LOCAL_STORAGE } from '../const'
 import EffectExampl from '../components/EffectExampl';
->>>>>>> bdc5cdf56cb7a1294b82d0a3662c7894586f1510
+import Counter1 from '../components/Counter1';
+import CounterContextProvider from '../CounterContextProvider';
+import AppContext from '../components/AppContext';
+import AppcontextProvider from '../AppContextProvider'
 
 
-//On simule un modéle de donée (tableau de list)
-const lists = [
+{/*//On simule un modéle de donée (tableau de list)
+const defaultLists = [
     {
         title: 'Liste 1',
         items: [
@@ -79,16 +73,20 @@ const defaultList = {
     ]
 }
 
-const testObject = {
-    data1: 'myData1',
-    data2: 2,
-}
 
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
     // on utilise un hooks d'état pour pouvoir moifier la page
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
-    const [myLists, setMyList] = useState(lists)
+    const [myLists, setMyList] = useState(defaultLists)
+
+
+    //On utilise un useEffect pour utiliser un effet
+    useEffect(() => {
+        const mydataFromStorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
+        if (mydataFromStorage)
+            setMyList(mydataFromStorage)
+    }, [])
 
     useEffect(() => {
         const mydataFromStorage = JSON.parse(localStorage.getItem(keys))
@@ -97,6 +95,12 @@ const App = () => {
     }, [])
 
     useEffect(() => { })
+
+
+
+    useEffect(() => {
+        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
+    }, [myLists])
 
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
@@ -123,14 +127,12 @@ const App = () => {
         //on utilise le setter d'état pour changer l'états de nos liste
         setMyList(listCpy)
     }
+    */}
 
 
 
-    const saveList = () => {
-        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
-    }
-
-    return (
+return (
+    <AppcontextProvider>
         <div className='layout'>
             {
                 // On utilise la méthode .map pour parcourir les éléments,
@@ -159,12 +161,20 @@ const App = () => {
                 */}
             </div>
 
+
             <Button onClick={saveList}>
                 {"Save list"}
             </Button>
             <EffectExampl />
         </div >
-    )
+    </AppcontextProvider>
+
+    <div> <CounterContextProvider>
+        <Counter1 />
+    </CounterContextProvider></div>         
+   
+     )
+
 }
 
 
