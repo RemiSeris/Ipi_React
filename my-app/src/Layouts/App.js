@@ -2,15 +2,10 @@
 import React, { useState } from 'react';
 import List from '../components/List'
 import Item from '../components/Item'
-<<<<<<< HEAD
 import Button from '@material-ui/core/Button'
-=======
-/*import Button from '../components/Button';*/
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
+import { KEY_LOCAL_STORAGE } from '../const'
+import EffectExampl from '../components/EffectExampl';
 
->>>>>>> 137f4fed2f7c7d709ea502cf846ba75af53b1205
 
 //On simule un modéle de donée (tableau de list)
 const lists = [
@@ -74,6 +69,11 @@ const defaultList = {
     ]
 }
 
+const testObject = {
+    data1: 'myData1',
+    data2: 2,
+}
+
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
     // on utilise un hooks d'état pour pouvoir moifier la page
@@ -105,12 +105,13 @@ const App = () => {
 
         //on utilise le setter d'état pour changer l'états de nos liste
         setMyList(listCpy)
-
-        const saveList = () => {
-            localStorage.setItem ()
-        }
     }
-    
+
+
+
+    const saveList = () => {
+        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
+    }
 
     return (
         <div className='layout'>
@@ -119,7 +120,7 @@ const App = () => {
                 // de nos tableau et renvoyer pour chaque élément le component indiquée
                 myLists.map(({ items, title }) =>
                     // On affiche nos lists une a une sous forme de component
-                    <List title={title}  >
+                    <List title={title} myProps={"zeaaze"} >
                         {
                             // On affiche les items d'une liste une à une sous forme de component
                             items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
@@ -127,32 +128,23 @@ const App = () => {
                     </List>
                 )}
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-<<<<<<< HEAD
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Button onClick={addList}>
+                <Button onClick={addList} variant='contained'>
                     {"ADD"}
                 </Button>
                 <Button onClick={removeList}>
                     {"DELETE"}
                 </Button>
-                <Button onClick={saveList}>
-                    {"SAVE"}
-                </Button>
                 {/* 
                 <Button onClick={addList} title={'Add'} />
-
                 <Button onClick={removeList} title={'delete'} /> 
                 */}
-=======
-            <div className='btn-group'>
-            <Button variant="contained" color="secondary" onClick={addList} >
-            Add
-            </Button>
-            <Button variant="contained" color="secondary" onClick={removeList} >
-            delete
-            </Button>
->>>>>>> 137f4fed2f7c7d709ea502cf846ba75af53b1205
             </div>
+
+            <Button onClick={saveList}>
+                {"Save list"}
+            </Button>
+            <EffectExampl />
         </div>
     )
 }
