@@ -189,6 +189,15 @@ const List = ({ children }) => {
 5. Set the retrieved data as the default state of 'myLists'
 
 
+**Instruction 2**:
+
+1. Remove the button save list
+2. Add a new useEffect to the App Componenent
+2. Add "MyList" as an Effect Dependency to the new useEffect
+3. In the new use Effect effect, save "myLists" in the localStorage 
+4. Check in your web-browser if the lists are well saved when modification are done
+5. Check in your web-browser if the lists does well persist when the page is reloaded
+
 
 
 **On Git**:
@@ -196,6 +205,30 @@ const List = ({ children }) => {
 * To switch branches git checkout *branch name*
 * To push work *git push*
 * To pull from master *git pull origin master*
+
+
+
+### 6 (advanced version) It's all about context ?
+
+**Goals** :
+
+* Dicover the useContext Hooks
+* Familiarize date managment
+
+**Ressource** :
+
+* Hooks documentation https://fr.reactjs.org/docs/hooks-reference.html#usecontext
+
+**Instruction**:
+
+1. Create a context called AppContext
+2. Create a component called AppContextProvider
+3. Return AppContext.Provider and children in the return statement of the AppContextProvider component 
+3. Add the AppContextProvider to the index.js return statement
+4. Move all the 'myLists' state manadgment from App to AppContext
+5. Reproduce the same behaviour than previously (add List, delete list, save list in localStorage with useEffect, getList from localStorage with useEffect)
+6. checkout if it works
+
 
 
 ### 6 It's all about context ?
@@ -207,16 +240,15 @@ const List = ({ children }) => {
 
 **Ressource** :
 
-* Moment documentation https://momentjs.com/
 * Hooks documentation https://fr.reactjs.org/docs/hooks-reference.html#usecontext
 
 **Instruction**:
 
-1. Add a date field to the list model
-2. Add a date to the Header
-3. Add a button to switch the date
-4. Display only  the targeted date lists
-5. Use a scroll area view
+1. Create a context called AppContext
+2. Add The AppContextProviderto the index.js
+3. Move the List manadgement from App to Appcontext (preserve the same behaviour)
+4. Add the an addItem Button and a deleteItem Button to the List Component
+5. Manadge with a your AppContext to add an Item ,delete an Item ,add a list, delete a list, save list whens the list Array or an item change
 
 
 ### 7 Let's get on Fire(Base)
