@@ -72,27 +72,25 @@ const defaultList = {
 
 // on déclare un component sous forme d'arrow funtion 
 const App = () => {
-    // on utilise un hooks d'état pour pouvoir moifier la page
+    // on utilise un hooks d'état pour pouvoir modifier la page
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(lists)
 
 
-    //utilisation du useEffect dans le app component
-    /*useEffect(()=>{
-        const mydataFromStorage= JSON.parse(localStorage.getItem('myLists'))
-        console.log('data from storage',mydataFromStorage)
-
-    },[])*/
-
-    //mettre les datas qu'on a retirées comme l'état de départ. On va utilser le setter d'état pour remplacer notre valeur par défaut
+    //gestion du storage vide:
     useEffect(()=>{
         const mydataFromStorage= JSON.parse(localStorage.getItem('myLists'))
+        //1er essai, null et indefined sont considérés de base comme faux
+        /*if (mydataFromStorage!== undefined && mydataFromStorage!== null)
+            setMyList ( mydataFromStorage)*/
+        //autre façon qui suffit pour tous les cas et verifie si les objets existent bien(car null et indefined sont considérés de base comme faux):
+        if (mydataFromStorage)
         setMyList ( mydataFromStorage)
 
+
     },[])
-    //Récupérer les datas du storage avec localStorage.getItem, vérification avec un console.log, transformation ojet json en objet javascript.
-    //Placer tout ce code dans le UE:
-    //console.log('data from storage',JSON.parse(localStorage.getItem('myLists')))
+
+    
 
     //on crée une fonction pour ajouter un élément à la liste
     const addList = () => {
