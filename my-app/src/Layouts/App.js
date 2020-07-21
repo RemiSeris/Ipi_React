@@ -86,9 +86,13 @@ const App = () => {
     useEffect(() => {
         const Mydatastorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
         if (Mydatastorage)
+            setMyList(Mydatastorage)
     }, [])
 
     useEffect(() => {
+        const saveList = () => {
+            localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
+        }
 
     }, [myLists])
 
