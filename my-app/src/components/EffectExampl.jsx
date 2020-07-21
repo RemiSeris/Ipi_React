@@ -15,7 +15,7 @@ const EffectExampl = () => {
     //On trigger un effet lorsque la variable d'état "count" change
     useEffect(() => {
         console.log('effect On count change', count)
-    }, [count2])
+    }, [count])
 
     return (
         <div>
