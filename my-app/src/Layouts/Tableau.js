@@ -1,52 +1,55 @@
-import React, { useState } from 'react'
+// import * as React from 'react';
+// import Cell from './Cell';
 
-class Tableau {
-    constructor(props) {
-     
-       this.state = { //state is by default an object
-          listGens: [
-            { id: 1, name: 'lucas', age: 21, email: 'lucas@email.com' },
-            { id: 2, name: 'jean connect', age: 19, email: 'jean@email.com' },
-            { id: 3, name: 'sangoku', age: 23, email: 'goku@email.com' },
-            { id: 4, name: 'hisoka', age: 25, email: 'hisoka@email.com' }
-        ]
-       }
-    }
- 
-    render() { //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
-       return (
-          <div>
-             <h1>React Dynamic Table</h1>
-          </div>
-       )
-    }
- }
+// export default class DataTable extends React.Component {
+//   renderHeadingRow = (_cell, cellIndex) => {
+//     const {headings} = this.props;
 
-function renderTableData() {
-   this.state.listGens.map((list, index) => {
-    const { id, name, age, email } = list //destructuring
-    return (
-       <tr key={id}>
-          <td>{id}</td>
-          <td>{name}</td>
-          <td>{age}</td>
-          <td>{email}</td>
-       </tr>
-    )
- })
-}
+//     return (
+//       <Cell
+//         key={`heading-${cellIndex}`}
+//         content={headings[cellIndex]}
+//         header={true}
+//       />
+//     )
+//   };
+  
+//   renderRow = (_row, rowIndex) => {
+//     const {rows} = this.props;
 
-const Table = () => {
-   return (
-      <div>
-         <h1 id='title'>React Dynamic Table</h1>
-         <table id='students'>
-            <tbody>
-               {renderTableData()}
-            </tbody>
-         </table>
-      </div>
-   )
-}
- 
- export default Table //exporting a component make it reusable and this is the beauty of react
+//     return (
+//       <tr key={`row-${rowIndex}`}>
+//         {rows[rowIndex].map((_cell, cellIndex) => {
+//           return (
+//             <Cell
+//               key={`${rowIndex}-${cellIndex}`}
+//               content={rows[rowIndex][cellIndex]}
+//             />
+//           )
+//         })}
+//       </tr>
+//     )
+//   };
+
+//   render() {
+//     const {headings, rows} = this.props;
+
+//     this.renderHeadingRow = this.renderHeadingRow.bind(this);
+//     this.renderRow = this.renderRow.bind(this);
+    
+//     const theadMarkup = (
+//       <tr key="heading">
+//         {this.renderHeadingRow}
+//       </tr>
+//     );
+
+//     const tbodyMarkup = rows.map(this.renderRow);
+  
+//     return (
+//       <table className="Table">
+//         <thead>{theadMarkup}</thead>
+//         <tbody>{tbodyMarkup}</tbody>
+//       </table>
+//     );
+//   }
+// }

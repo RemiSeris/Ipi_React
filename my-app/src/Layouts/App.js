@@ -5,6 +5,7 @@ import Item from '../components/Item'
 import input from '../components/Input'
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox'
+import { KEY_LOCAL_STORAGE } from '../const'
 
 
 /*
@@ -81,8 +82,8 @@ const lists = [
 ]
 var cmpListe = 4;
 
-const newListe = {
-    
+const defaultList = {
+    title: 'Nouvelle liste',
     items: [
         {
             title: 'item1',
@@ -96,22 +97,33 @@ const newListe = {
     ]
 }
 
+const testObject = {
+    data1: 'myData1',
+    data2: 2,
+}
+
 //On déclare un component sous forme d'arrow function
 const App = () => {
     
     const [myList, setMyList] = useState(lists)
 
     const addList = () => {
-        newListe.title = "Ligne " + cmpListe
-        myList.push(newListe)
+        defaultList.title = "Ligne"
+        myList.push(defaultList)
         setMyList(myList.map(list => list))
-        cmpListe++
+    }
+
+    useEffect(()=>{
+        localStorage.setItem('list', JSON.stringify(myList))
+    },[myList])
+
+    const saveList = () => {
+        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myList))
     }
 
     const deleteList = () => {
         myList.pop()
         setMyList(myList.map(list => list))
-        cmpListe--
     }
     
     return [
@@ -127,6 +139,10 @@ const App = () => {
                     })}
                 </List>
             })}
+
+            <Button onClick={saveList}>
+                {"Save list"}
+            </Button>
 
             <div>
                 <form>
