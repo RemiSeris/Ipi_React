@@ -10,7 +10,6 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button'
 import EditIcon from '@material-ui/icons/Edit'
-import ClearIcon from "@material-ui/icons/Clear"
 
 export const AppContext = createContext({})
 

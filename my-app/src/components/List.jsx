@@ -1,21 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Switch from '@material-ui/core/Switch'
 import { useState } from 'react'
 import ClearIcon from "@material-ui/icons/Clear"
 import CheckIcon from '@material-ui/icons/Check'
 import Button from '@material-ui/core/Button'
 import EditIcon from '@material-ui/icons/Edit'
+import { AppContext } from '../AppContext'
 
 
 
-const List = ({ children, title, state, callbackFromParent, index, callbackAddItemList }, props) => {
+const List = ({ children, title, state, index }, props) => {
+    const {changeList,openAddList} = useContext(AppContext)
+
     const [checked, setChecked] = useState(state)
     const toggleCheck = () => {
         if (checked)
             setChecked(false)
         else
             setChecked(true)
-        callbackFromParent(index, !checked);
+            changeList(index, !checked);
     }
 
 
@@ -31,7 +34,7 @@ const List = ({ children, title, state, callbackFromParent, index, callbackAddIt
             </div>
             <div className={'listItems'}>
             <div className='item'>
-                    <Button variant="outlined" color="secondary"  onClick={callbackAddItemList} startIcon={<EditIcon />} className={"btn-add"}>
+                    <Button variant="outlined" color="secondary"  onClick={openAddList} startIcon={<EditIcon />} className={"btn-add"}>
                         Add Item
                         </Button>
                 </div>

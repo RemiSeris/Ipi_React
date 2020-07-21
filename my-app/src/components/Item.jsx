@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { FormControl, FormControlLabel, Checkbox } from '@material-ui/core'
+import { AppContext } from '../AppContext'
 
-const Item = ({ title, description, itemState, listState, callbackFromParent, indexItem,indexList }) => {
+const Item = ({ title, description, itemState, listState, indexItem,indexList }) => {
+    
+    const {changeListItem} = useContext(AppContext)
     const [done, toggleDone] = useState(itemState)
 
     const toogleCheck = () => {
@@ -10,7 +13,7 @@ const Item = ({ title, description, itemState, listState, callbackFromParent, in
             toggleDone(false)
         else
             toggleDone(true)
-        callbackFromParent(indexList, indexItem, !done);
+            changeListItem(indexList, indexItem, !done);
     }
 
     let itemDoneClassName = itemState === true ? 'item item-done' : 'item'
