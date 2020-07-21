@@ -107,17 +107,10 @@ const App = () => {
         setMyList(listCpy)
     }
 
-<<<<<<< HEAD
 
 
     const saveList = () => {
         localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
-=======
-    const saveList = () => {
-
-        localStorage.setItem("myLists", JSON.stringify(myLists));
-
->>>>>>> 6a1ba732c9906f887952e949c6d4afa4d5e84f45
     }
 
     const getList = () => {
@@ -145,9 +138,6 @@ const App = () => {
                 </Button>
                 <Button onClick={removeList}>
                     {"DELETE"}
-                </Button>
-                <Button onClick={saveList}>
-                    {"SAVE"}
                 </Button>
                 {/* 
                 <Button onClick={addList} title={'Add'} />
