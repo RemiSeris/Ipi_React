@@ -86,9 +86,10 @@ const App = () => {
         if (mydatafromStorage)
             setMyList(mydatafromStorage)
     }, [])*/
+    setMyList(localStorage.getItem('myLists'))
+    
     useEffect((myLists) => {
         localStorage.setItem('myLists', JSON.stringify(myLists))
-        setMyList(localStorage.getItem('myLists'))
     }, [myLists])
 
     //on crée une fonction pour ajouter un élément à la liste
@@ -125,7 +126,7 @@ const App = () => {
         <div className='layout'>
             <div>
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            <Button variant="contained" color="secondary" onClick={removeList} title='add' test1={'test1'} test2={"test2"} onClick={addList}>Add</Button>
+            <Button variant="contained" color="secondary" title='add' onClick={addList}>Add</Button>
             {/*<Button test1={'test1'} test2={"test2"} onClick={addList} title={'Add'} />*/}
             <Button variant="contained" color="secondary" onClick={removeList} title='delete'>Delete</Button>
             {/*<Button onClick={removeList} title={'delete'} />*/}
