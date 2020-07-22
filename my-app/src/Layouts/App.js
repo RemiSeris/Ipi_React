@@ -16,6 +16,18 @@ const App = () => {
     return (
         <div className='layout'>
             <TextFieldExample />
+
+
+
+
+
+
+
+
+
+
+
+
             {
                 // On utilise la méthode .map pour parcourir les éléments,
                 // de nos tableau et renvoyer pour chaque élément le component indiquée

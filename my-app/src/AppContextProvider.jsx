@@ -118,6 +118,7 @@ const AppContextProvider = ({ children }) => {
     //Je rajoute un item dans une list
     // j'ai besoin de savoir dans quelle list je rajouite l'item
     const addItem = (list) => {
+
         myLists.forEach((myList) => {
             //Si ma list est la list passer en argument
             if (myList === list) {

@@ -10,6 +10,7 @@ const List = ({ children, list }) => {
 
     const createNewItem = () => {
         addItem(list)
+
     }
 
     const deleteItem = () => {
