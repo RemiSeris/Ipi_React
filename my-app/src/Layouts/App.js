@@ -12,25 +12,6 @@ import Popup from '../components/Popup';
 const App = () => {
     const { myLists, addList, removeList, setOpen } = useContext(AppContext)
 
-<<<<<<< HEAD
-    const values = useContext(AppContext)
-
-    return (
-        <div className='layout'>
-            <TextFieldExample />
-
-
-
-
-
-
-
-
-
-
-
-
-=======
     const openPopup = () => {
         setOpen(true)
     }
@@ -38,7 +19,6 @@ const App = () => {
     return (
         <div className='layout'>
             <Popup />
->>>>>>> 415f436c45ce5d905530e8dacf96c22dc2a1ebc9
             {
                 // On utilise la méthode .map pour parcourir les éléments,
                 // de nos tableau et renvoyer pour chaque élément le component indiquée
