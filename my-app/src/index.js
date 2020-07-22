@@ -2,11 +2,7 @@ import React, { createContext, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './Layouts/App';
-<<<<<<< HEAD
-import AppContextProvider from '../AppContextProvider';
-=======
 import AppContextProvider from './AppContextProvider';
->>>>>>> fb0945c47c67ba2f8064752cf54870cbdabf21a3
 
 /*
 //  On crée notre context avec useContext et on l'export
