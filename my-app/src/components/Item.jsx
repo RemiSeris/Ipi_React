@@ -5,9 +5,9 @@ import { AppContext } from '../AppContext'
 import DeleteIcon from '@material-ui/icons/Delete'
 
 
-const Item = ({ title, description, itemState, listState, indexItem,indexList }) => {
-    
-    const {changeListItem, changeItemIndex, openDeleteItem} = useContext(AppContext)
+const Item = ({ title, description, itemState, listState, indexItem, indexList }) => {
+
+    const { changeListItem, changeItemIndex, openDeleteItem } = useContext(AppContext)
     const [done, toggleDone] = useState(itemState)
 
     const toogleCheck = () => {
@@ -15,7 +15,7 @@ const Item = ({ title, description, itemState, listState, indexItem,indexList })
             toggleDone(false)
         else
             toggleDone(true)
-            changeListItem(indexList, indexItem, !done);
+        changeListItem(indexList, indexItem, !done);
     }
 
     const deleteItemEntry = () => {
@@ -28,14 +28,13 @@ const Item = ({ title, description, itemState, listState, indexItem,indexList })
     return (
         <div className={itemDoneClassName}>
             <FormControl component="fieldset">
-                <FormControlLabel value="start" label={title}  control={
+                <FormControlLabel value="start" label={title} control={
                     <Checkbox color="secondary" checked={itemState} onChange={toogleCheck} />
                 }/>
             </FormControl>
             <div className='item-content'>
                 <h3>{title}</h3>
                 <p>{description}</p>
-
             </div>
             <Button onClick={deleteItemEntry} variant="contained" color="secondary" startIcon={<DeleteIcon />}>Delete</Button>
         </div>
