@@ -48,12 +48,12 @@ const App = () => {
                 <Counter1 />
             </AppContextProvider>
         </div>
-    
 
 
-                const savelist = () => {
+
+                /*const savelist = () => {
         <Button onClick={saveList} >Save the list</Button>
-        localStorage.setItem('', JSON.stringify());
+        localStorage.setItem('', JSON.stringify());*/
     }
 
 }
