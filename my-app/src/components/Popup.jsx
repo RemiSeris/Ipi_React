@@ -4,7 +4,6 @@ import { useContext } from 'react';
 import { AppContext } from '../AppContextProvider';
 
 
-const Popup = () => {
 
 const Popup = () => {
     const { open, setOpen, addList } = useContext(AppContext)

@@ -16,9 +16,6 @@ const App = () => {
         setOpen(true)
     }
 
-    const openPopup = () => {
-        setOpen(true)
-    }
     return (
         <div className='layout'>
             <Popup />
