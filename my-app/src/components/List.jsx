@@ -7,8 +7,6 @@ import Button from '@material-ui/core/Button'
 import EditIcon from '@material-ui/icons/Edit'
 import { AppContext } from '../AppContext'
 
-
-
 const List = ({ children, title, state, index }) => {
     //import du service AppContext
     const {changeList, openAddItem} = useContext(AppContext)
@@ -41,6 +39,12 @@ const List = ({ children, title, state, index }) => {
                 </div>
                 {children}
             </div>
+            <Button onClick={createNewItem} variant={"contained"}>
+                {"Add Item"}
+            </Button>
+            <Button onClick={deleteItem} variant={"contained"}>
+                {"Delete Item"}
+            </Button>
         </div>
     )
 }

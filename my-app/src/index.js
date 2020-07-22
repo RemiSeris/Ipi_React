@@ -28,7 +28,6 @@ ReactDOM.render(
         <App />
       </AppContextProvider>
     </MuiThemeProvider>
-
   </React.StrictMode>,
   document.getElementById('root')
 );
