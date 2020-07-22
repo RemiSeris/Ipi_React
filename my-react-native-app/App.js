@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useContext } from 'react';
 import { StyleSheet, Button, Text, View } from 'react-native';
-import { AppContext } from './AppContextPovider';
+import { AppContext } from './AppContextProvider';
 import Item from './components/Item'
 import List from './components/List'
 
