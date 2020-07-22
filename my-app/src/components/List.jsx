@@ -39,12 +39,6 @@ const List = ({ children, title, state, index }) => {
                 </div>
                 {children}
             </div>
-            <Button onClick={createNewItem} variant={"contained"}>
-                {"Add Item"}
-            </Button>
-            <Button onClick={deleteItem} variant={"contained"}>
-                {"Delete Item"}
-            </Button>
         </div>
     )
 }
