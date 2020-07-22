@@ -82,3 +82,12 @@ body {
   box-shadow: 1px 1px 3px rgba(125, 125, 125, 0.7);
   color: white
 }
+
+.dialogContent {
+  padding: 25px;
+}
+
+.input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
