@@ -6,8 +6,8 @@ import List from './components/List';
 import Item from './components/Item';
 
 const App = () => {
-  const { myLists } = useContext(AppContext)
-  const [addList, removeList] = useContext(AppContext)
+  const { myLists, addList, removeList } = useContext(AppContext)
+
 
   return (
     <View style={styles.container}>
