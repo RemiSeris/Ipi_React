@@ -2,7 +2,7 @@ import { registerRootComponent } from 'expo';
 import React from 'react';
 
 import App from './App';
-import AppContextProvider from './AppContextPovider'
+import AppContextProvider from './AppContextProvider'
 
 const AppWithProvider = () => <AppContextProvider><App /></AppContextProvider>
 
