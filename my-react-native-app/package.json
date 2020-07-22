@@ -8,7 +8,12 @@
     "test": "jest"
   },
   "dependencies": {
+<<<<<<< HEAD
     "expo": "^38.0.8",
+=======
+    "@react-native-community/async-storage": "^1.11.0",
+    "expo": "~38.0.1",
+>>>>>>> 8c0590f0c4591ea93536bf0794c78c390b544484
     "expo-splash-screen": "~0.4.0",
     "expo-status-bar": "^1.0.0",
     "expo-updates": "~0.2.10",
