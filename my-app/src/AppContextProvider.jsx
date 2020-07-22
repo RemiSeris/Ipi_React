@@ -1,14 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react'
-import List from './components/List'
-import Item from './components/Item'
-import Button from '@material-ui/core/Button'
 import { KEY_LOCAL_STORAGE } from './const'
 
 
-
-//  On crée notre context avec useContext et on l'export
-//6
-export const AppContext = createContext({})
 //On simule un modéle de donée (tableau de list)
 const defaultLists = [
     {
@@ -72,32 +65,24 @@ const defaultList = {
 }
 
 
-//On déclare un component ContextProvider 
+
+export const AppContext = createContext({})
+
+
 const AppContextProvider = ({ children }) => {
+    // on utilise un hooks d'état pour pouvoir moifier la page
+    // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(defaultLists)
-    console.log(myLists, "hello")
 
 
     //On utilise un useEffect pour utiliser un effet
     useEffect(() => {
-        
         const mydataFromStorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
         if (mydataFromStorage)
             setMyList(mydataFromStorage)
     }, [])
 
 
-    //Utilisation de UseEffect
-
-    /*useEffect(() => {, '
-        const mydatafromstorage = JSON.parse(localStorage.getItem('lastlist'))
-        if (mydatafromStorage)
-            setMyList(mydatafromStorage)
-    }, [])*/
-    
-    useEffect((myLists) => {
-        localStorage.setItem('myLists', JSON.stringify(myLists))
-    }, [myLists])
 
 
     useEffect(() => {
@@ -130,59 +115,51 @@ const AppContextProvider = ({ children }) => {
         setMyList(listCpy)
     }
 
+    //Je rajoute un item dans une list
+    // j'ai besoin de savoir dans quelle list je rajouite l'item
+    const addItem = (list) => {
+        myLists.forEach((myList) => {
+            //Si ma list est la list passer en argument
+            if (myList === list) {
+                myList.items.push({ title: 'new Item' })
+                //je rajoute un item à ma list
+            }
+        })
+        // on crée une copie de notre tableau pour changer la référence 
+        const listCpy = myLists.map(list => list)
 
-    //on déclare une valuer d'état et son setter
-   
-
-
-    // on déclare notre objet valeur avec des valeurs et des méthodes
-    const value = {
-        myLists,
-        setMyList,
+        //on utilise le setter d'état pour changer l'états de nos liste
+        setMyList(listCpy)
     }
 
+    //j'enlève le dernier item d'une list
+    // j'ai besoin de savoir dans quelle list je rajouite l'item
+    const removeItem = (list) => {
+        myLists.forEach((myList) => {
+            //Si ma list est la list passer en argument
+            if (myList === list) {
+                //je supprime un item à ma list
+                myList.items.pop()
+            }
+        })
+        // on crée une copie de notre tableau pour changer la référence 
+        const listCpy = myLists.map(list => list)
 
-    //on retourn notre Context.Provider et le children avec comme value les donées et fonctions que l'on souhaite utiliser par notre contexte
-    return (
-        <AppContext.Provider value={value}>
-            {children}
-            {
-                // On utilise la méthode .map pour parcourir les éléments,
-                // de nos tableau et renvoyer pour chaque élément le component indiquée
-                myLists.map(({ items, title }) =>
-                    // On affiche nos lists une a une sous forme de component
-                    <List title={title} myProps={"zeaaze"} >
-                        {
-                            // On affiche les items d'une liste une à une sous forme de component
-                            items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
-                        }
-                    </List>
-                )}
-            <div>
-            {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            <Button variant="contained" color="secondary" title='add' onClick={addList}>Add</Button>
-            {/*<Button test1={'test1'} test2={"test2"} onClick={addList} title={'Add'} />*/}
-            <Button variant="contained" color="secondary" onClick={removeList} title='delete'>Delete</Button>
-            {/*<Button onClick={removeList} title={'delete'} />*/}
-            </div>
-            
-            {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Button onClick={addList} variant='contained'>
-                    {"ADD"}
-                </Button>
-                <Button onClick={removeList}>
-                    {"DELETE"}
-                </Button>
-                {/* 
-                <Button onClick={addList} title={'Add'} />
+        //on utilise le setter d'état pour changer l'états de nos liste
+        setMyList(listCpy)
+    }
 
-                <Button onClick={removeList} title={'delete'} /> 
-                */}
-            </div>
-        </AppContext.Provider>
-    )
+    const value = {
+        myLists,
+        addList,
+        removeList,
+        addItem,
+        removeItem,
+    }
+
+    return <AppContext.Provider value={value}>
+        {children}
+    </AppContext.Provider>
 }
-
 
 export default AppContextProvider
