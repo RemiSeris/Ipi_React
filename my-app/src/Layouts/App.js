@@ -1,6 +1,3 @@
-//lien git du cours:
-//https://github.com/RemisSeris/Ipi React
-
 //Lorsque on veut créer un component on importe React
 import React from 'react';
 import List from '../components/List'
@@ -9,15 +6,19 @@ import Button from '@material-ui/core/Button'
 import { useContext } from 'react';
 import { AppContext } from '../AppContextProvider';
 import TextFieldExample from '../components/TextFieldExample'
+import Popup from '../components/Popup';
 
 // on déclare un componet sous forme d'arrow funtion 
 const App = () => {
-    const { myLists, addList, removeList } = useContext(AppContext)
+    const { myLists, addList, removeList, setOpen } = useContext(AppContext)
 
+    const openPopup = () => {
+        setOpen(true)
+    }
 
     return (
         <div className='layout'>
-            <TextFieldExample />
+            <Popup />
             {
                 // On utilise la méthode .map pour parcourir les éléments,
                 // de nos tableau et renvoyer pour chaque élément le component indiquée
@@ -32,7 +33,7 @@ const App = () => {
                 )}
             {/* On utilise notre component générique Button pour effectuer l'action d'ajout et de supression d'une liste dans le tableau de list*/}
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Button onClick={addList} variant='contained'>
+                <Button onClick={openPopup} variant='contained'>
                     {"ADD"}
                 </Button>
                 <Button onClick={removeList}>
