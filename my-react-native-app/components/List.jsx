@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
         elevation: 3,
         backgroundColor: 'white',
         alignItems: 'center',
-        margin: "50px",
+        margin: "50",
     },
     button: {
-        margin: "5px",
+        margin: "5",
     }
 });
 
