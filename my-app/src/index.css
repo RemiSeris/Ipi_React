@@ -87,10 +87,11 @@ body {
   color: white
 }
 
-.btn-group{
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 50px;
-  margin: 50px;
+.dialogContent {
+  padding: 25px;
+}
+
+.input {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
