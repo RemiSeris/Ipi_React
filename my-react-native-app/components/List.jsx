@@ -23,9 +23,9 @@ const List = ({ list, children }) => {
             <View style={styles.listItems}>
                 {children}
             </View>
-            <Button title="Add Item", onPress={() => Alert.createNewItem('')} />
+            <Button title="Add Item" onPress={() => Alert.createNewItem('')} />
 
-            <Button title="Delete Item" />
+            <Button title="Delete Item" onPress={() => Alert.deleteItem('')} />
         </View>
     )
 }
