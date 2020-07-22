@@ -1,35 +1,35 @@
-import React, {useState}from 'react'
-import Switch from '@material-ui/core/Switch'
+import React from 'react'
+import { Button } from '@material-ui/core'
+import { useContext } from 'react'
+import { AppContext } from '../AppContextProvider'
 
-const List = ({ children, title }) => {
-    const [checked, setChecked]=useState(false)
 
-    const toogleCheck=() =>{
-        //on fait l'inverse de la valeur actuelle
-        setChecked(!checked)
-        /*ou:
-        if (checked===true)
-            setChecked(false)
-        else
-            setChecked(true)
-        
-        */ 
+const List = ({ children, list }) => {
+    const { addItem, removeItem } = useContext(AppContext)
+    const { title } = list
+
+    const createNewItem = () => {
+        addItem(list)
     }
+
+    const deleteItem = () => {
+        removeItem(list)
+    }
+
     return (
         <div className={'list'}>
             <div className="listTitle">
                 {title}
-                
             </div>
             <div className={'listItems'}>
                 {children}
             </div>
-            {/*ici j'ajoute un switch de material UI, lorsqu'on clique dessus il change d etat*/}
-            <Switch
-            checked={checked}
-            onChange={toogleCheck}
-            
-            />
+            <Button onClick={createNewItem} variant={"contained"}>
+                {"Add Item"}
+            </Button>
+            <Button onClick={deleteItem} variant={"contained"}>
+                {"Delete Item"}
+            </Button>
         </div>
     )
 }
