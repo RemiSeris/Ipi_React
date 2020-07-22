@@ -73,6 +73,7 @@ const AppContextProvider = ({ children }) => {
     // on utilise un hooks d'état pour pouvoir moifier la page
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(defaultLists)
+    const [open, setOpen] = useState(false)
 
 
     //On utilise un useEffect pour utiliser un effet
@@ -90,10 +91,11 @@ const AppContextProvider = ({ children }) => {
     }, [myLists])
 
     //on crée une fonction pour ajouter un élément à la liste
-    const addList = () => {
+    const addList = (title) => {
 
         //on pousse un nouvelle élément dans le tableau de liste
-        myLists.push(defaultList)
+
+        myLists.push({ title, items: [] })
 
         // on crée une copie de notre tableau pour changer la référence 
         const listCpy = myLists.map(list => list)
@@ -151,10 +153,12 @@ const AppContextProvider = ({ children }) => {
 
     const value = {
         myLists,
+        open,
         addList,
         removeList,
         addItem,
         removeItem,
+        setOpen
     }
 
     return <AppContext.Provider value={value}>
