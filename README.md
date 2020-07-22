@@ -284,6 +284,21 @@ const List = ({ children }) => {
 6. Checkout if it works
 7. Style your components so it looks nice (border-shadow on list, some color, some placement with flex, some margin and padding)
 
+**Ressource 2** :
+
+* React-nativ Modal component https://reactnative.dev/docs/modal
+
+**Instruction 2**:
+
+1. Display a Modal compoent
+2. Add the buttons AddList and DeleteList into App
+3. Bind the button DeleteList to removeList from context
+4. Add the buttons AddItem DeleteItem
+5. Bind the buttons with the context (addItem, remove item)
+6. Checkout if it works
+7. Style your components so it looks nice (border-shadow on list, some color, some placement with flex, some margin and padding)
+
+
 
 
  
