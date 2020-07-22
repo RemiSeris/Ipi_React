@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { AppContext } from '../AppContextPovider';
 
@@ -21,8 +21,8 @@ const List = ({ list, children }) => {
         <View>
            <Text>{title}</Text>
            {children}
-           <Button style={style.Button} onPress={createNewItem} title='Add Item'></Button>
-           <Button style={style.Button} onPress={deleteItem} title='Delete Item'></Button>
+           <Button style={styles.Button} onPress={createNewItem} title='Add Item'></Button>
+           <Button style={styles.Button} onPress={deleteItem} title='Delete Item'></Button>
         </View>
     )
 }
