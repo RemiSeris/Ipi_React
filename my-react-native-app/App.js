@@ -12,13 +12,15 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-     {
-       myLists.map((list) => <List list={list}>
-         {list.items.map((item) => <Item title={item.title} />)}
-       </List>)}
-      <Button title={"Add List"}/>
-      <Button  onPress={removeList} title={"Delete List"}/>
-      <StatusBar style="auto"/>
+      {
+        myLists.map((list) => <List list={list}>
+          {list.items.map((item) => <Item title={item.title} />)}
+        </List>
+        )}
+      <Button title={"Add List"} />
+      <Button onPress={removeList} title={"Delete List"} />
+
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -27,7 +29,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -287,7 +287,8 @@ const List = ({ children }) => {
 **Ressource 2** :
 
 * React-native Modal component https://reactnative.dev/docs/modal
-* React-native TextInputComponent https://reactnative.dev/docs/textinput
+* React-native TextInput Component https://reactnative.dev/docs/textinput
+
 **Instruction 2**:
 
 1. Display a Modal component in Popup

@@ -16,25 +16,30 @@ const List = ({ list, children }) => {
         removeItem(list)
     }
 
-
     return (
-        <View>
-           <Text>{title}</Text>
-           {children}
-           <Button style={styles.Button} onPress={createNewItem} title='Add Item'></Button>
-           <Button style={styles.Button} onPress={deleteItem} title='Delete Item'></Button>
+        <View style={styles.listContainer}>
+            <Text> {title}</Text>
+            {children}
+            <View style={styles.button}>
+                <Button onPress={createNewItem} title="Add Item" />
+            </View>
+            <View style={styles.button}>
+                <Button onPress={deleteItem} title="Delete Item" />
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     listContainer: {
-        backgroundColor: 'white',
         elevation: 3,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        margin: "50px",
     },
-    button : {
-        color: "yellow"
+    button: {
+        margin: "5px",
     }
-})
+});
 
 export default List
