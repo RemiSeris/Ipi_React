@@ -1,17 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { AppContext } from './AppContextPovider';
 
-export default function App() {
+const App = () => {
+  const { myLists } = useContext(AppContext)
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start azezdazd
-      </Text>
-      <Text> TEST 2</Text>
+      {myLists.map((list) => {
+        return <Text>{list.title}</Text>
+      })}
       <StatusBar style="auto" />
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -21,3 +25,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App
