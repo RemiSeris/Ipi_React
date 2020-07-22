@@ -19,6 +19,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
+    flexDirection: 'column',
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
