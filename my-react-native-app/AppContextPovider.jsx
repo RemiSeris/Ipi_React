@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, View, Text } from 'react-native';
 
 const KEY_LOCAL_STORAGE = "testObject"
 //On simule un modéle de donée (tableau de list)

@@ -13,6 +13,16 @@ const App = () => {
       })}
       <StatusBar style="auto" />
     </View>
+
+
+    <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Button onClick={openPopup} variant='contained'>
+        {"ADD"}
+      </Button>
+      <Button onClick={removeList}>
+        {"DELETE"}
+      </Button>
+    </View>
   );
 }
 
