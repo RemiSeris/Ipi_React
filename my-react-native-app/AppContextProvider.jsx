@@ -1,12 +1,39 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { KEY_LOCAL_STORAGE } from './const'
-import Popup from './components/Popup'
+import { AsyncStorage } from 'react-native';
 
-
+const KEY_LOCAL_STORAGE = "testObject"
 //On simule un modéle de donée (tableau de list)
 const defaultLists = [
     {
         title: 'Liste 1',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    },
+    {
+        title: 'Liste 2',
+        items: [
+            {
+                title: 'item1',
+            },
+            {
+                title: 'item2',
+            },
+            {
+                title: 'item3',
+            },
+        ]
+    },
+    {
+        title: 'Liste 3',
         items: [
             {
                 title: 'item1',
@@ -49,25 +76,44 @@ const AppContextProvider = ({ children }) => {
     const [open, setOpen] = useState(false)
 
 
+
+    //store data from AsyncStorage
+    const storeData = async () => {
+        try {
+            const jsonValue = JSON.stringify(myLists)
+            await AsyncStorage.setItem(KEY_LOCAL_STORAGE, jsonValue)
+        } catch (e) {
+            console.log('Error on store data', e)
+        }
+    }
+
+    const getData = async () => {
+        try {
+            const jsonValue = await AsyncStorage.getItem(KEY_LOCAL_STORAGE)
+            return JSON.parse(jsonValue)
+        } catch (e) {
+            // error reading value
+        }
+    }
+
     //On utilise un useEffect pour utiliser un effet
-    useEffect(() => {
-        const mydataFromStorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
-        if (mydataFromStorage)
+    useEffect(async () => {
+        const mydataFromStorage = await getData()
+        if (mydataFromStorage) {
             setMyList(mydataFromStorage)
+        }
     }, [])
 
-
-
-
     useEffect(() => {
-        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
+        storeData()
     }, [myLists])
 
     //on crée une fonction pour ajouter un élément à la liste
     const addList = (title) => {
 
         //on pousse un nouvelle élément dans le tableau de liste
-        myLists.push({title,items:[]})
+
+        myLists.push({ title, items: [] })
 
         // on crée une copie de notre tableau pour changer la référence 
         const listCpy = myLists.map(list => list)
@@ -78,7 +124,6 @@ const AppContextProvider = ({ children }) => {
 
     //on crée une fonction pour enlever un élément à la liste
     const removeList = () => {
-
         //on enléve le dernier élément du tableau de list
         myLists.pop()
 
@@ -135,7 +180,6 @@ const AppContextProvider = ({ children }) => {
 
     return <AppContext.Provider value={value}>
         {children}
-        <Popup/>
     </AppContext.Provider>
 }
 

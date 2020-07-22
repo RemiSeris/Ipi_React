@@ -5,11 +5,12 @@ import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextFieldExample from '../components/TextFieldExample';
 import { AppContext } from '../AppContextProvider';
+import Popup from '../components/Popup';
 
 
 
 const App = () => {
-    const { myLists, addList, removeList } = useContext(AppContext)
+    const { myLists, addList, removeList, setOpen } = useContext(AppContext)
 
 
 
@@ -18,7 +19,7 @@ const App = () => {
 
             <div className='buttonContenair'>
                 <div>
-                    <Button onClick={addList} variant='contained' color='primary'>
+                    <Button onClick={openPopup} variant='contained' color='primary'>
                         {"ADD"}
                     </Button>
                 </div>
@@ -29,7 +30,7 @@ const App = () => {
                 </div>
             </div>
             <div className='layout'>
-                <TextFieldExample/>
+                <Popup/>
                 {
 
                     // On utilise la méthode .map pour parcourir les éléments,
