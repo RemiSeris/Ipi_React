@@ -1,27 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useContext } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Button, View } from 'react-native';
 import { AppContext } from './AppContextProvider';
-import { Item } from './components/Item'
 import List from './components/List';
+import Item from './components/Item';
+import { ScrollView } from 'react-native-gesture-handler';
+import Popup from './components/Popup';
 
 const App = () => {
-  const { myLists } = useContext(AppContext)
+  const { myLists, removeList, setOpen } = useContext(AppContext)
+
+  const openPopup = () =>{
+    setOpen(true)
+  }
 
   return (
     <View style={styles.container}>
-      {myLists.map((list) => {
-        return (
-        <View>
-          <List list={list}>
-            {list.items.map(({title : itemTitle})=> <Item title={itemTitle}/>)}
+      <ScrollView>
+        <Popup/>
+        {
+          myLists.map((list) => <List list={list}>
+            {list.items.map((item) => <Item title={item.title} />)}
           </List>
-          <Text>{list.title}</Text>
-        </View>)
-      })}
-      <StatusBar style="auto" />
-    </View>
+          )}
+        <Button onPress={openPopup} title={"Add List"} />
+        <Button onPress={removeList} title={"Delete List"} />
 
+        <StatusBar style="auto" />
+      </ScrollView>
+    </View>
   );
 }
 
@@ -29,7 +36,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
   },
