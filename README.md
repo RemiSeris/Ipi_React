@@ -261,6 +261,32 @@ const List = ({ children }) => {
 6. When the Button submit is clicked create a newList, it's title is the value of the input (use the Context !) and the Popup close (clear the input before closing) 
 7. Checkout if it works
 
+### 7 Swithing to react-nativ
+
+**Goals** :
+
+* Discover and Familiarize with the react-nativ librarie
+
+**Ressource** :
+
+* React-nativ documentation  https://reactnative.dev/
+* React-nativ View component https://reactnative.dev/docs/view
+* React-nativ Text component https://reactnative.dev/docs/text
+* React-nativ Button component https://reactnative.dev/docs/button
+
+**Instruction**:
+
+1. Display List with Item using Text and View (List and item have a title props)
+2. Add the buttons AddList and DeleteList into App
+3. Bind the button DeleteList to removeList from context
+4. Add the buttons AddItem DeleteItem
+5. Bind the buttons with the context (addItem, remove item)
+6. Checkout if it works
+7. Style your components so it looks nice (border-shadow on list, some color, some placement with flex, some margin and padding)
+
+
+
+ 
 
 ### 7 Let's get on Fire(Base)
 
@@ -275,7 +301,7 @@ const List = ({ children }) => {
 * Firebase Console https://console.firebase.google.com/
 * Cloud Firestore documentation https://rnfirebase.io/ and https://rnfirebase.io/firestore/usage
 * firestore get data documentation https://firebase.google.com/docs/firestore/query-data/get-data
-* Firestore add Date documentation https://firebase.google.com/docs/firestore/manage-data/add-data
+* Firestore add Data documentation https://firebase.google.com/docs/firestore/manage-data/add-data
 
 **Instruction**:
 
