@@ -33,7 +33,7 @@ const App = () => {
         );
       })}
 
-      <Button title={'ADD'}>  </Button>
+      <Button title={'ADD'} >  </Button>
       <Button title={"DELETE "}>  </Button>
       <StatusBar style="auto" />
     </View>
