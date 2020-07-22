@@ -253,7 +253,7 @@ const List = ({ children }) => {
 
 **Instruction 2**:
 
-1. Create a Popup component, manadge is props 'open' with a state in AppContext
+1. Create a Popup component, manadge is props 'open' with a state in AppContext or  directly get the state open from AppContext
 2. The component Popup will display a <Dialog> component (https://material-ui.com/components/dialogs/#dialog) with the title "New List"
 3. Add a TextField into the Dialog Component with label "name"
 4. Manadge the TextField value with a state in the Popup Component
