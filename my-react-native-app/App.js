@@ -1,18 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useContext } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Button, View } from 'react-native';
 import { AppContext } from './AppContextPovider';
+import List from './components/List';
+import Item from './components/List';
 
 const App = () => {
-  const { myLists } = useContext(AppContext)
+  const { myLists, removeList } = useContext(AppContext)
 
   return (
     <View style={styles.container}>
-      {myLists.map((list) => {
-        return <Text>{list.title}</Text>
-      })}
+
+      {
+      myLists.map((list) => <List list={list}>
+        {list.items.map((item) => <Item title={item.title} /> )}
+        </List>
+      )}
+      <Button title={"Add List"} />
+      <Button onPress={removeList} title={"Delete List"} />
+
       <StatusBar style="auto" />
     </View>
+
   );
 }
 
@@ -25,5 +34,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
 
 export default App
