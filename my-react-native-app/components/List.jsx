@@ -1,10 +1,10 @@
-import React from 'react';
-import { useContext } from 'react';
-import { View, Tex, Button, Text } from 'react-native';
-import { AppContext } from '../AppContextProvider'
+import React, { useContext } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { AppContext } from '../AppContextProvider';
+
 
 const List = ({ list, children }) => {
-    const { addItem, removeItem } = useContext(AppContext)
+    const { removeItem, addItem } = useContext(AppContext)
     const { title } = list
 
     const createNewItem = () => {
@@ -16,18 +16,29 @@ const List = ({ list, children }) => {
     }
 
     return (
-        <View style={styles.list}>
-            <View style={styles.listTitle}>
-                {title}
+        <View style={styles.listContainer}>
+            <Text> {title}</Text>
+            {children}
+            <View style={styles.button}>
+                <Button onPress={createNewItem} title="Add Item" />
             </View>
-            <View style={styles.listItems}>
-                {children}
+            <View style={styles.button}>
+                <Button onPress={deleteItem} title="Delete Item" />
             </View>
-            <Button title="Add Item" onPress={() => Alert.createNewItem('')} />
-
-            <Button title="Delete Item" onPress={() => Alert.deleteItem('')} />
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    listContainer: {
+        elevation: 3,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        margin: "50px",
+    },
+    button: {
+        margin: "5px",
+    }
+});
 
 export default List

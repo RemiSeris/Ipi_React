@@ -284,8 +284,17 @@ const List = ({ children }) => {
 6. Checkout if it works
 7. Style your components so it looks nice (border-shadow on list, some color, some placement with flex, some margin and padding)
 
+**Ressource 2** :
 
+* React-native Modal component https://reactnative.dev/docs/modal
+* React-native TextInput Component https://reactnative.dev/docs/textinput
 
+**Instruction 2**:
+
+1. Display a Modal component in Popup
+2. Add a TextInput into the Modal Component
+3. Add the title "NewList" to the Modal and a button Submit
+4. Mimic the previous Behaviour for the onPress of the Button AddList and Submit
  
 
 ### 7 Let's get on Fire(Base)
