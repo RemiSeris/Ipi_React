@@ -5,7 +5,7 @@ import { View } from 'react-native';
 const List = ({ list, children }) => {
     return (
         <View>
-            {children}
+            <Text>{list}</Text>
         </View>
     )
 }
