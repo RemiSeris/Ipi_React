@@ -16,35 +16,6 @@ const App = () => {
         setOpen(true)
     }
 
-<<<<<<< HEAD
-    //on crée une fonction pour enlever un élément à la liste
-    const removeList = () => {
-
-        //on enléve le dernier élément du tableau de list
-        myLists.pop()
-
-        // on crée une copie de notre tableau pour changer la référence 
-        const listCpy = myLists.map(list => list)
-
-        //on utilise le setter d'état pour changer l'états de nos liste
-        setMyList(listCpy)
-    }
-
-
-
-<<<<<<< HEAD
-    const saveList = () => {
-        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(myLists))
-    }
-
-    const getList = () => {
-        localStorage.getItem(KEY_LOCAL_STORAGE)
-    }
-
-=======
->>>>>>> f962d35f2e969dbd4ddce38acd087985547c958a
-=======
->>>>>>> 5856a829ed37b434cb1117660e7e10f7c3c82902
     return (
         <div className='layout'>
             <Popup />
