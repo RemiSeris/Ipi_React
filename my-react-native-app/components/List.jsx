@@ -1,10 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
-
+import { View, Text } from 'react-native';
 
 const List = ({ list, children }) => {
     return (
         <View>
+            <Text>{list.title}</Text>
             {children}
         </View>
     )
