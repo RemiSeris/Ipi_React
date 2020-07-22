@@ -11,7 +11,6 @@ const Counter1 = () => {
             <Button variant="contained" color="primary" onClick={() => setCount(count + 1)}>
                 {"Counter 1 :" + count.toString()}
             </Button>
-            <Counter2 />
         </div>
     )
 }
