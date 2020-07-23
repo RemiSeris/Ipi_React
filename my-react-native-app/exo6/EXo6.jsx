@@ -25,17 +25,17 @@ const messageList = [
 const Exo6 = () => {
     const renderItem = ({ item }) => (
         <MessageCard from={item.from} content={item.content} />
-      );
-    
-      return (
+    );
+
+    return (
         <SafeAreaView >
-          <FlatList
-            data={messageList}
-            renderItem={renderItem}
-            keyExtractor={item => item.from}
-          />
+            <FlatList
+                data={messageList}
+                renderItem={renderItem}
+                keyExtractor={item => item.from}
+            />
         </SafeAreaView>
-      );
+    );
 }
 
 

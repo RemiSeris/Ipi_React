@@ -7,7 +7,7 @@ const Exo5 = () => {
     const onPressChangeState = () => {
         setIsConnect(!isConnect)
         console.log(isConnect)
-        isConnect? setIsConnectText('I am connected') : setIsConnectText('I am disconnected')
+        isConnect ? setIsConnectText('I am connected') : setIsConnectText('I am disconnected')
     }
     return (
         <View >
