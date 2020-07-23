@@ -5,3 +5,15 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.content {
+    text-align: center;
+}
+.firstTitle {
+    font-size: 70px;
+    background-color: yellow;
+}
+.legalMention {
+    font-size: 30px;
+    background-color: yellow;
+    text-align: right;
+}
