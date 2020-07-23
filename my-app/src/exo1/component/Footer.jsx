@@ -2,8 +2,8 @@ import React from 'react'
 
 const Footer = ({legalMention}) => {
     return (
-        <div className={"Footer"}>
-        <h1>{legalMention}</h1>
+        <div className={"footer"}>
+        {legalMention}
         </div>
     )
 }
