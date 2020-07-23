@@ -1,7 +1,7 @@
-import React, { createContext, useState, useEffect } from 'react'
-import { AsyncStorage } from 'react-native';
+import React, {createContext, useState, useEffect} from 'react'
+import {AsyncStorage} from 'react-native';
 
-const KEY_LOCAL_STORAGE = "testObject"
+const KEY_LOCAL_STORAGE = "testObject";
 //On simule un modéle de donée (tableau de list)
 const defaultLists = [
     {
@@ -68,7 +68,7 @@ const defaultLists = [
 export const AppContext = createContext({})
 
 
-const AppContextProvider = ({ children }) => {
+const AppContextProvider = ({children}) => {
     // on utilise un hooks d'état pour pouvoir moifier la page
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(defaultLists)
@@ -96,22 +96,23 @@ const AppContextProvider = ({ children }) => {
 
     //On utilise un useEffect pour utiliser un effet
     useEffect(async () => {
-        const mydataFromStorage = await getData()
+        const mydataFromStorage = await getData();
         if (mydataFromStorage) {
             setMyList(mydataFromStorage)
         }
     }, [])
 
     useEffect(() => {
-        storeData()
-    }, [myLists])
+        storeData().then(x => {
+        }).catch(x => console.error(x))
+    }, [myLists]);
 
     //on crée une fonction pour ajouter un élément à la liste
     const addList = (title) => {
 
         //on pousse un nouvelle élément dans le tableau de liste
 
-        myLists.push({ title, items: [] })
+        myLists.push({title, items: []})
 
         // on crée une copie de notre tableau pour changer la référence 
         const listCpy = myLists.map(list => list)
@@ -138,7 +139,7 @@ const AppContextProvider = ({ children }) => {
         myLists.forEach((myList) => {
             //Si ma list est la list passer en argument
             if (myList === list) {
-                myList.items.push({ title: 'new Item', checked: false })
+                myList.items.push({title: 'new Item', checked: false})
                 //je rajoute un item à ma list
             }
         })
@@ -171,10 +172,7 @@ const AppContextProvider = ({ children }) => {
         myLists.forEach((list) => {
             list.items.forEach((myItem) => {
                 if (myItem === item) {
-                    if (myItem.checked === true)
-                        myItem.checked = false
-                    else
-                        myItem.checked = true
+                    myItem.checked = myItem.checked !== true;
                 }
             })
         })
