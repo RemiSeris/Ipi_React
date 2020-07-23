@@ -4,4 +4,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+
+.saveMe{
+    border: 2px solid rgb(243, 199, 199);
+    padding: 10px;
+}
+
+.saveMe form{
+    width: 200px;
+    float: left;
+}
+
+.saveMe Button{
+    margin-top: 10px;
 }
