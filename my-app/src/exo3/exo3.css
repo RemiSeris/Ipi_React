@@ -5,3 +5,19 @@
     justify-content: center;
     align-items: center;
 }
+
+.SM{
+    border: 2px solid blue;
+    padding: 10px;
+}
+
+.SM form{
+    width: 200px;
+    float: left;
+    background-color: orange;
+}
+
+.SM Button{
+    margin-top: 10px;
+    background-color: palegoldenrod;
+}
