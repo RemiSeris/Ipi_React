@@ -1,16 +1,11 @@
 import React, { createContext, useState, useEffect } from 'react'
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormControl from '@material-ui/core/FormControl';
-import Button from '@material-ui/core/Button'
-import EditIcon from '@material-ui/icons/Edit'
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, View } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
+import {
+    Modal,
+    Text,
+    Button
+} from "react-native";
 
 export const AppContext = createContext({})
 
@@ -70,7 +65,7 @@ const AppContextProvider = ({ children }) => {
     useEffect(async () => {
         const myDataFromStorage = await getData()
         if (myDataFromStorage) {
-            
+
             setMyList(myDataFromStorage)
             console.log(myList)
         }
@@ -93,6 +88,7 @@ const AppContextProvider = ({ children }) => {
     //OBSERVABLES SUR LES INPUTS
     //recupère le titre de la liste
     const changeMyListTitle = (event) => {
+        console.log(event)
         setMyListTitle(event.target.value)
     }
     //recupère le titre de l'item
@@ -155,7 +151,6 @@ const AppContextProvider = ({ children }) => {
         nouvelleListe.title = myListTitle
         myList.push(nouvelleListe)
         setMyList(myList.map(list => list))
-        setMyTab(0)
         setMyListTitle('New List ' + myList.length)
     }
 
@@ -177,7 +172,7 @@ const AppContextProvider = ({ children }) => {
 
     //GESTION DES POPUPS
     //Gestion de la popup de suppression de liste
-    const [openDialogDeleteList, setOpenDeleteList] = React.useState(false);
+    const [openDialogDeleteList, setOpenDeleteList] = useState(false);
     //ouvre la popup de suppression de liste
     const openDeleteList = () => {
         setOpenDeleteList(true);
@@ -193,7 +188,7 @@ const AppContextProvider = ({ children }) => {
     }
 
     //Gestion de la popup de suppression d'item
-    const [openDialogDeleteItem, setOpenDeleteItem] = React.useState(false);
+    const [openDialogDeleteItem, setOpenDeleteItem] = useState(false);
     //ouvre la popup de suppression d'item
     const openDeleteItem = () => {
         setOpenDeleteItem(true);
@@ -209,13 +204,16 @@ const AppContextProvider = ({ children }) => {
     }
 
     //Gestion de la popup ajout de liste
-    const [openDialogAddList, setOpenAddList] = React.useState(false);
+    const [openDialogAddList, setOpenAddList] = useState(false);
     //ouvre la popup d'ajout de liste
     const openAddList = () => {
+        console.log('true')
         setOpenAddList(true);
     };
     //ferme la popup d'ajout de liste
     const closeAddList = () => {
+        console.log('false')
+
         setOpenAddList(false);
     };
     //Ajoute une nouvelle liste au click sur le bouton
@@ -225,7 +223,7 @@ const AppContextProvider = ({ children }) => {
     }
 
     //Gestion de la popup ajout d'item
-    const [openDialogAddItem, setOpenAddItem] = React.useState(false);
+    const [openDialogAddItem, setOpenAddItem] = useState(false);
     //ouvre la popup d'ajout d'item
     const openAddItem = () => {
         setOpenAddItem(true);
@@ -257,86 +255,58 @@ const AppContextProvider = ({ children }) => {
         openDeleteList,
         openAddItem,
         changeItemIndex,
-        openDeleteItem
+        openDeleteItem,
+        addListEntry
     }
 
     return (
         <AppContext.Provider value={value}>
             {children}
             {/* Popin supression liste */}
-            <Dialog open={openDialogDeleteList} onClose={closeDeleteList} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-                <DialogTitle id="alert-dialog-title">{"Are you sure you want to delete this list?"}</DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        You are about to delete this list: {myList[myTab].title ? myList[myTab].title : 'pas de liste à supprimer'}. Are you sure you want to delete it?
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={deleteList} color="primary" variant="outlined">Yes</Button>
-                    <Button onClick={closeDeleteList} color="secondary" variant="contained" autoFocus>No</Button>
-                </DialogActions>
-            </Dialog>
+            <Modal animationType="slide" visible={openDialogDeleteList} onRequestClose={closeDeleteList}>
+                <View>
+                    <Text>{'Are you sure you want to delete this list?'}</Text>
+                    <Button onPress={deleteList} title='Yes'></Button>
+                    <Button onPress={closeDeleteList} title='Cancel'></Button>
+                </View>
+
+            </Modal>
+
             {/* Popin ajout liste */}
-            <Dialog open={openDialogAddList} onClose={closeAddList} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-                <DialogTitle id="alert-dialog-title">{"Add a new list!"}</DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        You are about to add a new list! Choose a name for your list:
-                    </DialogContentText>
-                    <FormControl>
-                        <InputLabel htmlFor="input-with-icon-adornment">Your list name:</InputLabel>
-                        <Input value={myListTitle} onChange={changeMyListTitle} inputProps={{ maxLength: 15, }} id="list-name" startAdornment={
-                            <InputAdornment position="start">
-                                <EditIcon />
-                            </InputAdornment>} />
-                    </FormControl>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={addList} color="primary" variant="outlined">Add a new List</Button>
-                    <Button onClick={closeAddList} color="secondary" variant="contained" autoFocus>Cancel</Button>
-                </DialogActions>
-            </Dialog>
+            <Modal animationType="slide" visible={openDialogAddList} onRequestClose={closeAddList}>
+                <View>
+                    <Text>{'Add a new list!'}</Text>
+                    <TextInput value={myListTitle} onChangeText={changeMyListTitle} id="list-name"></TextInput>
+                    <Button onPress={addList} title='Add a new List'></Button>
+                    <Button onPress={closeAddList} title='Cancel'></Button>
+                </View>
+
+            </Modal>
+
             {/* Popin ajout item */}
-            <Dialog open={openDialogAddItem} onClose={closeAddItem} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-                <DialogTitle id="alert-dialog-title">{"Add a new item!"}</DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        You are about to add a new item! Choose a name and description for your item:
-                    </DialogContentText>
-                    <FormControl>
-                        <InputLabel htmlFor="input-with-icon-adornment">Your item name:</InputLabel>
-                        <Input value={myItemTitle} onChange={changeMyItemTitle} inputProps={{ maxLength: 15, }} id="item-name" startAdornment={
-                            <InputAdornment position="start">
-                                <EditIcon />
-                            </InputAdornment>} />
-                    </FormControl>
-                    <FormControl>
-                        <InputLabel htmlFor="input-with-icon-adornment">Your item description:</InputLabel>
-                        <Input value={myItemDescription} onChange={changeMyItemDescription} id="description-name" startAdornment={
-                            <InputAdornment position="start">
-                                <EditIcon />
-                            </InputAdornment>} />
-                    </FormControl>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={addItem} color="primary" variant="outlined">Add a new Item</Button>
-                    <Button onClick={closeAddItem} color="secondary" variant="contained" autoFocus>Cancel</Button>
-                </DialogActions>
-            </Dialog>
+            <Modal animationType="slide" visible={openDialogAddItem} onRequestClose={closeAddItem}>
+                <View>
+                    <Text>{'Add a new item!'}</Text>
+                    <TextInput value={myItemTitle} onChangeText={changeMyItemTitle} id="item-name"></TextInput>
+                    <TextInput value={myItemDescription} onChangeText={changeMyItemDescription} id="description-name"></TextInput>
+
+                    <Button onPress={addItem} title='Add a new Item'></Button>
+                    <Button onPress={closeAddItem} title='Cancel'></Button>
+                </View>
+
+            </Modal>
+
 
             {/* Popin suppression item */}
-            <Dialog open={openDialogDeleteItem} onClose={closeDeleteItem} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-                <DialogTitle id="alert-dialog-title">{"Are you sure you want to delete this Item?"}</DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        You are about to delete this item?
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={deleteItem} color="primary" variant="outlined">Yes</Button>
-                    <Button onClick={closeDeleteItem} color="secondary" variant="contained" autoFocus>No</Button>
-                </DialogActions>
-            </Dialog>
+            <Modal animationType="slide" visible={openDialogDeleteItem} onRequestClose={closeDeleteItem}>
+                <View>
+                    <Text>{'Are you sure you want to delete this Item?!'}</Text>
+                    <Button onPress={deleteItem} title='Yes'></Button>
+                    <Button onPress={closeDeleteItem} title='Cancel'></Button>
+                </View>
+
+            </Modal>
+
         </AppContext.Provider>
     )
 }

@@ -3,9 +3,8 @@ import Switch from '@material-ui/core/Switch'
 import { useState } from 'react'
 import ClearIcon from "@material-ui/icons/Clear"
 import CheckIcon from '@material-ui/icons/Check'
-import Button from '@material-ui/core/Button'
 import EditIcon from '@material-ui/icons/Edit'
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , Button} from 'react-native';
 import { AppContext } from '../AppContextProvider'
 
 
@@ -26,18 +25,14 @@ const List = ({ children, title, state, index }) => {
 
     return (
         <View style={styles.list}>
-            <View className="list-title" style={styles.listTitle}>
-                {state === true
-                    ? <CheckIcon color="primary" />
-                    : <ClearIcon color="secondary" />
-                }
+            <View  style={styles.listTitle}>
+
                <Text>{title}</Text> 
-                <Switch color="primary" checked={state} onChange={toggleCheck}></Switch>
             </View>
             <View  style={styles.listItems}>
             <View style={styles.item + styles.itemAdd}>
-                    <Button variant="outlined" color="secondary"  onClick={openAddItem} startIcon={<EditIcon />} >
-                        Add Item
+                    <Button  onPress={openAddItem} title="Add Item">
+                        <Text>Add Item</Text>
                     </Button>
                 </View>
                 {children}
@@ -58,7 +53,6 @@ const styles = StyleSheet.create({
     },
     list: {
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
         margin: 20+'px',
         width: 'max-content',
@@ -66,12 +60,11 @@ const styles = StyleSheet.create({
         minWidth: 350 + 'px'
     },
     listTitle: {
-        padding: 15+'px',
-        bordeRadius: 5+'px',
         width: 100+'%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+
     },
     listItems: {
         width: 90+'%',

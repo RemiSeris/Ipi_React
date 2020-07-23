@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { useState } from 'react'
-import { FormControl, FormControlLabel, Checkbox, Button } from '@material-ui/core'
+import { FormControl, FormControlLabel, Checkbox } from '@material-ui/core'
 import { AppContext } from '../AppContextProvider'
 
 import DeleteIcon from '@material-ui/icons/Delete'
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , Button} from 'react-native';
 
 
 
@@ -12,13 +12,14 @@ const Item = ({ title, description, itemState, listState, indexItem, indexList }
 
     const { changeListItem, changeItemIndex, openDeleteItem } = useContext(AppContext)
     const [done, toggleDone] = useState(itemState)
-
-    const toogleCheck = () => {
+/*     let itemDoneClassName = itemState === true ? (styles.item + ' ' + styles.itemDone) : styles.item
+ */    const toogleCheck = () => {
         if (done === true)
             toggleDone(false)
         else
             toggleDone(true)
-        changeListItem(indexList, indexItem, !done);
+
+        changeListItem(indexList, indexItem, !done)
     }
 
     const deleteItemEntry = () => {
@@ -27,36 +28,45 @@ const Item = ({ title, description, itemState, listState, indexItem, indexList }
         openDeleteItem()
     }
 
-    let itemDoneClassName = itemState === true ? (styles.item+' '+ styles.itemDone) : styles.item
     return (
-        <View style={itemDoneClassName}>
-            <FormControl component="fieldset">
-                <FormControlLabel value="start" label={title} control={
+        <View style={[styles.item, itemState === true ? styles.itemDone : styles.item]}>
+{/*             <FormControl component="fieldset">
+                <FormControlLabel value="start"  control={
                     <Checkbox color="secondary" checked={itemState} onChange={toogleCheck} />
-                }/>
-            </FormControl>
-            <View className='item-content' style={styles.itemContent}>
+                } />
+            </FormControl> */}
+            <View style={styles.itemContent}>
                 <Text>{title}</Text>
                 <Text>{description}</Text>
             </View>
-            <Button onClick={deleteItemEntry} variant="contained" color="secondary" startIcon={<DeleteIcon />}>Delete</Button>
+            <Button onPress={deleteItemEntry} title="Delete" >Delete</Button>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     item: {
-        margin: 30+'px auto',
-        padding: 5+'px',
-        width: 100+'%',
+        margin: 30 + 'px auto',
+        padding: 5 + 'px',
+        width: 100 + '%',
         display: 'flex',
         alignItems: 'center',
+        display: 'flex',
+        margin: 20+'px'
     },
     itemDone: {
+        margin: 30 + 'px auto',
+        padding: 5 + 'px',
+        width: 100 + '%',
+        display: 'flex',
+        alignItems: 'center',
+        display: 'flex',
+        minHeight: 150+'px',
+        margin: 20+'px',
         backgroundColor: '#acacde',
     },
-    itemContent:{
-        width: 80+'%',
+    itemContent: {
+        width: 55 + '%'
     }
 
 });
