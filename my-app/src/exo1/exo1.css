@@ -1,7 +1,25 @@
 .exo1 {
     width: 100vw;
-    height: 100vh;
+    height: auto;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.card{
+    width: 200px;
+    border: 1px solid #c05c5c;
+    padding: 10px;
+    background-color: rgb(197, 235, 236);
+}
+
+.title{
+    text-align: center;
+    color: #c05c5c;
+}
+
+.mentions{
+    text-align: left;
+    color: #646464;
 }
