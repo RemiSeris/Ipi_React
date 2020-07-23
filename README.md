@@ -304,6 +304,7 @@ const List = ({ children }) => {
 
 **Instruction 3**:
 
+0. Launch the App, after launch delete in ApContextProvider line 79 AsyncStorage.clear()
 1. Use a FlatList to render your list
 2. Make a component CheckBox wich has a props checked
 3. Checkbox display a empty blue circle (use border and cornerRadius style) when checked is false and a blue plain circle when checked is true
