@@ -1,11 +1,29 @@
 .exo1 {
-    width: 100vw;
-    height: 100vh;
+    width: 80%;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: gray;
+    margin-left: 10rem;
+    margin-right: 50rem;
+    
 }
 
 .header {
-    background-color: blue;
+    background-color: darkslateblue;
+    height: 14%;
+    margin-top: 1.2rem;
+    color: oldlace;
+    text-align: center;
+    font-size: 250%;
+    padding-top: 0.7rem;
+
 }
+
+.footer {
+    color: black;
+    font-style: italic;
+    font-size: 10px;
+}
+
