@@ -7,35 +7,23 @@ import Item from './components/Item';
 import Popup from './components/Popup';
 
 const App = () => {
-  const { myLists, removeList } = useContext(AppContext)
-  const [open, setOpen] = useState(false)
-  const [inputValue, setInputValue] = useState('')
-
-  const handleClose = () => {
-    setOpen(false)
-  }
+  const { myLists, removeList, setOpen } = useContext(AppContext)
 
   const openModal = () => {
     setOpen(true)
   }
 
-  const onInputChange = (text) => {
-    setInputValue(text)
-  }
-
   return (
     <View style={styles.container}>
-      <TextInput style={styles.input} value={inputValue} onChangeText={onInputChange} />
-      <Popup open={open} handleClose={handleClose} />
+      <Popup />
       {
         myLists.map((list) => <List list={list}>
           {list.items.map((item) => <Item title={item.title} />)}
         </List>
         )}
 
-      <Button title={"Add List"} />
+      <Button title={"Add List"} onPress={openModal} />
       <Button onPress={removeList} title={"Delete List"} />
-      <Button title={"Open Modal"} onPress={openModal} />
 
       <StatusBar style="auto" />
     </View>
