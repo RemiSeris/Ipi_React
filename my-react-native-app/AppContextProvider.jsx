@@ -1,7 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { AsyncStorage } from 'react-native';
 
-
 const KEY_LOCAL_STORAGE = "testObject"
 //On simule un modéle de donée (tableau de list)
 const defaultLists = [
@@ -10,12 +9,16 @@ const defaultLists = [
         items: [
             {
                 title: 'item1',
+                checked: false,
             },
             {
                 title: 'item2',
+                checked: false,
             },
             {
                 title: 'item3',
+                checked: false,
+
             },
         ]
     },
@@ -24,12 +27,18 @@ const defaultLists = [
         items: [
             {
                 title: 'item1',
+                checked: false,
+
             },
             {
                 title: 'item2',
+                checked: false,
+
             },
             {
                 title: 'item3',
+                checked: false,
+
             },
         ]
     },
@@ -38,33 +47,22 @@ const defaultLists = [
         items: [
             {
                 title: 'item1',
+                checked: false,
+
             },
             {
                 title: 'item2',
+                checked: false,
+
             },
             {
                 title: 'item3',
+                checked: false,
+
             },
         ]
     }
 ]
-
-//onj déclare un template d'une list
-const defaultList = {
-    title: 'Nouvelle liste',
-    items: [
-        {
-            title: 'item1',
-        },
-        {
-            title: 'item2',
-        },
-        {
-            title: 'item3',
-        },
-    ]
-}
-
 
 
 export const AppContext = createContext({})
@@ -77,6 +75,8 @@ const AppContextProvider = ({ children }) => {
     const [open, setOpen] = useState(false)
 
 
+    // To delete after app is launch
+   // AsyncStorage.clear()
 
     //store data from AsyncStorage
     const storeData = async () => {
@@ -141,7 +141,7 @@ const AppContextProvider = ({ children }) => {
         myLists.forEach((myList) => {
             //Si ma list est la list passer en argument
             if (myList === list) {
-                myList.items.push({ title: 'new Item' })
+                myList.items.push({ title: 'new Item', checked: false })
                 //je rajoute un item à ma list
             }
         })

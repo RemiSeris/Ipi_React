@@ -16,7 +16,7 @@ const List = ({ list, children }) => {
     }
 
     return (
-        <View style={styles.listContainer}>
+        <View >
             <Text> {title}</Text>
             {children}
             <View style={styles.button}>
