@@ -1,14 +1,27 @@
 import React from 'react'
 import { TextField, Button } from '@material-ui/core'
 import "./exo3.css"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const KEY_LOCAL_STORAGE = 'my_title'
 
+const defaultValue = {
+    TextField : ''
+}
+
 const Exo3 = () => {
-    const [inputValue, setValues] = useState({
-        TextField : ''
-    });
+    const [inputValue, setValues] = useState(defaultValue);
+
+
+    useEffect( () => {
+        const textFieldFromStorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
+        if(textFieldFromStorage){
+
+        setValues(textFieldFromStorage)
+        }
+       
+    }, [])
+
 
    const saveMe = () => {
        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(inputValue))
@@ -16,7 +29,8 @@ const Exo3 = () => {
 
    const changeInputValue = event => {
        setValues({TextField: event.target.value})
-   }
+   };
+
 
 
     return (
