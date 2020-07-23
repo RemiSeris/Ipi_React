@@ -5,3 +5,20 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.navbar{
+    color: red;
+    text-align: center;
+    font-size: 35px;
+}
+
+.content{
+    padding-left: 150px;
+    padding-right: 150px;
+    font-size: 20px;
+}
+
+.footer{
+    padding-left: 100px;
+    padding-right: 100px;
+}
