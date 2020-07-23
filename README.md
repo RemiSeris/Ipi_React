@@ -25,7 +25,7 @@
  
 ## Exam
 
-### Lauch with yarn start or npm run start
+### Web: Launch with : yarn start or npm run start
 
 ### EXO 1 : components and props (3 points)
 
@@ -68,6 +68,8 @@
 4. Create a component CounterMore wich display a material-ui Button with the body '+', onClick it execute incrementNb 
 5. Create a component CounteLess wich display a material-ui Button with the body '-', onClick it execute decrementNb 
 6. Make basic style with css (background-color, positionning, ...)
+
+### Mobile: Launch with : yarn web or npm run web
 
 ### EXO 5 : React-nativ Basics (3 points)
 
