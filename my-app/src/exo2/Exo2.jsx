@@ -1,5 +1,7 @@
-import React from 'react'
-import "./exo2.css"
+import React, { useState } from 'react';
+import "./exo2.css";
+import Item from "./components/Item";
+import List from "./components/List";
 
 const lists = [
     {
@@ -36,9 +38,19 @@ const lists = [
         ]
     }
 ]
+
+const AppContextProvider = ({ children }) => {
+    const [myLists, setMyList] = useState(lists)
+}
+
 const Exo2 = () => {
     return (
         <div className={"exo2"}>
+            <List>
+                {
+                    <Item />
+                }
+            </List>
         </div>
     )
 }
