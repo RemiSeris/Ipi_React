@@ -73,6 +73,7 @@ const AppContextProvider = ({ children }) => {
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(defaultLists)
     const [open, setOpen] = useState(false)
+    const [checked, setCheck] = useState(false)
 
 
     // To delete after app is launch
@@ -172,11 +173,13 @@ const AppContextProvider = ({ children }) => {
     const value = {
         myLists,
         open,
+        checked,
         addList,
         removeList,
         addItem,
         removeItem,
-        setOpen
+        setOpen,
+        setCheck
     }
 
     return <AppContext.Provider value={value}>
