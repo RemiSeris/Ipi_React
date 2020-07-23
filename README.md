@@ -11,7 +11,7 @@
 
   * **Switch to Branch** :git checkout exam
   
-  * **Create your branch**: git checkout -b exam/FirstnameLastName
+  * **Create your branch**: git checkout -b examFirstnameLastName
   
  * **Exercice on React (1 to 4)**: cd my-app
   
