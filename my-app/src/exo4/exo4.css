@@ -4,6 +4,7 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .counterContainer {
@@ -11,4 +12,11 @@
     width: 80%;
     justify-content: space-around;
     align-items: center;
+}
+
+.nb{
+    background-color: #252422;
+    color: #FFFCF2;
+    padding: 8px 11px;
+    border-radius: 100%;
 }
