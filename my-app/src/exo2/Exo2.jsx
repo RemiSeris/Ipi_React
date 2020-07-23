@@ -40,7 +40,9 @@ const lists = [
     }
 ]
 
+
 const Exo2 = () => {
+    
     return (
         <div className={"exo2"}>
             {lists.map(({ items, title }, index) => {
@@ -54,5 +56,4 @@ const Exo2 = () => {
         </div>
     )
 }
-
 export default Exo2
