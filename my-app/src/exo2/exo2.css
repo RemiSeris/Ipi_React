@@ -10,9 +10,10 @@
 
 h3{
     text-transform: uppercase;
+    color: #CCC5B9;
 }
 .list{
-    background-color: #CCC5B9;
+    background-color:  #252422 ;
     width: 25%;
     padding: 20px;
     border-radius: 0 30px 30px;
@@ -23,12 +24,12 @@ h3{
     text-transform: uppercase;
     margin: 5px;
     background-color:transparent;
-    color: black;
+    color: #CCC5B9;
     transition: all .2s ease;
     cursor: pointer;
     border-radius: 51px;
     padding: 0 27px;
-    border: solid 1px #252422;
+    border: solid 1px #CCC5B9;
     
 }
 h4{
