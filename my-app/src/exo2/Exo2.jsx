@@ -1,7 +1,7 @@
 import React from 'react'
 import "./exo2.css"
 
-const defaultLists = [
+const lists = [
     {
         title: 'liste de course',
         items: [
