@@ -6,19 +6,6 @@ import List from './components/List';
 import Item from './components/Item';
 import Popup from './components/Popup';
 
-const Data = [
-  {
-    title: 'first'
-  },
-  {
-    title: 'second'
-
-  },
-  {
-    title: 'third'
-
-  }
-]
 
 const App = () => {
   const { myLists, removeList, setOpen } = useContext(AppContext)
@@ -27,33 +14,29 @@ const App = () => {
     setOpen(true)
   }
 
-  const logElementOnClick = (item) => {
-    console.log(item)
+
+  const renderList = ({ item }) => {
+    return <List list={item}>
+      {
+        item.items.map((itemObj) => <Item key={itemObj.title} item={itemObj} />)
+      }
+    </List>
   }
 
-  const renderItem = ({ item, index }) => {
-    return <TouchableHighlight onPress={() => logElementOnClick(item)}><Text>{item}</Text></TouchableHighlight>
+  const extractKeyFromList = (item) => {
+    return item.title
   }
 
-  const extractKey = (item, index) => {
-    return item
-  }
 
   return (
     <View style={styles.container}>
 
-      <FlatList
-        data={Data}
-        renderItem={renderItem}
-        keyExtractor={extractKey}
-      />
-
       <Popup />
-      {
-        myLists.map((list) => <List key={list.tile} list={list}>
-          {list.items.map((item) => <Item key={item.titile} title={item.title} />)}
-        </List>
-        )}
+      <FlatList
+        data={myLists}
+        renderItem={renderList}
+        keyExtractor={extractKeyFromList}
+      />
 
       <Button title={"Add List"} onPress={openModal} />
       <Button onPress={removeList} title={"Delete List"} />
@@ -67,7 +50,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'blue',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },

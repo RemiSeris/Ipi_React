@@ -75,9 +75,6 @@ const AppContextProvider = ({ children }) => {
     const [open, setOpen] = useState(false)
 
 
-    // To delete after app is launch
-    AsyncStorage.clear()
-
     //store data from AsyncStorage
     const storeData = async () => {
         try {
@@ -169,6 +166,26 @@ const AppContextProvider = ({ children }) => {
         setMyList(listCpy)
     }
 
+    const toogleCheck = (item) => {
+
+        myLists.forEach((list) => {
+            list.items.forEach((myItem) => {
+                if (myItem === item) {
+                    if (myItem.checked === true)
+                        myItem.checked = false
+                    else
+                        myItem.checked = true
+                }
+            })
+        })
+
+        // on crée une copie de notre tableau pour changer la référence 
+        const listCpy = myLists.map(list => list)
+
+        //on utilise le setter d'état pour changer l'états de nos liste
+        setMyList(listCpy)
+    }
+
     const value = {
         myLists,
         open,
@@ -176,7 +193,8 @@ const AppContextProvider = ({ children }) => {
         removeList,
         addItem,
         removeItem,
-        setOpen
+        setOpen,
+        toogleCheck
     }
 
     return <AppContext.Provider value={value}>
