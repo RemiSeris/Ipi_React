@@ -23,6 +23,8 @@
  
  * **Styling** : on each exercises you have 1/2 bonus point for basic styling and 1 bonus point for awesome styling
  
+  * **FR**: use https://www.deepl.com/fr/translator
+ 
 ## Exam
 
 ### Web: Launch with : yarn start or npm run start
