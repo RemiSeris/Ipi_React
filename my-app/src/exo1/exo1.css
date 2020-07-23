@@ -17,7 +17,7 @@
 
 }
 .content{
-    height: 60vh;
+    height: fit-content;
     padding: 0 10%;
     text-justify: distribute;
     color: #403D39;
