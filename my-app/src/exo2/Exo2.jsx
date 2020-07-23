@@ -1,9 +1,11 @@
 import React from 'react'
 import "./exo2.css"
+import List from './components/List'
+import Item from './components/Item'
 
 const lists = [
     {
-        title: 'liste de course',
+        title: 'Liste de course',
         items: [
             {
                 title: 'banane'
@@ -14,7 +16,7 @@ const lists = [
         ]
     },
     {
-        title: 'liste de sport',
+        title: 'Liste de sport',
         items: [
             {
                 title: 'natation'
@@ -25,13 +27,13 @@ const lists = [
         ]
     },
     {
-        title: 'liste de prénom',
+        title: 'Liste de prénom',
         items: [
             {
                 title: 'Pierre'
             },
             {
-                title: 'Silvie'
+                title: 'Sylvie'
             }
         ]
     }
@@ -39,6 +41,15 @@ const lists = [
 const Exo2 = () => {
     return (
         <div className={"exo2"}>
+            {
+                lists.map( ({items, title}) => {
+                    return <List  title={title}>
+                         {items.map(({title: itemsTitle}) => {
+                       return <Item title={itemsTitle}/>
+                    })}  
+                    </List>
+                })
+            }
         </div>
     )
 }
