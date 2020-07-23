@@ -1,14 +1,15 @@
 import React, { useContext } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, Button } from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-const MessageCard = ({ from, content }) => {
+const MessageCard = ({ from, content, onPress }) => {
 
     return (
-        <View style={styles.container}>
+        <TouchableOpacity onPress={onPress} style={styles.container} >
             <Text style={styles.from}>{from}</Text>
             <Text style={styles.content}>{content}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 
