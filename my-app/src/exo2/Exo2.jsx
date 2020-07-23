@@ -1,5 +1,7 @@
 import React from 'react'
-import "./exo2.css"
+import "./exo2.css";
+import List from './components/List';
+import Item from './components/Item';
 
 const lists = [
     {
@@ -39,6 +41,16 @@ const lists = [
 const Exo2 = () => {
     return (
         <div className={"exo2"}>
+            {
+                lists.map((list) =>
+                // On affiche nos lists une a une sous forme de component
+                <List list={list} >
+                    {
+                        // On affiche les items d'une liste une à une sous forme de component
+                        list.items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
+                    }
+                </List>
+                )}
         </div>
     )
 }
