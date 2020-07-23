@@ -1,5 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
+import MessageCard from './component/MessageCard';
 
 const messageList = [
     {
@@ -21,12 +23,19 @@ const messageList = [
 ]
 
 const Exo6 = () => {
-
-    return (
-        <View >
-
-        </View>
-    );
+    const renderItem = ({ item }) => (
+        <MessageCard from={item.from} content={item.content} />
+      );
+    
+      return (
+        <SafeAreaView >
+          <FlatList
+            data={messageList}
+            renderItem={renderItem}
+            keyExtractor={item => item.from}
+          />
+        </SafeAreaView>
+      );
 }
 
 
