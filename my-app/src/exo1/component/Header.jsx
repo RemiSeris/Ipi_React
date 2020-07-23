@@ -1,12 +1,11 @@
-import React from 'react';
-import "../exo1.css"
+import React from 'react'
 
 const Header = ({ appName }) => {
     return (
         <div className={'header'}>
-            <h2 className={'headerText'}>{appName}</h2>
+            {appName}
         </div>
-    );
-};
+    )
+}
 
-export default Header;
+export default Header

@@ -1,12 +1,11 @@
-import React from 'react';
-import "../exo1.css"
+import React from 'react'
 
 const Content = ({ children }) => {
     return (
-        <div className={'content'}>
-            <p className={'contentText'}>{children}</p>
+        <div>
+            {children}
         </div>
-    );
-};
+    )
+}
 
-export default Content;
+export default Content
