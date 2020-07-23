@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = ({legalMention}) => {
     return (
-        <div>
+        <div className={'footer'}>
             {legalMention}
         </div>
     )
