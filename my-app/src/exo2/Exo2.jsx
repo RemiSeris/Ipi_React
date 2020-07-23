@@ -47,7 +47,7 @@ const Exo2 = () => {
                 <List list={list} >
                     {
                         // On affiche les items d'une liste une à une sous forme de component
-                        list.items.map(({ title: itemTitle }) => <Item title={itemTitle} />)
+                        lists.items.map((title) => <Item title={title} />)
                     }
                 </List>
                 )}
