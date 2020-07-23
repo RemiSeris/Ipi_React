@@ -10,7 +10,9 @@ const App = () => {
         <div className='layout'>
             <Exo1 />
 
-            <Exo2 />
+
+
+            <Exo3 />
 
         </div>
     )
