@@ -46,7 +46,7 @@
 4. When Item is clicked it's className change from 'item' to 'item itemActive' (manage it with a state)
 5. Make basic style with css (background-color, positionning, ...)
 
-### EXO 3 : Material-ui, localStorage and useEffect (5 pionts)
+### EXO 3 : Material-ui, localStorage and useEffect (5 points)
 
 **Exercise**:
 
