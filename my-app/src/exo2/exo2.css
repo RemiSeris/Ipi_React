@@ -9,13 +9,27 @@
 
 .item {
     margin: 5px;
-    background-color: white;
-    color: black;
+    background-color: #303f9f;
+    color: white;
     transition: all .2s ease;
     cursor: pointer;
+    border-radius: 15px;
 }
 
 .itemDone {
     background-color: blue;
     color: white;
+}
+
+.list {
+    background-color: #edf4f5;
+    width: 25%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.list h1 {
+    font-style: italic;
+    text-align: left;
+    padding-left: 10px;
 }
