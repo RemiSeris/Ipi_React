@@ -6,17 +6,26 @@ import { useState } from 'react'
 const KEY_LOCAL_STORAGE = 'my_title'
 
 const Exo3 = () => {
-    const [inputValue] = useState('');
+    const [inputValue, setValues] = useState({
+        TextField : ''
+    });
 
+   const saveMe = () => {
+       localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(inputValue))
+   }
+
+   const changeInputValue = event => {
+       setValues({TextField: event.target.value})
+   }
 
 
     return (
         <div className={"exo3"}>
             <div className="saveMe">
             <form   autoComplete="off">
-             <TextField id="standard-basic" label="Standard" />
+             <TextField onChange={changeInputValue} id="standard-basic" label="Standard" />
             </form>
-            <Button variant="contained" color="primary">Save</Button>
+            <Button onClick={saveMe} variant="contained" color="primary">Save</Button>
             </div>
         </div>
     )
