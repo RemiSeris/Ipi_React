@@ -1,5 +1,5 @@
 .exo4 {
-    display: flex;
+    margin: 2%;
     width: 100vw;
     height: 100vh;
     justify-content: center;
@@ -8,7 +8,7 @@
 
 .counterContainer {
     display: flex;
-    width: 80%;
+    width: 20%;
     justify-content: space-around;
     align-items: center;
 }

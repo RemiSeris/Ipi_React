@@ -2,20 +2,37 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    align-items: flex-start;
+}
+
+h3{
+    text-transform: uppercase;
+}
+
+.list{
+    background-color: grey;
+    color: blue;
+    width: 25%;
+    padding: 25px;
+    min-width: 275px;
+    margin: 25px;
 }
 
 .item {
+    text-transform: uppercase;
     margin: 5px;
-    background-color: white;
-    color: black;
-    transition: all .2s ease;
+    background-color:transparent;
+    color: blue;
+    cursor: pointer;
+    padding: 0 27px;
+    border: solid 3px #252422; 
 }
 
-.itemDone {
-    background-color: blue;
-    color: white;
+.itemActive {
+    background-color: red;
+    border-color: red;
+    color: #252422;
+    border: none;
 }
-
