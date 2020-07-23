@@ -32,6 +32,8 @@ const Popup = () => {
             onRequestClose={onModalClose}
         >
             <View>
+
+
                 <Text>{"New List"}</Text>
                 <TextInput value={inputValue} onChangeText={onChangeText} />
                 <Button title={"Submit"} onPress={submit} />
