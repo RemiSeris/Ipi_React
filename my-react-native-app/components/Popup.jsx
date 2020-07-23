@@ -1,11 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Modal, View, Text } from 'react-native';
 
 
-const Popup = () => {
+const Popup = ({ open, handleClose }) => {
+    console.log('open', open)
     return (
-        <View>
-        </View>
+        <Modal
+            animationType="slide"
+            visible={open}
+            onRequestClose={handleClose}
+        >
+            <View>
+                <Text>{"my modal"}</Text>
+            </View>
+        </Modal>
     )
 }
 

@@ -286,21 +286,31 @@ const List = ({ children }) => {
 
 **Ressource 2** :
 
-* React-nativ Modal component https://reactnative.dev/docs/modal
+* React-native Modal component https://reactnative.dev/docs/modal
+* React-native TextInput Component https://reactnative.dev/docs/textinput
 
 **Instruction 2**:
 
-1. Display a Modal compoent
-2. Add the buttons AddList and DeleteList into App
-3. Bind the button DeleteList to removeList from context
-4. Add the buttons AddItem DeleteItem
-5. Bind the buttons with the context (addItem, remove item)
-6. Checkout if it works
-7. Style your components so it looks nice (border-shadow on list, some color, some placement with flex, some margin and padding)
+1. Display a Modal component in Popup
+2. Add a TextInput into the Modal Component
+3. Add the title "NewList" to the Modal and a button Submit
+4. Mimic the previous Behaviour for the onPress of the Button AddList and Submit
+ 
 
+**Ressource 3** :
 
+* React-native FlatList component https://reactnative.dev/docs/flatlist
+* React-native TouchableHiglight component https://reactnative.dev/docs/touchablehighlight
 
+**Instruction 3**:
 
+1. Use a FlatList to render your list
+2. Make a component CheckBox wich has a props checked
+3. Checkbox display a empty blue circle (use border and cornerRadius style) when checked is false and a blue plain circle when checked is true
+4. Add a property checked to your items data
+5. Add a Checkbox to each Item and display is state in the checkbox (checked true or false)
+6. add a function toogleCheck(item) to the context , wich change the state of the item to check true => false, false => true
+7. Bind toogleCheck to the Item OnPress (use ToochableHiglit)
  
 
 ### 7 Let's get on Fire(Base)
