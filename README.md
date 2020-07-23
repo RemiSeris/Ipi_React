@@ -297,6 +297,23 @@ const List = ({ children }) => {
 4. Mimic the previous Behaviour for the onPress of the Button AddList and Submit
  
 
+**Ressource 3** :
+
+* React-native FlatList component https://reactnative.dev/docs/flatlist
+* React-native TouchableHiglight component https://reactnative.dev/docs/touchablehighlight
+
+**Instruction 3**:
+
+0. Launch the App, after launch delete in ApContextProvider line 79 AsyncStorage.clear()
+1. Use a FlatList to render your list
+2. Make a component CheckBox wich has a props checked
+3. Checkbox display a empty blue circle (use border and cornerRadius style) when checked is false and a blue plain circle when checked is true
+4. Add a property checked to your items data
+5. Add a Checkbox to each Item and display is state in the checkbox (checked true or false)
+6. add a function toogleCheck(item) to the context , wich change the state of the item to check true => false, false => true
+7. Bind toogleCheck to the Item OnPress (use ToochableHiglit)
+ 
+
 ### 7 Let's get on Fire(Base)
 
 **Goals** :

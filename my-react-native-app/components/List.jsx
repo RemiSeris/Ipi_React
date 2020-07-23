@@ -16,7 +16,7 @@ const List = ({ list, children }) => {
     }
 
     return (
-        <View style={styles.listContainer}>
+        <View >
             <Text> {title}</Text>
             {children}
             <View style={styles.button}>
@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
         elevation: 3,
         backgroundColor: 'white',
         alignItems: 'center',
-        margin: "50",
+        margin: 50,
     },
     button: {
-        margin: "5",
+        margin: 5,
     }
 });
 

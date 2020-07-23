@@ -1,56 +1,46 @@
-import React from 'react';
-import React, { useState } from 'react';
-import { View } from 'react-native';
-import { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { Modal, View, Text, TextInput, Button } from 'react-native';
 import { AppContext } from '../AppContextProvider';
-import { View, Modal, TextInput, Button, StyleSheet } from 'react-native';
 
 
 const Popup = () => {
     const { open, setOpen, addList } = useContext(AppContext)
     const [inputValue, setInputValue] = useState('')
 
-    const handleClose = () => {
-        setOpen(false)
+
+    const onChangeText = (text) => {
+        setInputValue(text)
     }
 
-    const handleChange = (e) => {
-        setInputValue(e.target.value)
-    }
-
-    const handleSubmit = () => {
-        addList(inputValue)
+    const onModalClose = () => {
         setInputValue('')
+    }
+
+    const submit = () => {
+        addList(inputValue)
         setOpen(false)
     }
 
-    const [value, onChangeText] = React.useState('');
+    const closeModal = () => {
+        setOpen(false)
+    }
 
     return (
-        <Modal>
-            <View style={styles.dialogContent}>
-                <Text>NewList</Text>
-                <TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                    onChangeText={text => onChangeText(text)}
-                    value={value} />
-                <Button onPress={handleSubmit} title="SUBMIT" />
+        <Modal
+            animationType="slide"
+            visible={open}
+            onRequestClose={onModalClose}
+        >
+            <View>
+
+
+                <Text>{"New List"}</Text>
+                <TextInput value={inputValue} onChangeText={onChangeText} />
+                <Button title={"Submit"} onPress={submit} />
+                <Button title={"Close Modal"} onPress={closeModal} />
             </View>
         </Modal>
-
     )
-
 }
-
-const styles = StyleSheet.create({
-    dialogContent: {
-        elevation: 3,
-        backgroundColor: 'white',
-        alignItems: 'center',
-        margin: "50",
-    },
-    button: {
-        margin: "5",
-    }
-});
 
 export default Popup
