@@ -1,5 +1,8 @@
 import React from 'react'
+import Items from './components/Item'
+import List from './components/List'
 import "./exo2.css"
+import { useState } from 'react'
 
 const defaultLists = [
     {
@@ -36,10 +39,23 @@ const defaultLists = [
         ]
     }
 ]
+
 const Exo2 = () => {
+    const [myList, setLyList] = useState(List)
+
+
     return (
         <div className={"exo2"}>
-        </div>
+            {
+                myList.map(({ items, title }) =>
+                    <List title={title}>
+                        {items.map(({ title: itemTitle }) => <Items title={itemTitle} />)}
+
+                    </List>
+                )}
+
+
+        </div >
     )
 }
 
