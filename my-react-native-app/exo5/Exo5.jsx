@@ -1,13 +1,32 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 const Exo5 = () => {
 
-    return (
-        <View >
+    const [isConnected, setIsConnected] = useState(false)
 
+    const setConnection = () => {
+        setIsConnected(!isConnected)
+    }
+
+    return (
+        <View style={styles.listContainer}>
+            <Text> {title}</Text>
+            <View style={styles.button}>
+                <Button onPress={setConnection} title="connect/disconnect" />
+            </View>
         </View>
     );
+
+    const styles = StyleSheet.create({
+        listContainer: {
+            elevation: 3,
+            backgroundColor: 'white',
+            alignItems: 'center',
+            margin: "50px",
+        }
+    }
+    )
 }
 
 
