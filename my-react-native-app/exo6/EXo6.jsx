@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import MessageCard from './MessageCard.jsx';
 
 const messageList = [
     {
