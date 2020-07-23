@@ -53,7 +53,7 @@
 **Exercise**:
 
 1. Add a TextField to Exo3
-2. Add a Button wich name is "Save" to Exo3
+2. Add a Button wich display "Save" to Exo3
 3. Manadge the TextField with a state ( the state is named inputValue)
 4. When the button is clicked inputValue is store in localStorage (use the key KEY_LOCAL_STORAGE)
 5. when the App is loaded or reloaded the inputValue is the one stored int the localStorage (!warning! when there is no value in local storage)
