@@ -1,10 +1,13 @@
-import React from 'react'
-import "./exo1.css"
+import React from 'react';
+import "./exo1.css";
+import Header from "./component/Header";
+import Footer from "./component/Footer";
+import Content from "./component/Content";
 
 const Exo1 = () => {
     return (
         <div className={"exo1"}>
-            <Header appName={"My React App"} />
+            <Header appName={"My React app"} />
             <Content>
                 {
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lacinia tellus ligula,\

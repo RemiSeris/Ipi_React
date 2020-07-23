@@ -4,4 +4,24 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: coral;
+}
+
+div.header {
+    text-align: center;
+    background-color: cornflowerblue;
+    
+}
+
+div.footer {
+    text-align: center;
+    background-color: grey;
+}
+
+div.Containerchild {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    background-color: khaki;
+
 }
