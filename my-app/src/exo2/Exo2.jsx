@@ -1,5 +1,7 @@
 import React from 'react'
 import "./exo2.css"
+import List from './components/List'
+import Item from './components/Item'
 
 const defaultLists = [
     {
@@ -39,6 +41,14 @@ const defaultLists = [
 const Exo2 = () => {
     return (
         <div className={"exo2"}>
+            {defaultLists.map(({ items, title }, index) => {
+                    return <List title={title} key={index}>
+                        {items.map(({ title: itemTitle }, indexItem) => {
+                            return <Item title={itemTitle} key={index + '-' + indexItem} ></Item>
+                        })}
+                    </List>
+            })
+            }
         </div>
     )
 }
