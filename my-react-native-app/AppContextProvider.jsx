@@ -9,12 +9,16 @@ const defaultLists = [
         items: [
             {
                 title: 'item1',
+                checked: false,
             },
             {
                 title: 'item2',
+                checked: false,
             },
             {
                 title: 'item3',
+                checked: false,
+
             },
         ]
     },
@@ -23,12 +27,18 @@ const defaultLists = [
         items: [
             {
                 title: 'item1',
+                checked: false,
+
             },
             {
                 title: 'item2',
+                checked: false,
+
             },
             {
                 title: 'item3',
+                checked: false,
+
             },
         ]
     },
@@ -37,33 +47,22 @@ const defaultLists = [
         items: [
             {
                 title: 'item1',
+                checked: false,
+
             },
             {
                 title: 'item2',
+                checked: false,
+
             },
             {
                 title: 'item3',
+                checked: false,
+
             },
         ]
     }
 ]
-
-//onj déclare un template d'une list
-const defaultList = {
-    title: 'Nouvelle liste',
-    items: [
-        {
-            title: 'item1',
-        },
-        {
-            title: 'item2',
-        },
-        {
-            title: 'item3',
-        },
-    ]
-}
-
 
 
 export const AppContext = createContext({})
@@ -74,7 +73,6 @@ const AppContextProvider = ({ children }) => {
     // const [maVariable d'état, mon Setter de la variable] = useState(ma valeur initial)
     const [myLists, setMyList] = useState(defaultLists)
     const [open, setOpen] = useState(false)
-
 
 
     //store data from AsyncStorage
@@ -140,7 +138,7 @@ const AppContextProvider = ({ children }) => {
         myLists.forEach((myList) => {
             //Si ma list est la list passer en argument
             if (myList === list) {
-                myList.items.push({ title: 'new Item' })
+                myList.items.push({ title: 'new Item', checked: false })
                 //je rajoute un item à ma list
             }
         })
@@ -168,6 +166,26 @@ const AppContextProvider = ({ children }) => {
         setMyList(listCpy)
     }
 
+    const toogleCheck = (item) => {
+
+        myLists.forEach((list) => {
+            list.items.forEach((myItem) => {
+                if (myItem === item) {
+                    if (myItem.checked === true)
+                        myItem.checked = false
+                    else
+                        myItem.checked = true
+                }
+            })
+        })
+
+        // on crée une copie de notre tableau pour changer la référence 
+        const listCpy = myLists.map(list => list)
+
+        //on utilise le setter d'état pour changer l'états de nos liste
+        setMyList(listCpy)
+    }
+
     const value = {
         myLists,
         open,
@@ -175,7 +193,8 @@ const AppContextProvider = ({ children }) => {
         removeList,
         addItem,
         removeItem,
-        setOpen
+        setOpen,
+        toogleCheck
     }
 
     return <AppContext.Provider value={value}>

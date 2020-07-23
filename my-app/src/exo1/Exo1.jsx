@@ -1,5 +1,8 @@
-import React from 'react'
-import "./exo1.css"
+import React from 'react';
+import './exo1.css';
+import Header from './component/Header';
+import Footer from './component/Footer';
+import Content from './component/Content';
 
 const Exo1 = () => {
     return (

@@ -94,3 +94,52 @@
 6. Make basic style with StyleSheet (background-color, positionning, ...)
 
  
+<<<<<<< HEAD
+=======
+
+**Ressource 3** :
+
+* React-native FlatList component https://reactnative.dev/docs/flatlist
+* React-native TouchableHiglight component https://reactnative.dev/docs/touchablehighlight
+
+**Instruction 3**:
+
+0. Launch the App, after launch delete in ApContextProvider line 79 AsyncStorage.clear()
+1. Use a FlatList to render your list
+2. Make a component CheckBox wich has a props checked
+3. Checkbox display a empty blue circle (use border and cornerRadius style) when checked is false and a blue plain circle when checked is true
+4. Add a property checked to your items data
+5. Add a Checkbox to each Item and display is state in the checkbox (checked true or false)
+6. add a function toogleCheck(item) to the context , wich change the state of the item to check true => false, false => true
+7. Bind toogleCheck to the Item OnPress (use ToochableHiglit)
+ 
+
+### 7 Let's get on Fire(Base)
+
+**Goals** :
+
+* Familiarize with the firebase console
+* Lear some noSQL notions
+
+**Ressource** :
+
+* Firebase Quick start https://firebase.google.com/docs/firestore/quickstart
+* Firebase Console https://console.firebase.google.com/
+* Cloud Firestore documentation https://rnfirebase.io/ and https://rnfirebase.io/firestore/usage
+* firestore get data documentation https://firebase.google.com/docs/firestore/query-data/get-data
+* Firestore add Data documentation https://firebase.google.com/docs/firestore/manage-data/add-data
+
+**Instruction**:
+
+1. Start a Project into firebase
+2. Create a collection Items
+3. Create a collection List
+4. Create list from client into firestore
+5. Create item in list from client into firestore
+6. Get List from firestore
+
+### Learn by yourself
+
+* **React Documentation**: https://fr.reactjs.org/docs/components-and-props.html
+* **Git**: https://medium.com/@onejohi/git-understanding-the-basics-ba004a20dacc
+>>>>>>> ac3b2b88ca3e63f270c5703b1f95ce25bb73f98d
