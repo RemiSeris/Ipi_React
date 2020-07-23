@@ -5,7 +5,7 @@
 
   * **go to your room** : copy the link of your jitsi meet room into the url
   1. Group1: Théophile, D'Andria Tony, Romain, Lucas, Alexia https://meet.jit.si/Ipi_React_exam_Group1
-  2. Group2: Baillau Quentin,Thomas, Manon, Joelle, Charlotte https://meet.jit.si/Ipi_React_exam_Group2
+  2. Group2: Baillau Quentin,Thomas, Manon, Joelle, Charlotte, Delavaloire Clément https://meet.jit.si/Ipi_React_exam_Group2
   3. Group3: André, Felix, Zakaria, Claire, Wauters Tony https://meet.jit.si/Ipi_React_exam_Group3
   4. Group4: Sofian, Stéphane, Bastien, Steven, Mazerin Quentin https://meet.jit.si/Ipi_React_exam_Group4
 
