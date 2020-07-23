@@ -1,7 +1,12 @@
 .exo3 {
     width: 100vw;
-    height: 100vh;
+    height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.btn-submit{
+    margin-top: 20px;
 }
