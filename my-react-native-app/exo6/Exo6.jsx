@@ -22,6 +22,10 @@ const messageList = [
 
 const Exo6 = () => {
 
+    const Item = ({ item }) => (
+        <MessageCard from={item.from} content={item.content} />
+    );
+
     return (
         <View >
 
