@@ -11,7 +11,7 @@
   
  * **Exercice on React (1 to 4)**: cd my-app
   
-  * **Exercice on React-native (4 to 6)**: cd my-react-native-app
+  * **Exercice on React-native (5 to 6)**: cd my-react-native-app
 
  * **Run in developpement**: yarn start / npm start
  
