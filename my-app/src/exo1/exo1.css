@@ -5,3 +5,48 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 10px;
+}
+.contentText {
+    background-color: #e2e2e2;
+    padding: 20px;
+    border-radius: 10px;
+    color: rgb(60, 11, 240);
+    font-size: 16px;
+    font-family: 'Optima', sans-serif;
+}
+
+
+.footer {
+    height: 40px;
+    background-color: grey;
+    padding-left: 20px;
+    display: flex;
+}
+.footerText {
+    color: black;
+    font-size: 14px;
+    font-family: 'Optima', sans-serif;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.header {
+    height: 50px;
+    padding-left: 10px;
+    background-color: blue;
+    display: flex;
+}
+.headerText {
+    color: #f9f9f9;
+    font-size: 18px;
+    font-family: 'Optima', sans-serif;
+    margin-top: auto;
+    margin-bottom: auto;
+}

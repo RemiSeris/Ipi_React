@@ -1,10 +1,10 @@
 import React from 'react';
-//import './footer.css';
+import "../exo1.css"
 
 const Footer = ({ legalMention }) => {
     return (
         <div className={'footer'}>
-            <span className={'footer__legal'}>{legalMention}</span>
+            <span className={'footerText'}>{legalMention}</span>
         </div>
     );
 };

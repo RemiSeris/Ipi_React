@@ -1,10 +1,10 @@
 import React from 'react';
-//import './content.css';
+import "../exo1.css"
 
 const Content = ({ children }) => {
     return (
         <div className={'content'}>
-            <p className={'content__text'}>{children}</p>
+            <p className={'contentText'}>{children}</p>
         </div>
     );
 };
