@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
 const Item = ({ title }) => {
-    
+
     const [check, setCheck] = useState('item')
 
     const toogleCheck = () => {
-        if(check === 'item')
-            setCheck('item itemActive')
+        if (check === 'item')
+            setCheck('item itemDone')
         else
             setCheck('item')
     }

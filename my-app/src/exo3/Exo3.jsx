@@ -5,41 +5,77 @@ import { useState, useEffect } from 'react'
 
 const KEY_LOCAL_STORAGE = 'my_title'
 
-const defaultValue = {
-    TextField : ''
-}
+// const defaultValue = {
+//     TextField: ''
+// }
+
+// const Exo3 = () => {
+//     const [inputValue, setValues] = useState(defaultValue);
+
+
+//     useEffect(() => {
+//         const textFieldFromStorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
+//         if (textFieldFromStorage) {
+
+//             setValues(textFieldFromStorage)
+//         }
+
+//     }, [])
+
+
+//     const SM = () => {
+//         localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(inputValue))
+//     }
+
+//     const changeInputValue = event => {
+//         setValues({ TextField: event.target.value })
+//     };
+
+
+
+//     return (
+//         <div className={"exo3"}>
+//             <div className="saveMe">
+//                 <form autoComplete="off">
+//                     <TextField onChange={changeInputValue} id="standard-basic" label="Standard" />
+//                 </form>
+//                 <Button onClick={saveMe} variant="contained" color="primary">Save</Button>
+//             </div>
+//         </div>
+//     )
+// }
 
 const Exo3 = () => {
-    const [inputValue, setValues] = useState(defaultValue);
+    const [inputValue, setValues] = useState('');
 
 
-    useEffect( () => {
+    useEffect(() => {
         const textFieldFromStorage = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
-        if(textFieldFromStorage){
+        if (textFieldFromStorage) {
 
-        setValues(textFieldFromStorage)
+            setValues(textFieldFromStorage)
         }
-       
+
     }, [])
 
 
-   const SM = () => {
-       localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(inputValue))
-   }
+    const SM = () => {
+        localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(inputValue))
+    }
 
-   const changeInputValue = event => {
-       setValues({TextField: event.target.value})
-   };
+    const changeInputValue = event => {
+        setValues(event.target.value)
+    };
 
 
 
     return (
         <div className={"exo3"}>
             <div className="saveMe">
-            <form   autoComplete="off">
-             <TextField onChange={changeInputValue} id="standard-basic" label="Standard" />
-            </form>
-            <Button onClick={saveMe} variant="contained" color="primary">Save</Button>
+                <form autoComplete="off">
+                    <TextField value={inputValue} onChange={changeInputValue} label="Name" />
+                </form>
+                <Button onClick={SM} variant="contained" color="primary">Save</Button>
             </div>
         </div>
     )
