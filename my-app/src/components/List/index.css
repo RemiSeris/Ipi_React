@@ -1,0 +1,12 @@
+.root-list {
+    margin: 20px;
+    padding: 20px;
+    background-color: coral;
+    border-radius: 10px;
+    width: 300px;
+    align-self: center;
+}
+
+.title-list {
+    text-decoration: underline;
+}

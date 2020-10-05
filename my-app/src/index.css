@@ -6,3 +6,17 @@ body {
 * {
   box-sizing: border-box;
 }
+
+.root-app {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+}
+
+.button-container {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+}
