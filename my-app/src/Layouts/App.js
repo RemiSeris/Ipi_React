@@ -1,5 +1,5 @@
 //Lorsque on veut créer un component on importe React
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '../components/List/List';
 import Item from '../components/Item/Item';
 // import Button from '../components/Button/Button';
@@ -23,6 +23,16 @@ const templateModel = [
 
 const App = () => {
     const [lists, setLists] = useState(templateModel)
+    useEffect(() => {
+        const myLists = localStorage.getItem('myLists')
+        if (myLists) {
+            const obj = JSON.parse(myLists) 
+            setLists(obj)
+        }
+    }, [])
+    useEffect(() => {
+        localStorage.setItem('myLists', JSON.stringify(lists))
+    }, [lists])
     const addList = () => {
         lists.push(templateList)
         setLists([...lists])
